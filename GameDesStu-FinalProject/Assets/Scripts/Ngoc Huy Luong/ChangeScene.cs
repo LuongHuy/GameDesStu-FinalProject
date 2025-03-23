@@ -15,10 +15,6 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(sceneIndex2);
     }
-    public void Reset()
-    {
-        SceneManager.LoadSceneAsync(1);
-    }
     public void ExitGame()
     {
         //   Debug.Log("QuitGame");
