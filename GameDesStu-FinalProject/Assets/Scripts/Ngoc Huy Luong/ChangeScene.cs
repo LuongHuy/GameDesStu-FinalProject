@@ -9,6 +9,7 @@ public class ChangeScene : MonoBehaviour
     public int sceneIndex2;
     public void PlayGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadSceneAsync(sceneIndex);
     }
     public void BackScene()
