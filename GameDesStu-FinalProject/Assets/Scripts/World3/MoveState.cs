@@ -31,7 +31,7 @@ public class Idle: MoveState
     }
     public override void Move()
     {
-        //player.HorizontalMove(moveInput);
+        player.HorizontalMove(moveInput);
     }
     public override void StateChange()
     {

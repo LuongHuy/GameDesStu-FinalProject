@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 public class PlayerMovementW3 : MonoBehaviour
 {
     // import component
     [SerializeField] private Rigidbody2D rd;
+    [SerializeField] private BoxCollider2D groundCheckcld;
+    [SerializeField] private LayerMask groundMask;
 
     // movement parameter
     [SerializeField] float max_velocity = 15;
-    [SerializeField] float acceleration = 1;
+    [SerializeField] float time = 1;
+    [Range(0f, 1f)]
+    [SerializeField] float friction = 1;
+    // jump parameter
     [SerializeField] float jump_height = 1;
     [SerializeField] float coyote_max = 1;
     [SerializeField] float jump_buffer_max = 1;
@@ -17,16 +23,12 @@ public class PlayerMovementW3 : MonoBehaviour
     // private parameter
     private Vector2 moveInput;
     float curr_velocity;
-
     float coyote;
     float jump_buffer;
     float jump_time;
 
     // state_machine
     MoveState currMoveState = null;
-
-    // is on the ground
-    bool isGround;
 
     // Start is called before the first frame update
     void Start()
@@ -71,34 +73,29 @@ public class PlayerMovementW3 : MonoBehaviour
 
     public void HorizontalMove(Vector2 moveInput)
     {
-        Vector2 horizontalMovement = new Vector2(moveInput.x * max_velocity, rd.velocity.y);
-        rd.AddForce(horizontalMovement, ForceMode2D.Force);
+        //float horizontalForce = moveInput.x * max_velocity / time * rd.mass;
+        float horizontalForce = moveInput.x * (max_velocity - Mathf.Abs(rd.velocity.x)) / time * rd.mass;
+        rd.AddForce(new Vector2(horizontalForce, rd.velocity.y), ForceMode2D.Force);
+
+        if (CheckIsGround() && (moveInput.x == 0 || moveInput.x * rd.velocity.x < 0))
+        {
+            Debug.Log("Apply friction");
+            rd.velocity = new Vector2(rd.velocity.x*friction, rd.velocity.y);
+        }
     }
 
     public void Jump()
     {
         float jumpForce = Mathf.Sqrt(jump_height * (Physics2D.gravity.y + rd.gravityScale) * -2) * rd.mass;
         rd.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-    }
 
-    // when collide with ground, then return ground
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGround = true;
-        }
     }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGround = false;
-        }
-    }
+    //
+    bool isGround;
     // return true if is on the ground
     public bool CheckIsGround()
     {
+        isGround = Physics2D.OverlapAreaAll(groundCheckcld.bounds.min, groundCheckcld.bounds.max, groundMask).Length > 0;
         return isGround;
     }
 }
