@@ -6,9 +6,11 @@ public class Bullet : MonoBehaviour
 {
     public float moveSpeed = 6f;
     public GameObject hitEffect;
+    public int direction;
     void Update()
     {
-        transform.position += transform.right * moveSpeed * Time.deltaTime;
+        
+        transform.position += transform.right * moveSpeed * direction * Time.deltaTime;
         if (transform.position.y > 10)
         {
             Destroy(gameObject);
@@ -21,8 +23,10 @@ public class Bullet : MonoBehaviour
         if (enemyHealth != null)
         {
             enemyHealth.ApplyDamage(1);
-            Instantiate(hitEffect, transform.position, Quaternion.identity);
+           // Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     } 
+
+
 }
