@@ -1986,8 +1986,8 @@ Transform:
   m_GameObject: {fileID: 1977787236}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.43, y: -1.63, z: 0}
-  m_LocalScale: {x: 0.54, y: 0.54, z: 0.54}
+  m_LocalPosition: {x: -6.5067, y: -1.4836, z: 0}
+  m_LocalScale: {x: 1.0003206, y: 0.97233814, z: 0.54}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 911417090}
@@ -2189,13 +2189,14 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  max_velocity: 10
-  time: 0.25
+  sr: {fileID: 1977787237}
+  max_velocity: 7
+  time: 0.2
   friction: 0.6
-  jump_height: 1.5
-  coyote_max: 1
-  jump_buffer_max: 1
-  jump_time_min: 1
+  jumpHeight: 2
+  coyoteMax: 1
+  jumpBufferMax: 1
+  JumpTimeMin: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

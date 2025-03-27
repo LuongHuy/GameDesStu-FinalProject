@@ -8,17 +8,18 @@ public class PlayerMovementW3 : MonoBehaviour
     [SerializeField] private Rigidbody2D rd;
     [SerializeField] private BoxCollider2D groundCheckcld;
     [SerializeField] private LayerMask groundMask;
+    [SerializeField] private SpriteRenderer sr;
 
     // movement parameter
-    [SerializeField] float max_velocity = 15;
-    [SerializeField] float time = 1;
+    [SerializeField] float max_velocity = 7f;
+    [SerializeField] float time = 0.2f;
     [Range(0f, 1f)]
-    [SerializeField] float friction = 1;
+    [SerializeField] float friction = 0.6f;
     // jump parameter
-    [SerializeField] float jump_height = 1;
-    [SerializeField] float coyote_max = 1;
-    [SerializeField] float jump_buffer_max = 1;
-    [SerializeField] float jump_time_min = 1;
+    [SerializeField] float jumpHeight = 1.5f;
+    [SerializeField] float coyoteMax = 1;
+    [SerializeField] float jumpBufferMax = 1;
+    [SerializeField] float JumpTimeMin = 1;
 
     // private parameter
     private Vector2 moveInput;
@@ -56,19 +57,21 @@ public class PlayerMovementW3 : MonoBehaviour
     // Go to state
     public void TransitTo(MoveState state)
     {
+        // if the new state does not exist
         if (state == null)
         {
             return;
         }
-
+        // Execute on exit
         if (currMoveState != null)
         {
-            this.currMoveState.OnExit();
+            currMoveState.OnExit();
         }
+        // Switch state
         state.SetPlayerMovement(this);
         currMoveState = state;
-
-        this.currMoveState.OnEnter();
+        // execute on enter
+        currMoveState.OnEnter();
     }
 
     public void HorizontalMove(Vector2 moveInput)
@@ -79,16 +82,14 @@ public class PlayerMovementW3 : MonoBehaviour
 
         if (CheckIsGround() && (moveInput.x == 0 || moveInput.x * rd.velocity.x < 0))
         {
-            Debug.Log("Apply friction");
             rd.velocity = new Vector2(rd.velocity.x*friction, rd.velocity.y);
         }
     }
 
     public void Jump()
     {
-        float jumpForce = Mathf.Sqrt(jump_height * (Physics2D.gravity.y + rd.gravityScale) * -2) * rd.mass;
+        float jumpForce = Mathf.Sqrt(jumpHeight * (Physics2D.gravity.y * rd.gravityScale) * -2) * rd.mass;
         rd.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-
     }
     //
     bool isGround;
@@ -97,5 +98,9 @@ public class PlayerMovementW3 : MonoBehaviour
     {
         isGround = Physics2D.OverlapAreaAll(groundCheckcld.bounds.min, groundCheckcld.bounds.max, groundMask).Length > 0;
         return isGround;
+    }
+    public void Dash()
+    {
+
     }
 }

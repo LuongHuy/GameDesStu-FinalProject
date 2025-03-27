@@ -19,7 +19,34 @@ public abstract class MoveState
     public abstract void StateChange();
 }
 
-public class Idle: MoveState
+public class BasicMoveState: MoveState
+{
+    public override void OnEnter()
+    {
+        Debug.Log("Enter Basic mode");
+    }
+
+    public override void OnExit()
+    {
+        //Debug.Log("Exit Basic mode");
+    }
+
+    public override void Move()
+    {
+        player.HorizontalMove(moveInput);
+    }
+
+    public override void StateChange()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            //Debug.Log("Trigger Dash");
+            player.TransitTo(new Dash());
+        }
+    }
+}
+
+public class Idle: BasicMoveState
 {
     public override void OnEnter()
     {
@@ -27,14 +54,15 @@ public class Idle: MoveState
     }
     public override void OnExit()
     {
-        Debug.Log("Exit Idle");
+        //Debug.Log("Exit Idle");
     }
     public override void Move()
     {
-        player.HorizontalMove(moveInput);
+        base.Move();
     }
     public override void StateChange()
     {
+        base.StateChange();
         moveInput.x = Input.GetAxis("Horizontal");
         moveInput.y = Input.GetAxis("Vertical");
 
@@ -53,7 +81,7 @@ public class Idle: MoveState
         }
 
         // if the player jump
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             player.Jump();
             player.TransitTo(new Jump());
@@ -61,7 +89,7 @@ public class Idle: MoveState
         }
     }
 }
-public class Run: MoveState
+public class Run: BasicMoveState
 {
     public override void OnEnter()
     {
@@ -69,15 +97,16 @@ public class Run: MoveState
     }
     public override void OnExit()
     {
-        Debug.Log("Exit Run");
+        //Debug.Log("Exit Run");
     }
     public override void Move()
     {
-        player.HorizontalMove(moveInput);
+        base.Move();
     }
 
     public override void StateChange()
     {
+        base .StateChange();
         // get movement input from player
         moveInput.x = Input.GetAxis("Horizontal");
         moveInput.y = Input.GetAxis("Vertical");
@@ -90,7 +119,7 @@ public class Run: MoveState
         }
 
         // if the player jump
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             player.Jump();
             player.TransitTo(new Jump());
@@ -105,7 +134,7 @@ public class Run: MoveState
 
     }
 }
-public class Jump: MoveState
+public class Jump: BasicMoveState
 {
     public override void OnEnter()
     {
@@ -113,15 +142,16 @@ public class Jump: MoveState
     }
     public override void OnExit()
     {
-        Debug.Log("Exit Jump");
+        //Debug.Log("Exit Jump");
     }
     public override void Move()
     {
-        player.HorizontalMove(moveInput);
+        base.Move();
     }
 
     public override void StateChange()
     {
+        base.StateChange();
         // get movement input from player
         moveInput.x = Input.GetAxis("Horizontal");
         moveInput.y = Input.GetAxis("Vertical");
