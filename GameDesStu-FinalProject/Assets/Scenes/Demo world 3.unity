@@ -2190,13 +2190,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   sr: {fileID: 1977787237}
-  max_velocity: 7
-  time: 0.2
+  maxVelocity: 10
+  time: 0.1
   friction: 0.6
   jumpHeight: 2
   coyoteMax: 1
   jumpBufferMax: 1
   JumpTimeMin: 1
+  dashVelocity: 35
+  dashTime: 0.2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

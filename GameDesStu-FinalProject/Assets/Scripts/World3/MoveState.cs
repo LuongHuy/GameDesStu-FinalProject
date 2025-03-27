@@ -38,10 +38,16 @@ public class BasicMoveState: MoveState
 
     public override void StateChange()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        moveInput.x = Input.GetAxis("Horizontal");
+        moveInput.y = Input.GetAxis("Vertical");
+
+        // if press action then dash
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            //Debug.Log("Trigger Dash");
+            Debug.Log("To dash");
+            player.Dash(moveInput);
             player.TransitTo(new Dash());
+            return;
         }
     }
 }
@@ -63,8 +69,6 @@ public class Idle: BasicMoveState
     public override void StateChange()
     {
         base.StateChange();
-        moveInput.x = Input.GetAxis("Horizontal");
-        moveInput.y = Input.GetAxis("Vertical");
 
         // if in the air, transit to jump state
         if (!player.CheckIsGround())
@@ -107,9 +111,6 @@ public class Run: BasicMoveState
     public override void StateChange()
     {
         base .StateChange();
-        // get movement input from player
-        moveInput.x = Input.GetAxis("Horizontal");
-        moveInput.y = Input.GetAxis("Vertical");
 
         // if in the air, transit to jump state
         if (!player.CheckIsGround())
@@ -152,9 +153,6 @@ public class Jump: BasicMoveState
     public override void StateChange()
     {
         base.StateChange();
-        // get movement input from player
-        moveInput.x = Input.GetAxis("Horizontal");
-        moveInput.y = Input.GetAxis("Vertical");
 
         if (player.CheckIsGround())
         {
