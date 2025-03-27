@@ -148,6 +148,9 @@ public class Jump: BasicMoveState
     public override void Move()
     {
         base.Move();
+
+
+
     }
 
     public override void StateChange()

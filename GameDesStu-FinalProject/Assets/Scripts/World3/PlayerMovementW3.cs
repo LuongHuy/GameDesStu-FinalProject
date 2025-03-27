@@ -4,22 +4,28 @@ using UnityEditor;
 using UnityEngine;
 public class PlayerMovementW3 : MonoBehaviour
 {
+    [Header("Import component")]
     // import component
     [SerializeField] private Rigidbody2D rd;
-    [SerializeField] private BoxCollider2D groundCheckcld;
+    [SerializeField] private BoxCollider2D groundCheckCollider;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private SpriteRenderer sr;
 
     // movement parameter
+    [Header("Horizontal movement")]
     [SerializeField] float maxVelocity = 7f;
     [SerializeField] float time = 0.2f;
     [Range(0f, 1f)]
     [SerializeField] float friction = 0.6f;
+
+    [Header("Jump Parameter")]
     // jump parameter
     [SerializeField] float jumpHeight = 1.5f;
     [SerializeField] float coyoteMax = 1;
     [SerializeField] float jumpBufferMax = 1;
-    [SerializeField] float JumpTimeMin = 1;
+    [SerializeField] float jumpTimeMin = 0.1f;
+
+    [Header("Dash Parameter")]
     // Dash movement
     [SerializeField] float dashVelocity = 30f;
     public float dashTime = 0.1f;
@@ -78,9 +84,17 @@ public class PlayerMovementW3 : MonoBehaviour
         float horizontalForce = moveInput.x * (maxVelocity - Mathf.Abs(rd.velocity.x)) / time * rd.mass;
         rd.AddForce(new Vector2(horizontalForce, rd.velocity.y), ForceMode2D.Force);
 
-        if (CheckIsGround() && (moveInput.x == 0 || moveInput.x * rd.velocity.x < 0))
+        // If the player do not press direction button, or move against the current direction, then add friction
+        if (Mathf.Abs(moveInput.x) <=0.1f || moveInput.x * rd.velocity.x < 0)
         {
-            rd.velocity = new Vector2(rd.velocity.x*friction, rd.velocity.y);
+            // this is for friction ground only. Realistic, but harder to control jump.
+            //if (CheckIsGround())
+            //{
+            //    rd.velocity = new Vector2(rd.velocity.x * friction, rd.velocity.y);
+            //}
+
+            // this is for friction on air and ground. Unrealistic, but let the player easier to control jump.
+            rd.velocity = new Vector2(rd.velocity.x * friction, rd.velocity.y);
         }
     }
 
@@ -98,15 +112,13 @@ public class PlayerMovementW3 : MonoBehaviour
         // Activate dash
         float dashForce =  dashVelocity / dashTime * rd.mass;
         Vector2 direction = moveInput==Vector2.zero ? Vector2.right : moveInput.normalized;
-        Debug.Log(dashForce + " " + direction);
         rd.AddForce(direction * dashVelocity, ForceMode2D.Impulse);
     }
-    //
-    bool isGround;
+  
     // return true if is on the ground
     public bool CheckIsGround()
     {
-        isGround = Physics2D.OverlapAreaAll(groundCheckcld.bounds.min, groundCheckcld.bounds.max, groundMask).Length > 0;
+        bool isGround = Physics2D.OverlapAreaAll(groundCheckCollider.bounds.min, groundCheckCollider.bounds.max, groundMask).Length > 0;
         return isGround;
     }
 
@@ -115,8 +127,23 @@ public class PlayerMovementW3 : MonoBehaviour
         Vector2 resetVelocity;
         // bound velocity x from -maxVelocity to maxVelocity
         resetVelocity.x = Mathf.Clamp(rd.velocity.x, -maxVelocity, maxVelocity);
+        // if velocity y is greater than 0, reset it to 0.
         resetVelocity.y = Mathf.Min(rd.velocity.y, 0);
         rd.velocity = resetVelocity;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyWeakpoint"))
+        {
+            Attack(collision.gameObject);
+        }
+    }
+
+    // Attack an enemy, will change in the future
+    public void Attack(GameObject enemy)
+    {
+        Destroy(enemy);
     }
 
 }
