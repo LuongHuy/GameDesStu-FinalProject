@@ -24,6 +24,9 @@ public class PlayerMovementW3 : MonoBehaviour
     [SerializeField] float coyoteMax = 1;
     [SerializeField] float jumpBufferMax = 1;
     [SerializeField] float jumpTimeMin = 0.1f;
+    [SerializeField] float jumpTimeMax = 0.5f;
+    // special, for controlling falling speed
+    [SerializeField] float gravityFallingScale = 2f;
 
     [Header("Dash Parameter")]
     // Dash movement
@@ -35,6 +38,7 @@ public class PlayerMovementW3 : MonoBehaviour
     float coyote;
     float jump_buffer;
     float jump_time;
+    bool facingRight = true;
 
     // state_machine
     MoveState currMoveState = null;
@@ -44,6 +48,8 @@ public class PlayerMovementW3 : MonoBehaviour
     {
         // Start at idle state
         TransitTo(new Idle());
+
+        UpdateGravityScale(1);
     }
 
     // Update is called once per frame
@@ -96,6 +102,15 @@ public class PlayerMovementW3 : MonoBehaviour
             // this is for friction on air and ground. Unrealistic, but let the player easier to control jump.
             rd.velocity = new Vector2(rd.velocity.x * friction, rd.velocity.y);
         }
+
+        if (moveInput.x > 0)
+        {
+            facingRight = true;
+        }
+        else
+        {
+            facingRight = false;
+        }
     }
 
     public void Jump()
@@ -132,18 +147,21 @@ public class PlayerMovementW3 : MonoBehaviour
         rd.velocity = resetVelocity;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void UpdateGravityScale(float mode)
     {
-        if (collision.gameObject.CompareTag("EnemyWeakpoint"))
-        {
-            Attack(collision.gameObject);
-        }
-    }
 
-    // Attack an enemy, will change in the future
-    public void Attack(GameObject enemy)
-    {
-        Destroy(enemy);
+        // To beter control the time of the jump: (1) g_scale*g = g_actual. (2) g_actual = 4*h/t^2
+        // 
+        // Can not fully replace the gravity, because it is universal in Unity, though it is really slow.
+        float _gravityScale = (4*jumpHeight / (jumpTimeMax*jumpTimeMax)) / Mathf.Abs(Physics2D.gravity.y);
+
+        if (mode == 1)
+        {
+            rd.gravityScale = _gravityScale;
+        }else if (mode == 2)
+        {
+            rd.gravityScale = _gravityScale * gravityFallingScale;
+        }
     }
 
 }

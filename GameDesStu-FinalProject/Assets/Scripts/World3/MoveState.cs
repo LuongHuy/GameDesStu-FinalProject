@@ -137,20 +137,21 @@ public class Run: BasicMoveState
 }
 public class Jump: BasicMoveState
 {
+    float airTime;
     public override void OnEnter()
     {
         Debug.Log("Enter jump");
+        airTime = 0f;
     }
     public override void OnExit()
     {
         //Debug.Log("Exit Jump");
+        Debug.Log("In the air for: " + airTime);
     }
     public override void Move()
     {
         base.Move();
-
-
-
+        airTime += Time.deltaTime;
     }
 
     public override void StateChange()

@@ -78,7 +78,7 @@ public class DashDisable: SpecialState
     public override void OnEnter()
     {
         Debug.Log("Enter no dash mode");
-        player.resetVelocity();
+        //player.resetVelocity();
     }
 
     public override void OnExit()
