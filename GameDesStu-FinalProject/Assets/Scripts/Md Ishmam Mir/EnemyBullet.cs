@@ -23,9 +23,11 @@ public class EnemyBullet : MonoBehaviour
             PlayerHealth health = other.GetComponent<PlayerHealth>();
             if (health != null)
             {
-                health.TakeDamage(1);
+                health.TakeDamage(this.gameObject); // Pass bullet as source
             }
+
             Destroy(gameObject);
         }
     }
+
 }

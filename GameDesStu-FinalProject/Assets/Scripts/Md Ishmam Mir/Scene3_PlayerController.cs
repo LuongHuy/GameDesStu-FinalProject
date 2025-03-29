@@ -1,19 +1,28 @@
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour
+public class Scene3_PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
-    public GameObject bulletPrefab;
-    public Transform firePoint;
-
     private Rigidbody2D rb;
     private bool isGrounded;
+
+    public int maxLives = 3;
+    private int currentLives;
+
+    public Text livesText;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        currentLives = maxLives;
+
+        if (livesText != null)
+        {
+            livesText.text = "Lives: " + currentLives;
+        }
     }
 
 
@@ -26,16 +35,6 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            Shoot();
-        }
-    }
-
-    void Shoot()
-    {
-        Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -43,6 +42,11 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+        }
+
+        if (collision.gameObject.CompareTag("FlyingEnemy"))
+        {
+            TakeDamage();
         }
     }
 
@@ -53,4 +57,20 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
     }
+
+    void TakeDamage()
+    {
+        currentLives--;
+
+        if (livesText != null)
+        {
+            livesText.text = "Lives: " + currentLives;
+        }
+
+        if (currentLives <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
 }
