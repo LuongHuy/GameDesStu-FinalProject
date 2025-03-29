@@ -1,39 +1,47 @@
-using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Scene3_PlayerController : MonoBehaviour
 {
+    [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
+
+    [Header("Shooting Settings")]
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+
     private Rigidbody2D rb;
     private bool isGrounded;
-
-    public int maxLives = 3;
-    private int currentLives;
-
-    public Text livesText;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        currentLives = maxLives;
-
-        if (livesText != null)
-        {
-            livesText.text = "Lives: " + currentLives;
-        }
     }
-
 
     void Update()
     {
+        // Horizontal movement
         float move = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
 
+        // Jump
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+
+        // Shoot
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Shoot();
+        }
+    }
+
+    void Shoot()
+    {
+        if (bulletPrefab != null && firePoint != null)
+        {
+            Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         }
     }
 
@@ -42,11 +50,6 @@ public class Scene3_PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-        }
-
-        if (collision.gameObject.CompareTag("FlyingEnemy"))
-        {
-            TakeDamage();
         }
     }
 
@@ -57,20 +60,4 @@ public class Scene3_PlayerController : MonoBehaviour
             isGrounded = false;
         }
     }
-
-    void TakeDamage()
-    {
-        currentLives--;
-
-        if (livesText != null)
-        {
-            livesText.text = "Lives: " + currentLives;
-        }
-
-        if (currentLives <= 0)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    }
-
 }

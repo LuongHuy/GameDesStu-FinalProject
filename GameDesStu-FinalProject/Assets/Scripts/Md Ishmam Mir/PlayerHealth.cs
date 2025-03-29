@@ -1,57 +1,48 @@
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxLives = 3;
-    private int currentLives;
-
     public Text livesText;
 
     private GameObject lastHitSource;
-    private float hitCooldown = 0.2f;
     private float lastHitTime = -1f;
+    private float hitCooldown = 0.2f;
 
     void Start()
     {
-        currentLives = maxLives;
-
-        if (livesText != null)
-        {
-            livesText.text = "Lives: " + currentLives;
-        }
+        UpdateLivesUI();
     }
 
     public void TakeDamage(GameObject source)
     {
-        // Ignore damage from the same source too quickly
         if (source == lastHitSource && Time.time - lastHitTime < hitCooldown)
         {
-            Debug.Log("Ignored duplicate hit from: " + source.name);
+            Debug.Log("Ignored duplicate hit from same source.");
             return;
         }
 
-        // Update damage source
         lastHitSource = source;
         lastHitTime = Time.time;
 
-        currentLives--;
-        Debug.Log("Lives remaining: " + currentLives);
+        GlobalGameManager.instance.lives--;
+        UpdateLivesUI();
 
-        if (livesText != null)
-        {
-            livesText.text = "Lives: " + currentLives;
-        }
+        Debug.Log("Player hit! Lives left: " + GlobalGameManager.instance.lives);
 
-        if (currentLives <= 0)
+        if (GlobalGameManager.instance.lives <= 0)
         {
-            Die();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
-    void Die()
+    void UpdateLivesUI()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (livesText != null)
+        {
+            livesText.text = "Lives: " + GlobalGameManager.instance.lives;
+        }
     }
 }

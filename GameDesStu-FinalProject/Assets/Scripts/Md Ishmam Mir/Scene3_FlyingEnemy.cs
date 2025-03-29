@@ -28,14 +28,12 @@ public class FlyingEnemyStraight : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Flying enemy collided with player!");
-
-            Scene3_PlayerController player = other.GetComponent<Scene3_PlayerController>();
-            if (player != null)
+            PlayerHealth health = other.GetComponent<PlayerHealth>();
+            if (health != null)
             {
-                player.SendMessage("TakeDamage");
-                Debug.Log("TRIGGER HIT: " + other.name);
+                health.TakeDamage(this.gameObject);
             }
         }
     }
+
 }
