@@ -146,7 +146,7 @@ public class Jump: BasicMoveState
     public override void OnExit()
     {
         //Debug.Log("Exit Jump");
-        Debug.Log("In the air for: " + airTime);
+        //Debug.Log("In the air for: " + airTime);
     }
     public override void Move()
     {

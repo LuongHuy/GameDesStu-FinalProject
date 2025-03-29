@@ -13,6 +13,9 @@ public class PlayerStatus : ElementStatus
     [SerializeField] BoxCollider2D enemyCheckCollider;
     [SerializeField] LayerMask enemyMask;
 
+    [Header("Respawn location")]
+    [SerializeField] GameObject respawnLoc;
+
     protected override void Start()
     {
         base.Start();
@@ -41,12 +44,30 @@ public class PlayerStatus : ElementStatus
             }
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
 
+        if (collision.gameObject.CompareTag("Deadzone"))
+        {
+            Debug.Log("Oh no.");
+            Die();
+        }
+    }
 
     // return true if is on the ground
     public bool CheckStepOnEnemy()
     {
         bool isGround = Physics2D.OverlapAreaAll(enemyCheckCollider.bounds.min, enemyCheckCollider.bounds.max, enemyMask).Length > 0;
         return isGround;
+    }
+
+    public override void Die()
+    {
+        base.Die();
+        // Reset to position
+        this.gameObject.transform.position = respawnLoc.transform.position;
+
+        //Reset Parameter
+        currHP = hp;
     }
 }

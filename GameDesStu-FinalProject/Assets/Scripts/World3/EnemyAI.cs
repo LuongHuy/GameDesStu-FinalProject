@@ -14,18 +14,17 @@ public class EnemyAI : MonoBehaviour
 
     // is the element facing right
     bool facingRight = true;
-
     public void Act()
     {
         //Debug.Log("Come on, do something");
-        rd.velocity = new Vector2( facingRight?1:-1 * speed, 0);
+        rd.velocity = new Vector2((facingRight?speed:-speed), 0);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision == boundaryLeft || collision == boundaryRight)
         {
-            facingRight = false;
+            facingRight = rd.velocity.x>0?false:true;
         }
     }
 }
