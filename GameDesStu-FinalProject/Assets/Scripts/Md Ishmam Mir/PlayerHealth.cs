@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("Player Died!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Restart scene
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Restart Level
         }
     }
 }

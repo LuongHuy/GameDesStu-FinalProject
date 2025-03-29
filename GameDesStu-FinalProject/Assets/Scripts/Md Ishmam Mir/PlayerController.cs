@@ -10,9 +10,13 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
 
+    public int maxLives = 3;
+    private int currentLives;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        currentLives = maxLives;
     }
 
     void Update()
@@ -51,4 +55,6 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
     }
+
+   
 }
