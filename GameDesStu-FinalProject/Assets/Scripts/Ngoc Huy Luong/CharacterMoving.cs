@@ -13,6 +13,16 @@ public class CharacterMoving : MonoBehaviour
         float moveInput = Input.GetAxis("Horizontal");
         Vector3 moveDirection = new Vector3(moveInput, 0f, 0f);
         transform.position += moveDirection * moveSpeed * Time.deltaTime;
+        Vector3 currrentRotation = transform.eulerAngles;
+        if( moveInput > 0)
+        {
+           currrentRotation.y = 0f;
+        }
+        else if ( moveInput < 0 )
+        {
+            currrentRotation.y = 180f;
+        }
+        transform.eulerAngles = currrentRotation;
 
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {

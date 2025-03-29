@@ -101,7 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
-  hitEffect: {fileID: 8910718603984561175}
+  hitEffect: {fileID: 0}
+  direction: 0
 --- !u!61 &-2139037618365020590
 BoxCollider2D:
   m_ObjectHideFlags: 0
