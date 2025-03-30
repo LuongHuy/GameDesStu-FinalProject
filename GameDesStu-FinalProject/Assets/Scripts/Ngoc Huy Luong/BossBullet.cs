@@ -11,5 +11,19 @@ public class BossBullet : MonoBehaviour
     void Update()
     {
         transform.position += direction * speed * Time.deltaTime;
+        if (transform.position.y > 10)
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        var charHealth = collision.GetComponent<CharacterHealth>();
+        if (charHealth != null)
+        {
+            charHealth.ApplyDamage(1);
+            // Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 }

@@ -25,6 +25,17 @@ public class BossController : MonoBehaviour
     public EnemyHealth curHealth;
     public float[] phaseHealth;
 
+    public GameObject endDoor;
+
+    private void Start()
+    {
+        endDoor.SetActive(true);
+        curHealth.onDied = BossDie;
+    }
+    void BossDie()
+    {
+        endDoor.SetActive(false);
+    }
 
     public void BossMove()
     {

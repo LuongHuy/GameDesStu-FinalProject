@@ -18,10 +18,10 @@ public class NormalEnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        var enemyHealth = collision.GetComponent<CharacterHealth>();
-        if (enemyHealth != null)
+        var charHealth = collision.GetComponent<CharacterHealth>();
+        if (charHealth != null)
         {
-            enemyHealth.ApplyDamage(1);
+            charHealth.ApplyDamage(1);
             // Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
