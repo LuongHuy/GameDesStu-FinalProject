@@ -20,9 +20,9 @@ public class PlayerMovementW3 : MonoBehaviour
 
     [Header("Jump Parameter")]
     // jump parameter
-    [SerializeField] float jumpHeight = 1.5f;
-    [SerializeField] float coyoteMax = 1;
-    [SerializeField] float jumpBufferMax = 1;
+    [SerializeField] float jumpHeight = 2f;
+    [SerializeField] float coyoteMax = 0.2f;
+    [SerializeField] float jumpBufferMax = 0.2f;
     [SerializeField] float jumpTimeMin = 0.1f;
     [SerializeField] float jumpTimeMax = 0.5f;
     // special, for controlling falling speed
@@ -31,14 +31,16 @@ public class PlayerMovementW3 : MonoBehaviour
     [Header("Dash Parameter")]
     // Dash movement
     [SerializeField] float dashVelocity = 30f;
-    public float dashTime = 0.1f;
+    public float dashTime = 0.2f;
 
     // private parameter
     float curr_velocity;
-    float coyote;
-    float jump_buffer;
-    float jump_time;
     bool facingRight = true;
+
+    // constant
+    float JUMPFORCE;
+    float DASHFORCE;
+    float GRAVITYSCALE;
 
     // state_machine
     MoveState currMoveState = null;
@@ -49,7 +51,12 @@ public class PlayerMovementW3 : MonoBehaviour
         // Start at idle state
         TransitTo(new Idle());
 
+        // Can not fully replace the gravity, because it is universal in Unity, though it is really slow.
+        GRAVITYSCALE = (4 * jumpHeight / (jumpTimeMax * jumpTimeMax)) / Mathf.Abs(Physics2D.gravity.y);
         UpdateGravityScale(1);
+
+        // To beter control the time of the jump: (1) g_scale*g = g_actual. (2) g_actual = 4*h/t^2
+        JUMPFORCE = Mathf.Sqrt(jumpHeight * (Physics2D.gravity.y * GRAVITYSCALE) * -2) * rd.mass;
     }
 
     // Update is called once per frame
@@ -87,8 +94,13 @@ public class PlayerMovementW3 : MonoBehaviour
     public void HorizontalMove(Vector2 moveInput)
     {
         //float horizontalForce = moveInput.x * maxVelocity / time * rd.mass;
-        float horizontalForce = moveInput.x * (maxVelocity - Mathf.Abs(rd.velocity.x)) / time * rd.mass;
-        rd.AddForce(new Vector2(horizontalForce, rd.velocity.y), ForceMode2D.Force);
+        // scale movement force by different between max velocity and current velocity, but if greater then keep current velocity
+        float speedDif = maxVelocity - Mathf.Abs(rd.velocity.x);
+        speedDif = speedDif > 0 ? speedDif : 0 ;
+
+        float horizontalForce = speedDif / time * rd.mass;
+
+        rd.AddForce(new Vector2(horizontalForce * moveInput.x, rd.velocity.y), ForceMode2D.Force);
 
         // If the player do not press direction button, or move against the current direction, then add friction
         if (Mathf.Abs(moveInput.x) <=0.1f || moveInput.x * rd.velocity.x < 0)
@@ -115,8 +127,7 @@ public class PlayerMovementW3 : MonoBehaviour
 
     public void Jump()
     {
-        float jumpForce = Mathf.Sqrt(jumpHeight * (Physics2D.gravity.y * rd.gravityScale) * -2) * rd.mass;
-        rd.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        rd.AddForce(Vector2.up * JUMPFORCE, ForceMode2D.Impulse);
     }
 
     public void Dash(Vector2 moveInput)
@@ -125,16 +136,10 @@ public class PlayerMovementW3 : MonoBehaviour
         rd.velocity = Vector2.zero;
 
         // Activate dash
-        float dashForce =  dashVelocity / dashTime * rd.mass;
+        // default position right
         Vector2 direction = moveInput==Vector2.zero ? Vector2.right : moveInput.normalized;
+        // apply force
         rd.AddForce(direction * dashVelocity, ForceMode2D.Impulse);
-    }
-  
-    // return true if is on the ground
-    public bool CheckIsGround()
-    {
-        bool isGround = Physics2D.OverlapAreaAll(groundCheckCollider.bounds.min, groundCheckCollider.bounds.max, groundMask).Length > 0;
-        return isGround;
     }
 
     public void resetVelocity()
@@ -150,18 +155,39 @@ public class PlayerMovementW3 : MonoBehaviour
     public void UpdateGravityScale(float mode)
     {
 
-        // To beter control the time of the jump: (1) g_scale*g = g_actual. (2) g_actual = 4*h/t^2
-        // 
-        // Can not fully replace the gravity, because it is universal in Unity, though it is really slow.
-        float _gravityScale = (4*jumpHeight / (jumpTimeMax*jumpTimeMax)) / Mathf.Abs(Physics2D.gravity.y);
-
         if (mode == 1)
         {
-            rd.gravityScale = _gravityScale;
+            rd.gravityScale = GRAVITYSCALE;
         }else if (mode == 2)
         {
-            rd.gravityScale = _gravityScale * gravityFallingScale;
+            rd.gravityScale = GRAVITYSCALE * gravityFallingScale;
         }
     }
 
+    // return true if is on the ground
+    public bool CheckIsGround()
+    {
+        bool isGround = Physics2D.OverlapAreaAll(groundCheckCollider.bounds.min, groundCheckCollider.bounds.max, groundMask).Length > 0;
+        return isGround;
+    }
+    // return true if is on the ground
+    public bool CheckFalling()
+    {
+        return rd.velocity.y<=0;
+    }
+
+    public bool CheckTimeJump(float time)
+    {
+        return time>jumpTimeMin;
+    }
+
+    public bool checkCoyote(float time)
+    {
+        return time < coyoteMax;
+    }
+
+    public bool CheckJumpBuffer(float time)
+    {
+        return time < jumpBufferMax;
+    }
 }

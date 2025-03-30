@@ -49,7 +49,6 @@ public class PlayerStatus : ElementStatus
 
         if (collision.gameObject.CompareTag("Deadzone"))
         {
-            Debug.Log("Oh no.");
             Die();
         }
     }

@@ -54,9 +54,11 @@ public class BasicMoveState: MoveState
 
 public class Idle: BasicMoveState
 {
+    float _coyote;
     public override void OnEnter()
     {
         Debug.Log("Enter Idle");
+        _coyote = 0;
     }
     public override void OnExit()
     {
@@ -70,10 +72,20 @@ public class Idle: BasicMoveState
     {
         base.StateChange();
 
-        // if in the air, transit to jump state
+        // if in the air, transit to different state
         if (!player.CheckIsGround())
         {
-            player.TransitTo(new Jump());
+            _coyote += Time.deltaTime;
+            // if within the time, and the player press jump, still allow to jump
+            if (player.checkCoyote(_coyote) && Input.GetKeyDown(KeyCode.Space))
+            {
+                player.TransitTo(new Jump());
+            }
+            // if the player do not press jump in time, and the time run out, then transit to fall
+            else if (!player.checkCoyote(_coyote))
+            {
+                player.TransitTo(new Fall());
+            }
             return;
         }
 
@@ -87,7 +99,6 @@ public class Idle: BasicMoveState
         // if the player jump
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            player.Jump();
             player.TransitTo(new Jump());
             return;
         }
@@ -95,9 +106,11 @@ public class Idle: BasicMoveState
 }
 public class Run: BasicMoveState
 {
+    float _coyote;
     public override void OnEnter()
     {
         Debug.Log("Enter Run");
+        _coyote = 0;
     }
     public override void OnExit()
     {
@@ -110,19 +123,28 @@ public class Run: BasicMoveState
 
     public override void StateChange()
     {
-        base .StateChange();
+        base.StateChange();
 
-        // if in the air, transit to jump state
+        // if in the air, transit to different state
         if (!player.CheckIsGround())
         {
-            player.TransitTo(new Jump());
+            _coyote += Time.deltaTime;
+            // if within the time, and the player press jump, still allow to jump
+            if (player.checkCoyote(_coyote) && Input.GetKeyDown(KeyCode.Space))
+            {
+                player.TransitTo(new Jump());
+            }
+            // if the player do not press jump in time, and the time run out, then transit to fall
+            else if (!player.checkCoyote(_coyote))
+            {
+                player.TransitTo(new Fall());
+            }
             return;
         }
 
         // if the player jump
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            player.Jump();
             player.TransitTo(new Jump());
             return;
         }
@@ -137,29 +159,111 @@ public class Run: BasicMoveState
 }
 public class Jump: BasicMoveState
 {
-    float airTime;
+    float _jumptime;
     public override void OnEnter()
     {
         Debug.Log("Enter jump");
-        airTime = 0f;
+        player.Jump();
+        _jumptime = 0;
     }
     public override void OnExit()
     {
         //Debug.Log("Exit Jump");
-        //Debug.Log("In the air for: " + airTime);
+        //Debug.Log("Jump time: "+_jumptime);
     }
     public override void Move()
     {
         base.Move();
-        airTime += Time.deltaTime;
     }
 
     public override void StateChange()
     {
         base.StateChange();
 
+        _jumptime += Time.deltaTime;
+
+        // if the time of the jump is smaller than the minimum time jump, then do not transit to other state
+        if (!player.CheckTimeJump(_jumptime))
+        {
+            return;
+        }
+
+        // if release the jump button, immediately switch to falling
+        if (!Input.GetKey(KeyCode.Space))
+        {
+            player.TransitTo(new Fall());
+            return ;
+        }
+
+        // if start falling, then switch to falling.
+        if (player.CheckFalling() )
+        {
+            player.TransitTo(new Fall());
+            return;
+        }
+
+        // if jump on a ground, switch to corresponding position.
         if (player.CheckIsGround())
         {
+            if (moveInput.x != 0)
+            {
+                player.TransitTo(new Run());
+            }
+            else
+            {
+                player.TransitTo(new Idle());
+            }
+            return;
+        }
+    }
+}
+
+public class Fall: BasicMoveState
+{
+    float _jumptime;
+    float _buffer;
+    bool _pressJump;
+
+    public override void OnEnter()
+    {
+        Debug.Log("Enter Fall");
+        player.UpdateGravityScale(2);
+        _jumptime = 0;
+        _pressJump = false;
+    }
+    public override void OnExit()
+    {
+        //Debug.Log("Exit Fall");
+        player.UpdateGravityScale(1);
+        //Debug.Log("Fall time: "+ _jumptime);
+    }
+    public override void Move()
+    {
+        base.Move();
+    }
+
+    public override void StateChange()
+    {
+        base.StateChange();
+
+        _jumptime += Time.deltaTime;
+        _buffer += Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Space) && !_pressJump)
+        {
+            _pressJump = true;
+            _buffer = 0;
+        }
+
+        if (player.CheckIsGround())
+        {
+            // buffer jump.
+            // If they touch the ground within buffer time, they jump even if they press in the air
+            if (_pressJump && player.CheckJumpBuffer(_buffer))
+            {
+                player.TransitTo(new Jump());
+            }
+
             if (moveInput.x != 0)
             {
                 player.TransitTo(new Run());
