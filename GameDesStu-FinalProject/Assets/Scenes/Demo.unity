@@ -520,8 +520,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e9280c4fe2d8b4b81f28507766d463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 0
-  sceneIndex2: 1
 --- !u!1 &429245668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,7 +1753,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 392346195}
         m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
-        m_MethodName: BackScene
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

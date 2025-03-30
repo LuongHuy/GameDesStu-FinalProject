@@ -31,6 +31,7 @@ public class LifeManager : MonoBehaviour
         lifeText.text = curLife.ToString();
         if (curLife <= 0)
         {
+            Time.timeScale = 0;
             endgameUI.SetActive(true);
         }
     }

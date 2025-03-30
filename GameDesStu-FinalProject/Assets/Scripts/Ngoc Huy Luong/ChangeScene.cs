@@ -5,16 +5,33 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    public int sceneIndex;
-    public int sceneIndex2;
-    public void PlayGame()
+    public void StartGame()
+    {
+        SceneManager.LoadSceneAsync(1);
+    }
+    public void DemoWorld()
     {
         Time.timeScale = 1;
-        SceneManager.LoadSceneAsync(sceneIndex);
+        SceneManager.LoadSceneAsync(2);
+    }
+    public void LoadWorld1()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadSceneAsync(3);
+    }
+    public void LoadWorld2()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadSceneAsync(4);
+    }
+    public void LoadWorld3()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadSceneAsync(5);
     }
     public void BackScene()
     {
-        SceneManager.LoadSceneAsync(sceneIndex2);
+        SceneManager.LoadSceneAsync(0);
     }
     public void ExitGame()
     {
