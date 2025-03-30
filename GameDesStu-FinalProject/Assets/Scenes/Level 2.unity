@@ -3493,7 +3493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScene: {fileID: 15176116}
-  nextScene: {fileID: 0}
+  nextScene: {fileID: 712933259}
 --- !u!61 &183423584
 BoxCollider2D:
   m_ObjectHideFlags: 0
