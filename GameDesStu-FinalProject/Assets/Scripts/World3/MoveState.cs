@@ -42,7 +42,7 @@ public class BasicMoveState: MoveState
         moveInput.y = Input.GetAxis("Vertical");
 
         // if press action then dash
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("To dash");
             player.Dash(moveInput);
