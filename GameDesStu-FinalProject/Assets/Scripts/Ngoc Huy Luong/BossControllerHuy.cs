@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Burst;
 using UnityEngine;
 
-public class BossController : MonoBehaviour
+public class BossControllerHuy : MonoBehaviour
 {
     public int bossPhase;
     public Transform[] patrolPoint;
