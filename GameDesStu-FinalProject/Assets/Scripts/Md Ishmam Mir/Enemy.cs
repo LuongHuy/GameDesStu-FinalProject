@@ -66,10 +66,17 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            InvisibilityPower invisibility = other.GetComponent<InvisibilityPower>();
+            if (invisibility != null && invisibility.IsInvisible())
+            {
+                Debug.Log("Player is invisible — enemy collision ignored");
+                return;
+            }
+
             PlayerHealth health = other.GetComponent<PlayerHealth>();
             if (health != null)
             {
-                health.TakeDamage(this.gameObject); // Pass enemy as source
+                health.TakeDamage(this.gameObject);
             }
         }
     }

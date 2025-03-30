@@ -28,6 +28,13 @@ public class FlyingEnemyStraight : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            InvisibilityPower invisibility = other.GetComponent<InvisibilityPower>();
+            if (invisibility != null && invisibility.IsInvisible())
+            {
+                Debug.Log("Player is invisible — enemy collision ignored");
+                return;
+            }
+
             PlayerHealth health = other.GetComponent<PlayerHealth>();
             if (health != null)
             {
@@ -35,5 +42,4 @@ public class FlyingEnemyStraight : MonoBehaviour
             }
         }
     }
-
 }

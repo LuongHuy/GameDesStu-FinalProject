@@ -20,6 +20,14 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            InvisibilityPower invisibility = other.GetComponent<InvisibilityPower>();
+            if (invisibility != null && invisibility.IsInvisible())
+            {
+                Debug.Log("Bullet ignored due to invisibility");
+                Destroy(gameObject);
+                return;
+            }
+
             PlayerHealth health = other.GetComponent<PlayerHealth>();
             if (health != null)
             {
@@ -29,5 +37,4 @@ public class EnemyBullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }
