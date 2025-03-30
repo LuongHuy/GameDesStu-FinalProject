@@ -5,16 +5,19 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Enemy
+  - EnemyWeakpoint
+  - Deadzone
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Ground
+  - Enemy
+  - EnemyWeakpoint
   - 
   - 
   - 
