@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -34,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (GlobalGameManager.instance.lives <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            RespawnAtCheckpoint();
         }
     }
 
@@ -43,6 +41,21 @@ public class PlayerHealth : MonoBehaviour
         if (livesText != null)
         {
             livesText.text = "Lives: " + GlobalGameManager.instance.lives;
+        }
+    }
+
+    void RespawnAtCheckpoint()
+    {
+        PlayerRespawner respawner = GetComponent<PlayerRespawner>();
+        if (respawner != null)
+        {
+            respawner.Respawn();
+            GlobalGameManager.instance.lives = 3; // Optional: Reset lives after respawn
+            UpdateLivesUI();
+        }
+        else
+        {
+            Debug.LogWarning("No PlayerRespawner found on Player!");
         }
     }
 }

@@ -27,5 +27,16 @@ public class PlayerBullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (other.CompareTag("Boss"))
+        {
+            BossHealth boss = other.GetComponent<BossHealth>();
+            if (boss != null)
+            {
+                boss.TakeDamage(10); // Or whatever damage value you want
+            }
+
+            Destroy(gameObject);
+        }
     }
 }
