@@ -146,9 +146,10 @@ public class PlayerMovementW3 : MonoBehaviour
     {
         Vector2 resetVelocity;
         // bound velocity x from -maxVelocity to maxVelocity
-        resetVelocity.x = Mathf.Clamp(rd.velocity.x, -maxVelocity, maxVelocity);
+        resetVelocity.x = rd.velocity.x;
         // if velocity y is greater than 0, reset it to 0.
         resetVelocity.y = Mathf.Min(rd.velocity.y, 0);
+        Debug.Log(resetVelocity);
         rd.velocity = resetVelocity;
     }
 
@@ -189,5 +190,9 @@ public class PlayerMovementW3 : MonoBehaviour
     public bool CheckJumpBuffer(float time)
     {
         return time < jumpBufferMax;
+    }
+    public bool CheckDashTime(float time)
+    {
+        return time < dashTime;
     }
 }

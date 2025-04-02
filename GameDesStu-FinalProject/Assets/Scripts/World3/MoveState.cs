@@ -217,7 +217,6 @@ public class Jump: BasicMoveState
         }
     }
 }
-
 public class Fall: BasicMoveState
 {
     float _jumptime;
@@ -241,7 +240,6 @@ public class Fall: BasicMoveState
     {
         base.Move();
     }
-
     public override void StateChange()
     {
         base.StateChange();
