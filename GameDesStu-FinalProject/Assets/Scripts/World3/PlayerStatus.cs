@@ -9,10 +9,6 @@ public class PlayerStatus : ElementStatus
     [Header("Import player movement manager")]
     [SerializeField] PlayerMovementW3 movementManager;
 
-    [Header("Check step on enemy")]
-    [SerializeField] BoxCollider2D enemyCheckCollider;
-    [SerializeField] LayerMask enemyMask;
-
     [Header("Respawn location")]
     [SerializeField] GameObject respawnLoc;
 
@@ -28,7 +24,7 @@ public class PlayerStatus : ElementStatus
             ElementStatus enemy = collision.gameObject.GetComponent<ElementStatus>();
             if (enemy != null)
             {
-                if (CheckStepOnEnemy())
+                if (movementManager.CheckStepOnEnemy())
                 {
                     Attack(enemy, this);
                 }
@@ -51,13 +47,6 @@ public class PlayerStatus : ElementStatus
         {
             Die();
         }
-    }
-
-    // return true if is on the ground
-    public bool CheckStepOnEnemy()
-    {
-        bool isGround = Physics2D.OverlapAreaAll(enemyCheckCollider.bounds.min, enemyCheckCollider.bounds.max, enemyMask).Length > 0;
-        return isGround;
     }
 
     public override void Die()

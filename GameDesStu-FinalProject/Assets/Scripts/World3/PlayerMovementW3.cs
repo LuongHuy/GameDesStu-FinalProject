@@ -7,9 +7,15 @@ public class PlayerMovementW3 : MonoBehaviour
     [Header("Import component")]
     // import component
     [SerializeField] private Rigidbody2D rd;
+    [SerializeField] private SpriteRenderer sr;
+
+    [Header("Check step on Ground")]
     [SerializeField] private BoxCollider2D groundCheckCollider;
     [SerializeField] private LayerMask groundMask;
-    [SerializeField] private SpriteRenderer sr;
+
+    [Header("Check step on enemy")]
+    [SerializeField] BoxCollider2D enemyCheckCollider;
+    [SerializeField] LayerMask enemyMask;
 
     // movement parameter
     [Header("Horizontal movement")]
@@ -129,6 +135,11 @@ public class PlayerMovementW3 : MonoBehaviour
     {
         rd.AddForce(Vector2.up * JUMPFORCE, ForceMode2D.Impulse);
     }
+    // jump but half force
+    public void Bounch()
+    {
+        rd.AddForce(Vector2.up * JUMPFORCE/2, ForceMode2D.Impulse);
+    }
 
     public void Dash(Vector2 moveInput)
     {
@@ -149,7 +160,6 @@ public class PlayerMovementW3 : MonoBehaviour
         resetVelocity.x = rd.velocity.x;
         // if velocity y is greater than 0, reset it to 0.
         resetVelocity.y = Mathf.Min(rd.velocity.y, 0);
-        Debug.Log(resetVelocity);
         rd.velocity = resetVelocity;
     }
 
@@ -171,7 +181,14 @@ public class PlayerMovementW3 : MonoBehaviour
         bool isGround = Physics2D.OverlapAreaAll(groundCheckCollider.bounds.min, groundCheckCollider.bounds.max, groundMask).Length > 0;
         return isGround;
     }
-    // return true if is on the ground
+
+    // return true if is on the enemy
+    public bool CheckStepOnEnemy()
+    {
+        bool isGround = Physics2D.OverlapAreaAll(enemyCheckCollider.bounds.min, enemyCheckCollider.bounds.max, enemyMask).Length > 0;
+        return isGround;
+    }
+
     public bool CheckFalling()
     {
         return rd.velocity.y<=0;

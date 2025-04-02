@@ -8,6 +8,7 @@ public class SpecialState : MoveState
     public override void OnEnter()
     {
         Debug.Log("Enter Special mode");
+
     }
 
     public override void OnExit()
@@ -22,9 +23,7 @@ public class SpecialState : MoveState
 
     public override void StateChange()
     {
-        moveInput.x = Input.GetAxis("Horizontal");
-        moveInput.y = Input.GetAxis("Vertical");
-        // smt
+        base.StateChange();
     }
 }
 
@@ -47,10 +46,6 @@ public class Dash: SpecialState
         //Debug.Log("Exit Special mode");
         player.resetVelocity();
         //Debug.Log(_dashTime);
-    }
-    public override void Move()
-    {
-        base.Move();
     }
     public override void StateChange() { 
         base.StateChange();
@@ -165,6 +160,7 @@ public class FallNoDash : SpecialState
 {
     float _buffer;
     bool _pressJump;
+    float _enemyJumpBuffer;
     public override void OnEnter()
     {
         Debug.Log("Enter fall but no dash mode");
@@ -187,11 +183,29 @@ public class FallNoDash : SpecialState
         base.StateChange();
 
         _buffer += Time.deltaTime;
+        _enemyJumpBuffer += Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.Space) && !_pressJump)
         {
             _pressJump = true;
             _buffer = 0;
+            _enemyJumpBuffer = 0;
+        }
+
+        if (player.CheckStepOnEnemy())
+        {
+            // buffer enemy jump.
+            // If they touch the enemy on the head within buffer time, they jump
+            if (_pressJump && player.CheckJumpBuffer(_enemyJumpBuffer))
+            {
+                player.TransitTo(new Jump());
+                return;
+            }
+            else
+            {
+                player.TransitTo(new Bounch());
+                return;
+            }
         }
 
         if (player.CheckIsGround())

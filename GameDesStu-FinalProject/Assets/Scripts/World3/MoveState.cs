@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,11 @@ public abstract class MoveState
     public abstract void OnEnter();
     public abstract void OnExit();
     public abstract void Move();
-    public abstract void StateChange();
+    public virtual void StateChange()
+    {
+        moveInput.x = Input.GetAxis("Horizontal");
+        moveInput.y = Input.GetAxis("Vertical");
+    }
 }
 
 public class BasicMoveState: MoveState
@@ -38,8 +43,7 @@ public class BasicMoveState: MoveState
 
     public override void StateChange()
     {
-        moveInput.x = Input.GetAxis("Horizontal");
-        moveInput.y = Input.GetAxis("Vertical");
+        base.StateChange();
 
         // if press action then dash
         if (Input.GetKeyDown(KeyCode.F))
@@ -49,6 +53,7 @@ public class BasicMoveState: MoveState
             player.TransitTo(new Dash());
             return;
         }
+
     }
 }
 
@@ -171,10 +176,6 @@ public class Jump: BasicMoveState
         //Debug.Log("Exit Jump");
         //Debug.Log("Jump time: "+_jumptime);
     }
-    public override void Move()
-    {
-        base.Move();
-    }
 
     public override void StateChange()
     {
@@ -217,11 +218,61 @@ public class Jump: BasicMoveState
         }
     }
 }
+public class Bounch: BasicMoveState
+{
+    float _jumptime;
+    public override void OnEnter()
+    {
+        Debug.Log("Enter bounch");
+        player.Bounch();
+        _jumptime = 0;
+    }
+    public override void OnExit()
+    {
+        //Debug.Log("Exit Jump");
+        //Debug.Log("Jump time: "+_jumptime);
+    }
+
+    public override void StateChange()
+    {
+        base.StateChange();
+
+        _jumptime += Time.deltaTime;
+
+        // if the time of the jump is smaller than the minimum time jump, then do not transit to other state
+        if (!player.CheckTimeJump(_jumptime))
+        {
+            return;
+        }
+
+        // if start falling, then switch to falling.
+        if (player.CheckFalling() )
+        {
+            player.TransitTo(new Fall());
+            return;
+        }
+
+        // if jump on a ground, switch to corresponding position.
+        if (player.CheckIsGround())
+        {
+            if (moveInput.x != 0)
+            {
+                player.TransitTo(new Run());
+            }
+            else
+            {
+                player.TransitTo(new Idle());
+            }
+            return;
+        }
+    }
+}
 public class Fall: BasicMoveState
 {
     float _jumptime;
     float _buffer;
     bool _pressJump;
+    float _enemyJumpBuffer;
 
     public override void OnEnter()
     {
@@ -246,11 +297,29 @@ public class Fall: BasicMoveState
 
         _jumptime += Time.deltaTime;
         _buffer += Time.deltaTime;
+        _enemyJumpBuffer += Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.Space) && !_pressJump)
         {
             _pressJump = true;
             _buffer = 0;
+            _enemyJumpBuffer = 0;
+        }
+
+        if (player.CheckStepOnEnemy())
+        {
+            // buffer enemy jump.
+            // If they touch the enemy on the head within buffer time, they jump
+            if (_pressJump && player.CheckJumpBuffer(_enemyJumpBuffer))
+            {
+                player.TransitTo(new Jump());
+                return;
+            }
+            else
+            {
+                player.TransitTo(new Bounch());
+                return;
+            }
         }
 
         if (player.CheckIsGround())
