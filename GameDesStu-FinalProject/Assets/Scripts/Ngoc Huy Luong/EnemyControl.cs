@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class EnemyControl : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        var enemyHealth = collision.GetComponent<CharacterHealth>();
-        if (enemyHealth != null)
+        var charHealth = collision.collider.GetComponent<CharacterHealth>();
+        if (charHealth != null)
         {
-            enemyHealth.ApplyDamage(1);
-           
+            charHealth.ApplyDamage(1);
         }
     }
 }

@@ -11,7 +11,6 @@ public class DeadZone : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {     
             character.ApplyDamage(1);
-            character.Respawn();
             character.DelayEnableHit();
         }
     }
