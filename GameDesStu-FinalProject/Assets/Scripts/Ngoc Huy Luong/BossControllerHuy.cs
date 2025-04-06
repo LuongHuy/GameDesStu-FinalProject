@@ -37,6 +37,19 @@ public class BossControllerHuy : MonoBehaviour
         endDoor.SetActive(false);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            var charHealth = collision.GetComponent<CharacterHealth>();
+            if (charHealth != null)
+            {           
+                charHealth.ApplyDamage(1);
+
+            }
+        }      
+    }
+
     public void BossMove()
     {
         if (!isMoving) 
@@ -79,7 +92,7 @@ public class BossControllerHuy : MonoBehaviour
         {
             var tempbullet = Instantiate(bullet, transform.position, Quaternion.identity);
             tempbullet.direction = (characterTarget.position - transform.position).normalized;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
@@ -110,7 +123,7 @@ public class BossControllerHuy : MonoBehaviour
 
             var tempbullet3 = Instantiate(bullet, transform.position, Quaternion.identity);
             tempbullet3.direction = thirdDirection;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
