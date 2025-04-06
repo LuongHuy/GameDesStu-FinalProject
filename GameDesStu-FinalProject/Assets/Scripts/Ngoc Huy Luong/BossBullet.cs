@@ -15,14 +15,23 @@ public class BossBullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        CheckColliderWithGround();
     }
     private void OnTriggerEnter2D(Collider2D collision)
-    {
+    {       
         var charHealth = collision.GetComponent<CharacterHealth>();
         if (charHealth != null)
         {
             charHealth.ApplyDamage(1);
             // Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
+
+    void CheckColliderWithGround()
+    {
+        if(Physics2D.OverlapCircle(transform.position, 0.3f, 1 << LayerMask.NameToLayer("Ground")))
+        {
             Destroy(gameObject);
         }
     }
