@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public Text livesText;
+    public GameObject endGameUI; // <- Drag your End UI panel here in Inspector
 
     private GameObject lastHitSource;
     private float lastHitTime = -1f;
@@ -32,6 +33,10 @@ public class PlayerHealth : MonoBehaviour
 
         if (GlobalGameManager.instance.lives <= 0)
         {
+            ShowGameOverUI();
+        }
+        else
+        {
             RespawnAtCheckpoint();
         }
     }
@@ -50,12 +55,19 @@ public class PlayerHealth : MonoBehaviour
         if (respawner != null)
         {
             respawner.Respawn();
-            GlobalGameManager.instance.lives = 3; // Optional: Reset lives after respawn
-            UpdateLivesUI();
         }
         else
         {
             Debug.LogWarning("No PlayerRespawner found on Player!");
+        }
+    }
+
+    void ShowGameOverUI()
+    {
+        Time.timeScale = 0f;
+        if (endGameUI != null)
+        {
+            endGameUI.SetActive(true);
         }
     }
 }
