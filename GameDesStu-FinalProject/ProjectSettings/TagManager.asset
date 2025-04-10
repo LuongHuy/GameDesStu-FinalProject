@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - EnemyWeakpoint
   - Deadzone
+  - Water
   layers:
   - Default
   - TransparentFX
