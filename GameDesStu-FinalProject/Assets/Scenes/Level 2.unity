@@ -12145,6 +12145,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff5542f6cb087540a8d79830d89fc2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpForce: 10
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  rb: {fileID: 0}
+  isGrounded: 0
 --- !u!114 &480219420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22728,7 +22734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &940700163
 Transform:
   m_ObjectHideFlags: 0
@@ -38618,7 +38624,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1690221651
 Transform:
   m_ObjectHideFlags: 0
