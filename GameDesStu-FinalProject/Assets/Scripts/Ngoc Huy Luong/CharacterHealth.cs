@@ -30,6 +30,7 @@ public class CharacterHealth : MonoBehaviour
     }
     public void Respawn()
     {
+        Debug.Log("Respawn");
         characterControl.Respawn();
         health = maxHealth;
         isImmortal = true;

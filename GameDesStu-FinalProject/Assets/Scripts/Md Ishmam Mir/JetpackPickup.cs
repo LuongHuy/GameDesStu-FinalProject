@@ -8,16 +8,15 @@ public class JetpackPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Scene2_PlayerController player = other.GetComponent<Scene2_PlayerController>();
-            if (player != null)
+            JetpackController jetpack = other.GetComponent<JetpackController>();
+            if (jetpack != null)
             {
-                player.UnlockJetpack();
+                jetpack.UnlockJetpack();
             }
 
             if (messageUI != null)
             {
                 messageUI.SetActive(true);
-                // Hide after 4 seconds
                 Destroy(messageUI, 4f);
             }
 

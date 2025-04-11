@@ -31,12 +31,18 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnEnable()
     {
-        healthBarCover.gameObject.SetActive(true);
+        if (healthBarCover != null)
+        {
+            healthBarCover.gameObject.SetActive(true);
+        }      
     }
 
     private void OnDisable()
     {
-        healthBarCover.gameObject.SetActive(false);
+        if (healthBarCover != null)
+        {
+            healthBarCover.gameObject.SetActive(false);
+        }     
     }
 
     public float GetEnemyHealthPercent()

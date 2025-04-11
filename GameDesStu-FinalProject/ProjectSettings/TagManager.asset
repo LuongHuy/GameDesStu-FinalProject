@@ -13,6 +13,7 @@ TagManager:
   - CollectableSpecial
   - CollectableFinal
   - Checkpoint
+  - Water
   layers:
   - Default
   - TransparentFX
