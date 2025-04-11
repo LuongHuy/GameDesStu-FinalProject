@@ -20,18 +20,21 @@ public class GameMasterW3 : MonoBehaviour
             _instance = this;
         }
     }
-
+    // GUI
+    [Header("GUI")]
     [SerializeField] TextMeshProUGUI point;
+    [SerializeField] GameObject endGameUI;
+
+    // Save information
+    Transform currentCheckpoint = null;
+    List<Collectable> unsaveCollectible = new List<Collectable>();
+    List<dropPlatformW3> unsavePlatform = new List<dropPlatformW3>();
+    List<ElementStatus> unsaveEnemy = new List<ElementStatus>();
+    float currentPoint;
+    float savedPoint;
 
     float coinCollected;
     float secondaryObjective;
-
-    Transform currentCheckpoint = null;
-    List<GameObject> unsaveCollectible = new List<GameObject>();
-    List<GameObject> unsavePlatform = new List<GameObject>();
-    List<GameObject> unsaveEnemy = new List<GameObject>();
-    float currentPoint;
-    float savedPoint;
 
     private void Start()
     {
@@ -58,8 +61,25 @@ public class GameMasterW3 : MonoBehaviour
         currentPoint = savedPoint;
 
         // re initiate each collectible, platform and enemy
+        foreach (var con in unsaveCollectible)
+        {
+            con.ResetCollectible();
+        }
 
+        foreach (var plat in unsavePlatform)
+        {
+            plat.ResetPlatform();
+        }
 
+        foreach(var enemy in unsaveEnemy)
+        {
+            enemy.ResetElement();
+        }
+
+        // reset information
+        unsaveCollectible.Clear();
+        unsavePlatform.Clear();
+        unsaveEnemy.Clear();
     }
 
     public void ResetAll()
@@ -69,11 +89,9 @@ public class GameMasterW3 : MonoBehaviour
         savedPoint=0;
         point.SetText(currentPoint.ToString());
 
-        unsaveCollectible = new List<GameObject>();
-        unsavePlatform = new List<GameObject>();
-        unsaveEnemy = new List<GameObject>();
-
-
+        unsaveCollectible = new List<Collectable>();
+        unsavePlatform = new List<dropPlatformW3>();
+        unsaveEnemy = new List<ElementStatus>();
     }
 
     public Transform GetCheckpoint()
@@ -81,35 +99,32 @@ public class GameMasterW3 : MonoBehaviour
         return currentCheckpoint;
     }
 
-    public void AddUnsaveCollectible()
+    public void AddUnsaveCollectible(Collectable collectible)
     {
-
+        unsaveCollectible.Add(collectible);
     }
-    public void AddUnsaveEnemy()
+    public void AddUnsaveEnemy(ElementStatus enemy)
     {
-
+        unsaveEnemy.Add(enemy);
     }
-    public void AddUnsavePlatform()
+    public void AddUnsavePlatform(dropPlatformW3 platform)
     {
-
+        unsavePlatform.Add(platform);
     }
 
     public void CollectToken()
     {
-        Debug.Log("Collect Token");
         currentPoint += 1;
         point.SetText(currentPoint.ToString());
     }
     public void CollectSecondaryObjective()
     {
-        Debug.Log("Collect Secondary Objective");
         secondaryObjective++;
         currentPoint += 10;
         point.SetText(currentPoint.ToString());
     }
     public void CollectMainObjective()
     {
-        Debug.Log("Collect Main Objective");
         Win();
     }
 
@@ -121,5 +136,10 @@ public class GameMasterW3 : MonoBehaviour
     public void Lose()
     {
         Debug.Log("You lose");
+        Time.timeScale = 0;
+        if (endGameUI != null)
+        {
+            endGameUI.SetActive(true);
+        }
     }
 }

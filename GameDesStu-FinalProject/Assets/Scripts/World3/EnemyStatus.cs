@@ -18,8 +18,6 @@ public abstract class ElementStatus : MonoBehaviour
         // initiate the current hp to be max hp
         currHP = hp;
     }
-
-
     // Update is called once per frame
     protected virtual void Update()
     {
@@ -42,7 +40,7 @@ public abstract class ElementStatus : MonoBehaviour
     public virtual void GotAttacked(float damage)
     {
         currHP -= damage;
-        Debug.Log(this.gameObject.name.ToString()+ "'s current HP: "+ currHP.ToString());
+        Debug.Log(gameObject.name.ToString()+ "'s current HP: "+ currHP.ToString());
     }
 
     public virtual bool IsAlive()
@@ -53,7 +51,10 @@ public abstract class ElementStatus : MonoBehaviour
     {
         Debug.Log("The "+ gameObject.name.ToString() +" die");
     }
-
+    public virtual void ResetElement()
+    {
+        currHP = hp;
+    }
 }
 
 public class EnemyStatus : ElementStatus
@@ -63,6 +64,8 @@ public class EnemyStatus : ElementStatus
 
     [Header("Group")]
     [SerializeField] GameObject mainObject;
+
+    Vector2 originalPos;
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
@@ -71,9 +74,23 @@ public class EnemyStatus : ElementStatus
         AI.Act();
     }
 
+    protected override void Start()
+    {
+        base.Start();
+        originalPos = mainObject.transform.position;
+    }
     public override void Die()
     {
         base.Die();
-        Destroy(mainObject.gameObject);
+        //Destroy(mainObject.gameObject);
+        GameMasterW3.Instance.AddUnsaveEnemy(this);
+        mainObject.gameObject.SetActive(false);
+    }
+    public override void ResetElement()
+    {
+        base.ResetElement();
+        mainObject.gameObject.SetActive(true);  
+        mainObject.transform.position = originalPos;
+
     }
 }

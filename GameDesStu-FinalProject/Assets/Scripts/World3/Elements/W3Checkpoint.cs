@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class W3Checkpoint : Collectable
 {
-
-    protected override void Collected()
+    protected override void Remove()
+    {
+        // Do not remove;
+    }
+    protected override void Collected(Collider2D collision)
     {
         GameMasterW3.Instance.SaveStage(transform);
     }

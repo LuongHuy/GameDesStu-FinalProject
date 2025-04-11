@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class PlayerStatus : ElementStatus
 {
     [SerializeField] PlayerMovementW3 movementManager;
-    [SerializeField] float lifeLimit;
+    [SerializeField] float lifeLimit = 3;
     [SerializeField] TextMeshProUGUI lifeText;
 
     float currentLife;
@@ -16,6 +16,7 @@ public class PlayerStatus : ElementStatus
     {
         base.Start();
         currentLife = lifeLimit;
+        lifeText.SetText(currentLife.ToString());
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -40,9 +41,7 @@ public class PlayerStatus : ElementStatus
 
             }
         }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
+
         if (collision.gameObject.CompareTag("Deadzone"))
         {
             Die();
@@ -52,10 +51,13 @@ public class PlayerStatus : ElementStatus
     public override void Die()
     {
         base.Die();
-
         //if the player still has life
+        Debug.Log(currentLife.ToString());
         if (currentLife > 0)
         {
+            currentLife = currentLife - 1;
+            lifeText.SetText(currentLife.ToString());
+
             // calling World to update the information
             GameMasterW3.Instance.ResetState();
             Transform respawnLoc = GameMasterW3.Instance.GetCheckpoint();
@@ -65,12 +67,10 @@ public class PlayerStatus : ElementStatus
 
             //Reset Parameter
             currHP = hp;
-
-            currentLife--;
-            lifeText.SetText(currentLife.ToString());
         }
         else
         {
+            Debug.Log("No more life");
             GameMasterW3.Instance.Lose();
         }
     }
