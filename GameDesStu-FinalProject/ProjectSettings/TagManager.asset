@@ -8,6 +8,11 @@ TagManager:
   - Enemy
   - EnemyWeakpoint
   - Deadzone
+  - Platform
+  - Collectable
+  - CollectableSpecial
+  - CollectableFinal
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

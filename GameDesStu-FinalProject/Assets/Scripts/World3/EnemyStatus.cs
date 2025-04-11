@@ -19,6 +19,7 @@ public abstract class ElementStatus : MonoBehaviour
         currHP = hp;
     }
 
+
     // Update is called once per frame
     protected virtual void Update()
     {
@@ -27,6 +28,10 @@ public abstract class ElementStatus : MonoBehaviour
         {
             Die();
         }
+    }
+    protected virtual void FixedUpdate()
+    {
+        // update location
     }
 
     public virtual void Attack(ElementStatus target, ElementStatus attacker)
@@ -57,10 +62,10 @@ public class EnemyStatus : ElementStatus
     [SerializeField] EnemyAI AI;
 
     [Header("Group")]
-    [SerializeField] GameObject parent;
-    protected override void Update()
+    [SerializeField] GameObject mainObject;
+    protected override void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
 
         // Perform super intelligent move
         AI.Act();
@@ -69,6 +74,6 @@ public class EnemyStatus : ElementStatus
     public override void Die()
     {
         base.Die();
-        Destroy(parent.gameObject);
+        Destroy(mainObject.gameObject);
     }
 }

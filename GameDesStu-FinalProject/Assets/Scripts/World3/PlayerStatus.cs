@@ -1,20 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class PlayerStatus : ElementStatus
 {
-    [Header("Import player movement manager")]
     [SerializeField] PlayerMovementW3 movementManager;
+    [SerializeField] float lifeLimit;
+    [SerializeField] TextMeshProUGUI lifeText;
 
-    [Header("Respawn location")]
-    [SerializeField] GameObject respawnLoc;
-
+    float currentLife;
     protected override void Start()
     {
         base.Start();
+        currentLife = lifeLimit;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -42,7 +43,6 @@ public class PlayerStatus : ElementStatus
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.gameObject.CompareTag("Deadzone"))
         {
             Die();
@@ -52,10 +52,26 @@ public class PlayerStatus : ElementStatus
     public override void Die()
     {
         base.Die();
-        // Reset to position
-        this.gameObject.transform.position = respawnLoc.transform.position;
 
-        //Reset Parameter
-        currHP = hp;
+        //if the player still has life
+        if (currentLife > 0)
+        {
+            // calling World to update the information
+            GameMasterW3.Instance.ResetState();
+            Transform respawnLoc = GameMasterW3.Instance.GetCheckpoint();
+
+            // Reset to position
+            gameObject.transform.position = respawnLoc.transform.position;
+
+            //Reset Parameter
+            currHP = hp;
+
+            currentLife--;
+            lifeText.SetText(currentLife.ToString());
+        }
+        else
+        {
+            GameMasterW3.Instance.Lose();
+        }
     }
 }

@@ -28,7 +28,7 @@ public class BasicMoveState: MoveState
 {
     public override void OnEnter()
     {
-        Debug.Log("Enter Basic mode");
+        //Debug.Log("Enter Basic mode");
     }
 
     public override void OnExit()
@@ -48,7 +48,6 @@ public class BasicMoveState: MoveState
         // if press action then dash
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("To dash");
             player.Dash(moveInput);
             player.TransitTo(new Dash());
             return;
@@ -62,7 +61,7 @@ public class Idle: BasicMoveState
     float _coyote;
     public override void OnEnter()
     {
-        Debug.Log("Enter Idle");
+        //Debug.Log("Enter Idle");
         _coyote = 0;
     }
     public override void OnExit()
@@ -114,7 +113,7 @@ public class Run: BasicMoveState
     float _coyote;
     public override void OnEnter()
     {
-        Debug.Log("Enter Run");
+        //Debug.Log("Enter Run");
         _coyote = 0;
     }
     public override void OnExit()
@@ -167,7 +166,7 @@ public class Jump: BasicMoveState
     float _jumptime;
     public override void OnEnter()
     {
-        Debug.Log("Enter jump");
+        //Debug.Log("Enter jump");
         player.Jump();
         _jumptime = 0;
     }
@@ -223,14 +222,14 @@ public class Bounch: BasicMoveState
     float _jumptime;
     public override void OnEnter()
     {
-        Debug.Log("Enter bounch");
+        //Debug.Log("Enter bounch");
         player.Bounch();
         _jumptime = 0;
     }
     public override void OnExit()
     {
         //Debug.Log("Exit Jump");
-        //Debug.Log("Jump time: "+_jumptime);
+        //Debug.Log("Bounce time: " + _jumptime);
     }
 
     public override void StateChange()
@@ -276,7 +275,7 @@ public class Fall: BasicMoveState
 
     public override void OnEnter()
     {
-        Debug.Log("Enter Fall");
+        //Debug.Log("Enter Fall");
         player.UpdateGravityScale(2);
         _jumptime = 0;
         _pressJump = false;
