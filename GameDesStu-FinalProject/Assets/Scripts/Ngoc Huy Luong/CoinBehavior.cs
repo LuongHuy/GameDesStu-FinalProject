@@ -12,6 +12,10 @@ public class CoinBehavior : MonoBehaviour
         {
             Destroy(gameObject);
             ScoreManager.instance.UpdateScore(scoreAdd);
+            if (collision.gameObject.TryGetComponent<ScoreTextInit>(out var playerScoreText))
+            {
+                playerScoreText.ShowScoreText(scoreAdd);
+            }
         }
     }
 }
