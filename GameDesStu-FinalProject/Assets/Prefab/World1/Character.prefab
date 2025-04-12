@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2513410872527043351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4039220357564206224}
+  m_Layer: 0
+  m_Name: ScoreUIText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4039220357564206224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2513410872527043351}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.037295, y: 0.993, z: 0}
+  m_LocalScale: {x: 1.5605204, y: 1.5605204, z: 1.5605204}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4061623051046088530}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4611998723244483924
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,6 +164,7 @@ GameObject:
   - component: {fileID: 666193104366750020}
   - component: {fileID: 2234198321231560071}
   - component: {fileID: 1691728042885865899}
+  - component: {fileID: 404984331676540709}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -150,11 +182,12 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.93, y: -1.46, z: 0}
-  m_LocalScale: {x: 0.69064, y: 0.69064, z: 0.69064}
+  m_LocalScale: {x: 0.64081186, y: 0.64081186, z: 0.64081186}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5633639976623424050}
   - {fileID: 2554394666333220983}
+  - {fileID: 4039220357564206224}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7983297082129860926
@@ -200,7 +233,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 2575815558344410250, guid: 40e8be94212f3674d9c6f3f39fada839, type: 3}
   m_Color: {r: 0, g: 0.82593036, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -255,7 +288,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 1.43
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -265,7 +298,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &666193104366750020
 BoxCollider2D:
@@ -301,17 +334,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.013061881}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 1.4666667, y: 1.6666666}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1, y: 1.5558968}
   m_EdgeRadius: 0
 --- !u!114 &2234198321231560071
 MonoBehaviour:
@@ -327,7 +360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet: {fileID: 4412315473986767406, guid: 3c8e59c5b6a6a714aa07e235ba93db37, type: 3}
   findTransform: {fileID: 5633639976623424050}
-  delayTime: 0.5
+  delayTime: 0.25
 --- !u!114 &1691728042885865899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,3 +374,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkpoint: {x: 0, y: 0, z: 0}
+--- !u!114 &404984331676540709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7167909744406983024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec70d0ce7b3fb6141961e7e654f1e472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scorePrefab: {fileID: 6052052518954402049, guid: fdba04afc8572814f8777bca486f8cc1, type: 3}
+  startPosition: {fileID: 4039220357564206224}

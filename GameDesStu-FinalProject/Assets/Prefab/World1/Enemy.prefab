@@ -171,6 +171,7 @@ MonoBehaviour:
   scoreAdd: 0
   healthBar: {fileID: 0}
   healthBarCover: {fileID: 0}
+  enemyRenderer: {fileID: 3242229447496944343}
 --- !u!114 &-7518484148324260043
 MonoBehaviour:
   m_ObjectHideFlags: 0
