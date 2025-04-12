@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ public class EnemyHealth : MonoBehaviour
     public Action onDied;
     public Image healthBar;
     public GameObject healthBarCover;
+
+    public SpriteRenderer enemyRenderer;
 
     public void Awake()
     {
@@ -58,7 +61,12 @@ public class EnemyHealth : MonoBehaviour
             onDied?.Invoke();
             Destroy(gameObject);
             ScoreManager.instance.UpdateScore(scoreAdd);
+            return;
         }
+        DamagedEffect();
     }
-
+    public void DamagedEffect()
+    {
+        enemyRenderer.DOColor(Color.red, 0.2f).OnComplete(() => enemyRenderer.DOColor(Color.white,0.2f));
+    }
 }
