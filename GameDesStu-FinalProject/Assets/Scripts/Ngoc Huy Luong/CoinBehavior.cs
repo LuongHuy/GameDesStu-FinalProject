@@ -11,11 +11,7 @@ public class CoinBehavior : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
-            ScoreManager.instance.UpdateScore(scoreAdd);
-            if (collision.gameObject.TryGetComponent<ScoreTextInit>(out var playerScoreText))
-            {
-                playerScoreText.ShowScoreText(scoreAdd);
-            }
+            ScoreManager.instance.UpdateScore(scoreAdd);           
         }
     }
 }
