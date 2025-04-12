@@ -3222,7 +3222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 103015169}
   - component: {fileID: 103015170}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform (7)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -5428,9 +5428,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 146818741}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (Surface)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7328,7 +7328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 198534853}
   - component: {fileID: 198534854}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform (5)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -8838,7 +8838,7 @@ GameObject:
   m_Component:
   - component: {fileID: 235098397}
   - component: {fileID: 235098398}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (Right) (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -11702,7 +11702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 326068722}
   - component: {fileID: 326068723}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -23558,7 +23558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 635092724}
   - component: {fileID: 635092725}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23772,7 +23772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 636742454}
   - component: {fileID: 636742455}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground Below (Left)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -25465,7 +25465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 674459183}
   - component: {fileID: 674459184}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform (8)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -28692,8 +28692,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6390874061300786557, guid: 60e7a0a55b6edef45a35d582a08df607, type: 3}
   firePoint: {fileID: 1677778048}
-  shootInterval: 4
-  player: {fileID: 1729650690}
+  shootInterval: 3
+  player: {fileID: 1919314359}
 --- !u!50 &766095347
 Rigidbody2D:
   serializedVersion: 4
@@ -28891,7 +28891,7 @@ GameObject:
   m_Component:
   - component: {fileID: 776269136}
   - component: {fileID: 776269137}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -29846,9 +29846,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 816687471}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground B
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30740,7 +30740,7 @@ GameObject:
   m_Component:
   - component: {fileID: 837013378}
   - component: {fileID: 837013379}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31592,7 +31592,7 @@ GameObject:
   m_Component:
   - component: {fileID: 859323878}
   - component: {fileID: 859323879}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31880,7 +31880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 861604212}
   - component: {fileID: 861604213}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34572,7 +34572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 925126121}
   - component: {fileID: 925126122}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38183,7 +38183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1037785183}
   - component: {fileID: 1037785184}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground Below (Middle)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -41291,7 +41291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1139089496}
   - component: {fileID: 1139089497}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground Below (Right)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -41498,7 +41498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1144890950}
   - component: {fileID: 1144890951}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42206,7 +42206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1168625278}
   - component: {fileID: 1168625279}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (Right)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -47635,7 +47635,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1333697814}
   - component: {fileID: 1333697815}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52144,7 +52144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1450066879}
   - component: {fileID: 1450066880}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52546,7 +52546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1465065102}
   - component: {fileID: 1465065103}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54079,7 +54079,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1509168144}
   - component: {fileID: 1509168145}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform (3)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -56706,7 +56706,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1574987035}
   - component: {fileID: 1574987036}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform (4)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -57160,7 +57160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1593133076}
   - component: {fileID: 1593133077}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (left)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -61535,7 +61535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1693098782
 Transform:
   m_ObjectHideFlags: 0
@@ -61646,7 +61646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1699275104
 Transform:
   m_ObjectHideFlags: 0
@@ -62999,7 +62999,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1741130180}
   - component: {fileID: 1741130181}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64215,7 +64215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1782729947}
   - component: {fileID: 1782729948}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64493,7 +64493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1788317328}
   - component: {fileID: 1788317329}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65771,7 +65771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1820239688}
   - component: {fileID: 1820239689}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform (6)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -66838,7 +66838,7 @@ MonoBehaviour:
   groundCheckRadius: 0.1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!1 &1848126194
 GameObject:
   m_ObjectHideFlags: 0
@@ -68282,7 +68282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1892847355}
   - component: {fileID: 1892847356}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69645,7 +69645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invisibilityDuration: 15
-  timerText: {fileID: 0}
+  timerText: {fileID: 992600240}
 --- !u!1 &1920941736
 GameObject:
   m_ObjectHideFlags: 0
@@ -72441,9 +72441,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2007924793}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73184,7 +73184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2033692332}
   - component: {fileID: 2033692333}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74537,7 +74537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2075992738}
   - component: {fileID: 2075992739}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76076,7 +76076,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2122889585}
   - component: {fileID: 2122889586}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (Middle)
   m_TagString: Ground
   m_Icon: {fileID: 0}
