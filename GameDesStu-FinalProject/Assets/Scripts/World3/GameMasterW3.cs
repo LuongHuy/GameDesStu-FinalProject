@@ -24,6 +24,7 @@ public class GameMasterW3 : MonoBehaviour
     [Header("GUI")]
     [SerializeField] TextMeshProUGUI point;
     [SerializeField] GameObject endGameUI;
+    [SerializeField] GameObject winGameUI;
 
     // Save information
     Transform currentCheckpoint = null;
@@ -130,6 +131,11 @@ public class GameMasterW3 : MonoBehaviour
     public void Win()
     {
         Debug.Log("You Win");
+        Time.timeScale = 0;
+        if (winGameUI != null)
+        {
+            winGameUI.SetActive(true);
+        }
     }
 
     public void Lose()
