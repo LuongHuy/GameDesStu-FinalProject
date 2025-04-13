@@ -31,11 +31,18 @@ public class GameMasterW3 : MonoBehaviour
     List<Collectable> unsaveCollectible = new List<Collectable>();
     List<dropPlatformW3> unsavePlatform = new List<dropPlatformW3>();
     List<ElementStatus> unsaveEnemy = new List<ElementStatus>();
+    List<BulletStatus> bulletsShot = new List<BulletStatus>();
     float currentPoint;
     float savedPoint;
 
     float coinCollected;
     float secondaryObjective;
+
+    // for boss fight
+    [SerializeField] GameObject bossPrefab;
+    [SerializeField] Transform bossLocation;
+    [SerializeField] GameObject gate;
+    bool isBossActive;
 
     private void Start()
     {
@@ -75,11 +82,22 @@ public class GameMasterW3 : MonoBehaviour
         {
             enemy.ResetElement();
         }
+        foreach(var bullet in bulletsShot)
+        {
+            if (bullet != null)
+            {
+                Destroy(bullet);
+            }
+        }
 
         // reset information
         unsaveCollectible.Clear();
         unsavePlatform.Clear();
         unsaveEnemy.Clear();
+        bulletsShot.Clear();
+
+        // reset Boss
+        DeactivateBoss();
     }
 
     public void ResetAll()
@@ -92,6 +110,19 @@ public class GameMasterW3 : MonoBehaviour
         unsaveCollectible = new List<Collectable>();
         unsavePlatform = new List<dropPlatformW3>();
         unsaveEnemy = new List<ElementStatus>();
+
+        // for bullet
+        foreach (var bullet in bulletsShot)
+        {
+            if (bullet != null)
+            {
+                Destroy(bullet);
+            }
+        }
+        bulletsShot = new List<BulletStatus>();
+
+        // for boss fight
+        DeactivateBoss();
     }
 
     public Transform GetCheckpoint()
@@ -112,6 +143,27 @@ public class GameMasterW3 : MonoBehaviour
         unsavePlatform.Add(platform);
     }
 
+    GameObject currBoss;
+    public void ActivateBoss()
+    {
+        isBossActive = true;
+        // block exit
+        gate.SetActive(true);
+
+        currBoss = Instantiate(bossPrefab, bossLocation.position, Quaternion.identity);
+        currBoss.SetActive(true);
+        //boss.SetActive(true);
+    }
+    public void DeactivateBoss()
+    {
+        isBossActive = false;
+        gate.SetActive(false);
+        Destroy(currBoss);
+    }
+    public void AddBullet(BulletStatus bullet)
+    {
+        bulletsShot.Add(bullet);
+    }
     public void CollectToken()
     {
         currentPoint += 1;

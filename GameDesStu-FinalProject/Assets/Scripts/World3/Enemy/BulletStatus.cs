@@ -24,7 +24,16 @@ public class BulletStatus : ElementStatus
         GameMasterW3.Instance.AddUnsaveEnemy(this);
 
     }
+    protected override void Start()
+    {
+        base.Start();
+        Destroy(gameObject, 15);
+    }
 
+    public override void Die()
+    {
+        // Don't die
+    }
     public void Activate()
     {
         gameObject.SetActive(true);

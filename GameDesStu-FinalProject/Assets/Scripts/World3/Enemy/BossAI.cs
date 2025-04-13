@@ -193,6 +193,7 @@ public class BossAI : EnemyAI
         bullet.SetDestination(target.transform.position + offset);
         bullet.SetBoss(bossStatus);
         bullet.Activate();
+        GameMasterW3.Instance.AddBullet(bullet);
     }
 
     IEnumerator ShootMultiple(Vector3 offset)
