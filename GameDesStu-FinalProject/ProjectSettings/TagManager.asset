@@ -14,6 +14,9 @@ TagManager:
   - CollectableFinal
   - Checkpoint
   - Water
+  - FlyingEnemy
+  - Boss
+  - Coin
   layers:
   - Default
   - TransparentFX

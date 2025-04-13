@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isGrounded;
+    private bool facingRight = true;
 
     void Start()
     {
@@ -26,12 +27,24 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Real-time ground check
+        // Ground check
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
         // Movement
         float move = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
+
+        // Flip player
+        if (move > 0)
+        {
+            facingRight = true;
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (move < 0)
+        {
+            facingRight = false;
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
 
         // Jump
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -50,11 +63,17 @@ public class PlayerController : MonoBehaviour
     {
         if (bulletPrefab != null && firePoint != null)
         {
-            Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+
+            // Set bullet direction based on facing
+            PlayerBullet bulletScript = bullet.GetComponent<PlayerBullet>();
+            if (bulletScript != null)
+            {
+                bulletScript.direction = facingRight ? Vector2.right : Vector2.left;
+            }
         }
     }
 
-    // Optional: draw the ground check circle in Scene view
     private void OnDrawGizmosSelected()
     {
         if (groundCheck != null)

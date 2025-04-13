@@ -8,19 +8,31 @@ public class JetpackPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            // Try to unlock the jetpack via the JetpackController component
             JetpackController jetpack = other.GetComponent<JetpackController>();
             if (jetpack != null)
             {
                 jetpack.UnlockJetpack();
+                Debug.Log("Jetpack unlocked via pickup.");
+            }
+            else
+            {
+                Debug.LogWarning("JetpackController not found on the player.");
             }
 
+            // Hide the message UI immediately
             if (messageUI != null)
             {
-                messageUI.SetActive(true);
-                Destroy(messageUI, 4f);
+                Debug.Log("Hiding message UI.");
+                messageUI.SetActive(false);
+            }
+            else
+            {
+                Debug.LogWarning("messageUI not assigned in JetpackPickup.");
             }
 
-            Destroy(gameObject); // Remove pickup object
+            // Remove the pickup object
+            Destroy(gameObject);
         }
     }
 }
