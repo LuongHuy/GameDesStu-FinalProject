@@ -9,6 +9,8 @@ public class ScoreManager : MonoBehaviour
     public int scoreCount;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI scoreTextInTotal;
+
+    public ScoreTextInit playerScore;
     private void Awake()
     {
         if (instance == null)
@@ -29,5 +31,6 @@ public class ScoreManager : MonoBehaviour
         scoreCount += score;
         scoreText.text = scoreCount.ToString();
         scoreTextInTotal.text = scoreCount.ToString();
+        playerScore.ShowScoreText(score);
     }
 }

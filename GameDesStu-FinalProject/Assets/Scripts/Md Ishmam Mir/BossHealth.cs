@@ -9,6 +9,8 @@ public class BossHealth : MonoBehaviour
     public Slider healthSlider; // Assign in Inspector
     private bool hasRegenerated = false;
 
+    public GameObject endGameWinUI; // assign in Inspector
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -53,6 +55,12 @@ public class BossHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Boss defeated!");
-        Destroy(gameObject); // Or trigger win screen
+        if (endGameWinUI != null)
+        {
+            endGameWinUI.SetActive(true);
+            Time.timeScale = 0f; // optional: pause the game
+        }
+
+        Destroy(gameObject); // or hide the boss
     }
 }
