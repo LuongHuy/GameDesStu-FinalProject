@@ -5,7 +5,12 @@ using UnityEngine;
 
 public abstract class EnemyAI : MonoBehaviour
 {
-    public abstract void Act();
+    protected virtual void FixedUpdate()
+    {
+        Act();
+    }
+
+    protected abstract void Act();
 } 
 
 public class EnemyAIAir : EnemyAI
@@ -44,7 +49,7 @@ public class EnemyAIAir : EnemyAI
         }
     }
 
-    public override void Act()
+    protected override void Act()
     {
         if (!stationary)
         {

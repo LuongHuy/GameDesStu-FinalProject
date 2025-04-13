@@ -6,8 +6,8 @@ public abstract class ElementStatus : MonoBehaviour
 {
     // normal stats
     [Header("Stats")]
-    [SerializeField] protected float hp=1f;
-    [SerializeField] protected float damage =1f;
+    [SerializeField] public float hp=1f;
+    [SerializeField] public float damage =1f;
 
     // private variable
     protected float currHP;
@@ -59,9 +59,6 @@ public abstract class ElementStatus : MonoBehaviour
 
 public class EnemyStatus : ElementStatus
 {
-    [Header("AI")]
-    [SerializeField] EnemyAI AI;
-
     [Header("Group")]
     [SerializeField] GameObject mainObject;
 
@@ -69,9 +66,6 @@ public class EnemyStatus : ElementStatus
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-
-        // Perform super intelligent move
-        AI.Act();
     }
 
     protected override void Start()
