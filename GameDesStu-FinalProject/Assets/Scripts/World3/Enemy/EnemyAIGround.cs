@@ -39,7 +39,7 @@ public class EnemyAIGround : EnemyAI
         }
     }
 
-    public override void Act()
+    protected override void Act()
     {
         if (!stationary)
         {
