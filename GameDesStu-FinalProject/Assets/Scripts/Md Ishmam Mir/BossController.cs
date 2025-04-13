@@ -48,7 +48,7 @@ public class BossController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             InvisibilityPower invisibility = other.GetComponent<InvisibilityPower>();
-            if (invisibility != null && invisibility.IsInvisible())
+            if (invisibility != null && invisibility.IsInvulnerable())
             {
                 Debug.Log("Player invisible — boss collision ignored");
                 return;

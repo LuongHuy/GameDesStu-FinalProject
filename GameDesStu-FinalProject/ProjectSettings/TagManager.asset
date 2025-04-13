@@ -9,6 +9,9 @@ TagManager:
   - EnemyWeakpoint
   - Deadzone
   - Water
+  - FlyingEnemy
+  - Boss
+  - Coin
   layers:
   - Default
   - TransparentFX

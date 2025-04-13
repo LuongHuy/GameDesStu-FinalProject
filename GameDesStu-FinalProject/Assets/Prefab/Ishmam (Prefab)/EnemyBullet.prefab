@@ -121,7 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  lifetime: 5
+  lifetime: 2
+  maxRange: 7
   direction: {x: -1, y: 0}
 --- !u!1 &7670706857752870374
 GameObject:
