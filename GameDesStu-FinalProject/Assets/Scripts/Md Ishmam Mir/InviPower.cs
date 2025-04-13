@@ -48,7 +48,7 @@ public class InvisibilityPower : MonoBehaviour
         isInvisible = false;
         inGracePeriod = true;
 
-        Debug.Log("Invisibility ended ? Grace period started");
+        Debug.Log("Invisibility ended ? Back to Normal period started");
 
         float graceTimer = gracePeriod;
 
@@ -71,6 +71,6 @@ public class InvisibilityPower : MonoBehaviour
             timerText.gameObject.SetActive(false);
         }
 
-        Debug.Log("Grace period ended ? Player vulnerable again");
+        Debug.Log("Period ended ? Player vulnerable again");
     }
 }
