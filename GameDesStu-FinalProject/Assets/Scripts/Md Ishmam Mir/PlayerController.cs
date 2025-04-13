@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius = 0.1f;
     public LayerMask groundLayer;
 
+    [Header("Visual Flip")]
+    public Transform playerVisual; // Assign your sprite child here
+
     private Rigidbody2D rb;
     private bool isGrounded;
     private bool facingRight = true;
@@ -34,16 +37,16 @@ public class PlayerController : MonoBehaviour
         float move = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
 
-        // Flip player
-        if (move > 0)
+        // Flip visual only
+        if (move > 0 && !facingRight)
         {
             facingRight = true;
-            transform.localScale = new Vector3(1, 1, 1);
+            FlipVisual(true);
         }
-        else if (move < 0)
+        else if (move < 0 && facingRight)
         {
             facingRight = false;
-            transform.localScale = new Vector3(-1, 1, 1);
+            FlipVisual(false);
         }
 
         // Jump
@@ -59,13 +62,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void FlipVisual(bool faceRight)
+    {
+        if (playerVisual != null)
+        {
+            playerVisual.localScale = new Vector3(faceRight ? 1 : -1, 1, 1);
+        }
+    }
+
     void Shoot()
     {
         if (bulletPrefab != null && firePoint != null)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
-            // Set bullet direction based on facing
             PlayerBullet bulletScript = bullet.GetComponent<PlayerBullet>();
             if (bulletScript != null)
             {
