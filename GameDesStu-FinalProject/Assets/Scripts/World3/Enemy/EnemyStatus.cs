@@ -27,20 +27,16 @@ public abstract class ElementStatus : MonoBehaviour
             Die();
         }
     }
-    protected virtual void FixedUpdate()
-    {
-        // update location
-    }
 
     public virtual void Attack(ElementStatus target, ElementStatus attacker)
     {
-        //Debug.Log( target.gameObject.name.ToString() + " is attacked by " + attacker.gameObject.name.ToString());
+        //Debug.Log(target.gameObject.name.ToString() + " is attacked by " + attacker.gameObject.name.ToString());
         target.GotAttacked(damage);
     }
     public virtual void GotAttacked(float damage)
     {
         currHP -= damage;
-        //Debug.Log(gameObject.name.ToString()+ "'s current HP: "+ currHP.ToString());
+        //Debug.Log(gameObject.name.ToString() + "'s current HP: " + currHP.ToString());
     }
 
     public virtual bool IsAlive()
@@ -63,21 +59,22 @@ public class EnemyStatus : ElementStatus
     [SerializeField] GameObject mainObject;
 
     Vector2 originalPos;
-    protected override void FixedUpdate()
-    {
-        base.FixedUpdate();
-    }
 
     protected override void Start()
     {
         base.Start();
         originalPos = mainObject.transform.position;
     }
+    public override void GotAttacked(float damage)
+    {
+        base.GotAttacked(damage);
+        GameMasterW3.Instance.AddUnsaveEnemy(this);
+    }
+
     public override void Die()
     {
         base.Die();
         //Destroy(mainObject.gameObject);
-        GameMasterW3.Instance.AddUnsaveEnemy(this);
         mainObject.gameObject.SetActive(false);
     }
     public override void ResetElement()

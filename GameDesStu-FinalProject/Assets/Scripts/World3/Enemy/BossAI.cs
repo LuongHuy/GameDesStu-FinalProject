@@ -79,11 +79,7 @@ public class Normal: BossState
         {
             // Shoot x bullet
             _shootTimerInbetween += Time.deltaTime;
-            for (int i = 0; i < boss.GetParameter().attackAmount; i++)
-            {
-
-            }
-            boss.Shoot(Vector2.zero);
+            boss.ShootPatternSimple();
             _shootTimer = 0;
         }
     }
@@ -190,21 +186,27 @@ public class BossAI : EnemyAI
 
     }
 
-    public void Shoot(Vector3 offset)
+    public void ShootOnce(Vector3 offset)
     {
         GameObject bulletObj = Instantiate(currParameter.bulletPrefab, transform.position, Quaternion.identity);
-        BulletAI bullet = bulletObj.GetComponent<BulletAI>();
+        BulletStatus bullet = bulletObj.GetComponent<BulletStatus>();
         bullet.SetDestination(target.transform.position + offset);
+        bullet.SetBoss(bossStatus);
         bullet.Activate();
     }
 
-    IEnumerable ShootPattern1()
+    IEnumerator ShootMultiple(Vector3 offset)
     {
         for (int i = 0; i < currParameter.attackAmount; i++)
         { 
+            ShootOnce(offset);
             yield return new WaitForSeconds(currParameter.attackDelayInBetween);
-            Shoot(Vector3.zero);
         }
+    }
+
+    public void ShootPatternSimple()
+    {
+        StartCoroutine(ShootMultiple(Vector3.zero));
     }
 
     public bool CheckArrival()
