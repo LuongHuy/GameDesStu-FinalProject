@@ -34,13 +34,13 @@ public abstract class ElementStatus : MonoBehaviour
 
     public virtual void Attack(ElementStatus target, ElementStatus attacker)
     {
-        Debug.Log( target.gameObject.name.ToString() + " is attacked by " + attacker.gameObject.name.ToString());
+        //Debug.Log( target.gameObject.name.ToString() + " is attacked by " + attacker.gameObject.name.ToString());
         target.GotAttacked(damage);
     }
     public virtual void GotAttacked(float damage)
     {
         currHP -= damage;
-        Debug.Log(gameObject.name.ToString()+ "'s current HP: "+ currHP.ToString());
+        //Debug.Log(gameObject.name.ToString()+ "'s current HP: "+ currHP.ToString());
     }
 
     public virtual bool IsAlive()
@@ -49,7 +49,7 @@ public abstract class ElementStatus : MonoBehaviour
     }
     public virtual void Die()
     {
-        Debug.Log("The "+ gameObject.name.ToString() +" die");
+        //Debug.Log("The "+ gameObject.name.ToString() +" die");
     }
     public virtual void ResetElement()
     {
@@ -89,8 +89,10 @@ public class EnemyStatus : ElementStatus
     public override void ResetElement()
     {
         base.ResetElement();
-        mainObject.gameObject.SetActive(true);  
-        mainObject.transform.position = originalPos;
 
+        mainObject.gameObject.SetActive(true);
+        mainObject.transform.position = originalPos;
+        Instantiate(mainObject, originalPos, Quaternion.identity);
+        Destroy(mainObject);
     }
 }

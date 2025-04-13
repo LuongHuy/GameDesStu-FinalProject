@@ -48,12 +48,12 @@ public class GameMasterW3 : MonoBehaviour
             savedPoint = currentPoint;
             currentCheckpoint = checkpoint;
             Debug.Log("New checkpoint registered");
-        }
 
-        // reset information
-        unsaveCollectible.Clear();
-        unsavePlatform.Clear();
-        unsaveEnemy.Clear();
+            // reset information
+            unsaveCollectible.Clear();
+            unsavePlatform.Clear();
+            unsaveEnemy.Clear();
+        }
     }
 
     public void ResetState()
@@ -70,7 +70,6 @@ public class GameMasterW3 : MonoBehaviour
         {
             plat.ResetPlatform();
         }
-
         foreach(var enemy in unsaveEnemy)
         {
             enemy.ResetElement();

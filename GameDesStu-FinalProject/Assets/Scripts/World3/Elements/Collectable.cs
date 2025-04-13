@@ -13,9 +13,11 @@ public abstract class Collectable : MonoBehaviour
 
     public virtual void ResetCollectible()
     {
-        Debug.Log(gameObject.name + " reset.");
         transform.position = originalPos;
         gameObject.SetActive(true);
+
+        Instantiate(gameObject, originalPos, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     private void Start()

@@ -21,6 +21,9 @@ public class dropPlatformW3 : MonoBehaviour
         DropObjectRb.transform.position = originalPosition;
         transform.parent.gameObject.SetActive(true);
         isFalling = false;
+
+        Instantiate(transform.parent, originalPosition, Quaternion.identity);
+        Destroy(transform.parent.gameObject);
     }
 
     private void Start()
@@ -46,7 +49,6 @@ public class dropPlatformW3 : MonoBehaviour
             yield return null;
         }
         DropObjectRb.bodyType = RigidbodyType2D.Dynamic;
-        //Destroy(transform.parent.gameObject, destroyTime);
         //yield return new WaitForSeconds(destroyTime);
 
         for (float timer = 0; timer < destroyTime; timer += Time.deltaTime)
