@@ -26,7 +26,6 @@ public abstract class Collectable : MonoBehaviour
     }
     protected virtual void Remove()
     {
-        //Destroy(gameObject);
         if (removable)
         {
             gameObject.SetActive(false);
