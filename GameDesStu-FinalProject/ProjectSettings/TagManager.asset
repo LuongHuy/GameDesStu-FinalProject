@@ -8,6 +8,11 @@ TagManager:
   - Enemy
   - EnemyWeakpoint
   - Deadzone
+  - Platform
+  - Collectable
+  - CollectableSpecial
+  - CollectableFinal
+  - Checkpoint
   - Water
   - FlyingEnemy
   - Boss
@@ -22,7 +27,7 @@ TagManager:
   - Ground
   - Enemy
   - EnemyWeakpoint
-  - 
+  - Camera
   - 
   - 
   - 

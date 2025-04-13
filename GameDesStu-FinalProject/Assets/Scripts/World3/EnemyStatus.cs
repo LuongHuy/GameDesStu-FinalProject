@@ -18,7 +18,6 @@ public abstract class ElementStatus : MonoBehaviour
         // initiate the current hp to be max hp
         currHP = hp;
     }
-
     // Update is called once per frame
     protected virtual void Update()
     {
@@ -28,16 +27,20 @@ public abstract class ElementStatus : MonoBehaviour
             Die();
         }
     }
+    protected virtual void FixedUpdate()
+    {
+        // update location
+    }
 
     public virtual void Attack(ElementStatus target, ElementStatus attacker)
     {
-        Debug.Log( target.gameObject.name.ToString() + " is attacked by " + attacker.gameObject.name.ToString());
+        //Debug.Log( target.gameObject.name.ToString() + " is attacked by " + attacker.gameObject.name.ToString());
         target.GotAttacked(damage);
     }
     public virtual void GotAttacked(float damage)
     {
         currHP -= damage;
-        Debug.Log(this.gameObject.name.ToString()+ "'s current HP: "+ currHP.ToString());
+        //Debug.Log(gameObject.name.ToString()+ "'s current HP: "+ currHP.ToString());
     }
 
     public virtual bool IsAlive()
@@ -46,9 +49,12 @@ public abstract class ElementStatus : MonoBehaviour
     }
     public virtual void Die()
     {
-        Debug.Log("The "+ gameObject.name.ToString() +" die");
+        //Debug.Log("The "+ gameObject.name.ToString() +" die");
     }
-
+    public virtual void ResetElement()
+    {
+        currHP = hp;
+    }
 }
 
 public class EnemyStatus : ElementStatus
@@ -57,18 +63,36 @@ public class EnemyStatus : ElementStatus
     [SerializeField] EnemyAI AI;
 
     [Header("Group")]
-    [SerializeField] GameObject parent;
-    protected override void Update()
+    [SerializeField] GameObject mainObject;
+
+    Vector2 originalPos;
+    protected override void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
 
         // Perform super intelligent move
         AI.Act();
     }
 
+    protected override void Start()
+    {
+        base.Start();
+        originalPos = mainObject.transform.position;
+    }
     public override void Die()
     {
         base.Die();
-        Destroy(parent.gameObject);
+        //Destroy(mainObject.gameObject);
+        GameMasterW3.Instance.AddUnsaveEnemy(this);
+        mainObject.gameObject.SetActive(false);
+    }
+    public override void ResetElement()
+    {
+        base.ResetElement();
+
+        mainObject.gameObject.SetActive(true);
+        mainObject.transform.position = originalPos;
+        Instantiate(mainObject, originalPos, Quaternion.identity);
+        Destroy(mainObject);
     }
 }
