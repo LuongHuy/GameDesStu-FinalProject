@@ -27,8 +27,8 @@ public class PlayerMovementW3 : MonoBehaviour
     [Header("Jump Parameter")]
     // jump parameter
     [SerializeField] float jumpHeight = 2f;
-    [SerializeField] float coyoteMax = 0.2f;
-    [SerializeField] float jumpBufferMax = 0.2f;
+    [SerializeField] float coyoteMax = 0.1f;
+    [SerializeField] float jumpBufferMax = 0.1f;
     [SerializeField] float jumpTimeMin = 0.1f;
     [SerializeField] float jumpTimeMax = 0.5f;
     // special, for controlling falling speed
@@ -37,7 +37,8 @@ public class PlayerMovementW3 : MonoBehaviour
     [Header("Dash Parameter")]
     // Dash movement
     [SerializeField] float dashVelocity = 30f;
-    public float dashTime = 0.2f;
+    [SerializeField] float minimumDashTime = 0.2f;
+    public float dashTime = 0.5f;
 
     // private parameter
     float curr_velocity;
@@ -109,7 +110,7 @@ public class PlayerMovementW3 : MonoBehaviour
         rd.AddForce(new Vector2(horizontalForce * moveInput.x, rd.velocity.y), ForceMode2D.Force);
 
         // If the player do not press direction button, or move against the current direction, then add friction
-        if (Mathf.Abs(moveInput.x) <=0.1f || moveInput.x * rd.velocity.x < 0)
+        if (Mathf.Abs(moveInput.x) <=0.01f || moveInput.x * rd.velocity.x < 0)
         {
             // this is for friction ground only. Realistic, but harder to control jump.
             //if (CheckIsGround())
@@ -165,13 +166,15 @@ public class PlayerMovementW3 : MonoBehaviour
 
     public void UpdateGravityScale(float mode)
     {
-
         if (mode == 1)
         {
             rd.gravityScale = GRAVITYSCALE;
         }else if (mode == 2)
         {
             rd.gravityScale = GRAVITYSCALE * gravityFallingScale;
+        }else if(mode == 0)
+        {
+            rd.gravityScale = 0;
         }
     }
 
@@ -210,6 +213,10 @@ public class PlayerMovementW3 : MonoBehaviour
     }
     public bool CheckDashTime(float time)
     {
-        return time < dashTime;
+        return time >= dashTime;
+    }
+    public bool CheckMinDash(float time)
+    {
+        return time < minimumDashTime;
     }
 }

@@ -7,7 +7,7 @@ public class SpecialState : MoveState
 {
     public override void OnEnter()
     {
-        Debug.Log("Enter Special mode");
+        //Debug.Log("Enter Special mode");
 
     }
 
@@ -35,10 +35,11 @@ public class Dash: SpecialState
     bool _groundDash;
     public override void OnEnter()
     {
-        Debug.Log("Enter dash mode");
+        //Debug.Log("Enter dash mode");
         _dashTime = 0;
         _coyote = 0;
         _groundDash = player.CheckIsGround();
+        player.UpdateGravityScale(0);
     }
 
     public override void OnExit()
@@ -46,11 +47,19 @@ public class Dash: SpecialState
         //Debug.Log("Exit Special mode");
         player.resetVelocity();
         //Debug.Log(_dashTime);
+        player.UpdateGravityScale(1);
     }
     public override void StateChange() { 
         base.StateChange();
 
         _dashTime += Time.deltaTime;
+
+        // if below minimum dash, skip
+        if (player.CheckMinDash(_dashTime))
+        {
+            return;
+        }
+
 
         // if within the time, and the player press jump, still allow to jump
         if (player.CheckIsGround())
@@ -73,7 +82,7 @@ public class Dash: SpecialState
         }
 
         // dash time is over, or the player release dash button
-        if (!player.CheckDashTime(_dashTime) || !Input.GetKey(KeyCode.F))
+        if (player.CheckDashTime(_dashTime) || !Input.GetKey(KeyCode.F))
         {
             // if the player is on the ground
             if (player.CheckIsGround())
@@ -101,7 +110,7 @@ public class JumpNoDash: SpecialState
     float _jumptime;
     public override void OnEnter()
     {
-        Debug.Log("Enter jump but no dash mode");
+        //Debug.Log("Enter jump but no dash mode");
         player.Jump();
     }
 
@@ -163,7 +172,7 @@ public class FallNoDash : SpecialState
     float _enemyJumpBuffer;
     public override void OnEnter()
     {
-        Debug.Log("Enter fall but no dash mode");
+        //Debug.Log("Enter fall but no dash mode");
         player.UpdateGravityScale(2);
     }
 
