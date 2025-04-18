@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -42,7 +43,13 @@ public class GameMasterW3 : MonoBehaviour
     [SerializeField] GameObject bossPrefab;
     [SerializeField] Transform bossLocation;
     [SerializeField] GameObject gate;
+    [SerializeField] BossGate gateTrigger;
     bool isBossActive;
+
+    // boss fight cam
+    [SerializeField] CinemachineVirtualCamera camNormal;
+    [SerializeField] CinemachineVirtualCamera camBoss;
+    CinemachineVirtualCamera camCurr;
 
     private void Start()
     {
@@ -86,7 +93,7 @@ public class GameMasterW3 : MonoBehaviour
         {
             if (bullet != null)
             {
-                Destroy(bullet);
+                Destroy(bullet.gameObject);
             }
         }
 
@@ -116,7 +123,7 @@ public class GameMasterW3 : MonoBehaviour
         {
             if (bullet != null)
             {
-                Destroy(bullet);
+                Destroy(bullet.gameObject);
             }
         }
         bulletsShot = new List<BulletStatus>();
@@ -148,17 +155,24 @@ public class GameMasterW3 : MonoBehaviour
     {
         isBossActive = true;
         // block exit
-        gate.SetActive(true);
+        gate.gameObject.SetActive(true);
 
         currBoss = Instantiate(bossPrefab, bossLocation.position, Quaternion.identity);
         currBoss.SetActive(true);
+        camCurr = camBoss;
+        camBoss.Priority = 10;
+        camNormal.Priority = 0;
         //boss.SetActive(true);
     }
     public void DeactivateBoss()
     {
         isBossActive = false;
         gate.SetActive(false);
+        gateTrigger.Reset();
         Destroy(currBoss);
+        camCurr = camNormal;
+        camBoss.Priority = 0;
+        camNormal.Priority = 10;
     }
     public void AddBullet(BulletStatus bullet)
     {

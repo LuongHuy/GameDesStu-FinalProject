@@ -27,7 +27,7 @@ public class BulletStatus : ElementStatus
     protected override void Start()
     {
         base.Start();
-        Destroy(gameObject, 15);
+        Destroy(gameObject, 10);
     }
 
     public override void Die()

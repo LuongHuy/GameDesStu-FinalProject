@@ -13,12 +13,16 @@ public class SpecialState : MoveState
 
     public override void OnExit()
     {
-        //Debug.Log("Exit Special mode");
+        Debug.Log("Exit Special mode");
     }
 
     public override void Move()
     {
-        // smt
+        player.ApplyFriction(0);
+        if (Mathf.Abs(moveInput.x) <= 0.01f || player.CheckTurnDirection(moveInput))
+        {
+            player.ApplyFriction(1);
+        }
     }
 
     public override void StateChange()
@@ -40,14 +44,19 @@ public class Dash: SpecialState
         _coyote = 0;
         _groundDash = player.CheckIsGround();
         player.UpdateGravityScale(0);
+        player.Animate("Dashing");
     }
 
     public override void OnExit()
     {
         //Debug.Log("Exit Special mode");
         player.resetVelocity();
-        //Debug.Log(_dashTime);
+        Debug.Log(_dashTime);
         player.UpdateGravityScale(1);
+    }
+    public override void Move()
+    {
+        player.ApplyFriction(0);
     }
     public override void StateChange() { 
         base.StateChange();
@@ -60,11 +69,10 @@ public class Dash: SpecialState
             return;
         }
 
-
         // if within the time, and the player press jump, still allow to jump
         if (player.CheckIsGround())
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetButtonDown("Jump"))
             {
                 player.TransitTo(new JumpNoDash());
                 return;
@@ -74,7 +82,7 @@ public class Dash: SpecialState
         {
             _coyote += Time.deltaTime;
             // if within the time, and the player press jump, still allow to jump
-            if (player.checkCoyote(_coyote) && Input.GetKeyDown(KeyCode.Space))
+            if (player.checkCoyote(_coyote) && Input.GetButtonDown("Jump"))
             {
                 player.TransitTo(new JumpNoDash());
                 return;
@@ -82,7 +90,7 @@ public class Dash: SpecialState
         }
 
         // dash time is over, or the player release dash button
-        if (player.CheckDashTime(_dashTime) || !Input.GetKey(KeyCode.F))
+        if (player.CheckDashTime(_dashTime) || !(Input.GetButton("Action1")))
         {
             // if the player is on the ground
             if (player.CheckIsGround())
@@ -110,8 +118,9 @@ public class JumpNoDash: SpecialState
     float _jumptime;
     public override void OnEnter()
     {
-        //Debug.Log("Enter jump but no dash mode");
+        Debug.Log("Enter jump but no dash mode");
         player.Jump();
+        player.Animate("Jumping");
     }
 
     public override void OnExit()
@@ -136,7 +145,7 @@ public class JumpNoDash: SpecialState
         }
 
         // if release the jump button, immediately switch to falling
-        if (!Input.GetKey(KeyCode.Space))
+        if (!Input.GetButton("Jump"))
         {
             player.TransitTo(new FallNoDash());
             return;
@@ -174,6 +183,7 @@ public class FallNoDash : SpecialState
     {
         //Debug.Log("Enter fall but no dash mode");
         player.UpdateGravityScale(2);
+        player.Animate("Jumping");
     }
 
     public override void OnExit()
@@ -194,7 +204,7 @@ public class FallNoDash : SpecialState
         _buffer += Time.deltaTime;
         _enemyJumpBuffer += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Space) && !_pressJump)
+        if (Input.GetButtonDown("Jump") && !_pressJump)
         {
             _pressJump = true;
             _buffer = 0;
@@ -203,6 +213,7 @@ public class FallNoDash : SpecialState
 
         if (player.CheckStepOnEnemy())
         {
+            Debug.Log("on enemy");
             // buffer enemy jump.
             // If they touch the enemy on the head within buffer time, they jump
             if (_pressJump && player.CheckJumpBuffer(_enemyJumpBuffer))
@@ -212,7 +223,8 @@ public class FallNoDash : SpecialState
             }
             else
             {
-                player.TransitTo(new Bounch());
+                player.TransitTo(new Jump());
+                //player.TransitTo(new Bounch());
                 return;
             }
         }
@@ -236,5 +248,6 @@ public class FallNoDash : SpecialState
                 player.TransitTo(new Idle());
             }
         }
+
     }
 }

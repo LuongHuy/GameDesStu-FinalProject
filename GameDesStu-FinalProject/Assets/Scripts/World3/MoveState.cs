@@ -28,17 +28,19 @@ public class BasicMoveState: MoveState
 {
     public override void OnEnter()
     {
-        //Debug.Log("Enter Basic mode");
     }
 
     public override void OnExit()
     {
-        //Debug.Log("Exit Basic mode");
     }
 
     public override void Move()
     {
         player.HorizontalMove(moveInput);
+        if (Mathf.Abs(moveInput.x) <= 0.01f || player.CheckTurnDirection(moveInput))
+        {
+            player.ApplyFriction(1);
+        }
     }
 
     public override void StateChange()
@@ -46,13 +48,12 @@ public class BasicMoveState: MoveState
         base.StateChange();
 
         // if press action then dash
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetButtonDown("Action1"))
         {
             player.Dash(moveInput);
             player.TransitTo(new Dash());
             return;
         }
-
     }
 }
 
@@ -63,14 +64,11 @@ public class Idle: BasicMoveState
     {
         //Debug.Log("Enter Idle");
         _coyote = 0;
+        player.Animate("Idle");
     }
     public override void OnExit()
     {
         //Debug.Log("Exit Idle");
-    }
-    public override void Move()
-    {
-        base.Move();
     }
     public override void StateChange()
     {
@@ -81,7 +79,7 @@ public class Idle: BasicMoveState
         {
             _coyote += Time.deltaTime;
             // if within the time, and the player press jump, still allow to jump
-            if (player.checkCoyote(_coyote) && Input.GetKeyDown(KeyCode.Space))
+            if (player.checkCoyote(_coyote) && Input.GetButtonDown("Jump"))
             {
                 player.TransitTo(new Jump());
             }
@@ -101,7 +99,7 @@ public class Idle: BasicMoveState
         }
 
         // if the player jump
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
             player.TransitTo(new Jump());
             return;
@@ -113,16 +111,14 @@ public class Run: BasicMoveState
     float _coyote;
     public override void OnEnter()
     {
+        base.OnEnter();
         //Debug.Log("Enter Run");
         _coyote = 0;
+        player.Animate("Moving");
     }
     public override void OnExit()
     {
         //Debug.Log("Exit Run");
-    }
-    public override void Move()
-    {
-        base.Move();
     }
 
     public override void StateChange()
@@ -134,7 +130,7 @@ public class Run: BasicMoveState
         {
             _coyote += Time.deltaTime;
             // if within the time, and the player press jump, still allow to jump
-            if (player.checkCoyote(_coyote) && Input.GetKeyDown(KeyCode.Space))
+            if (player.checkCoyote(_coyote) && Input.GetButtonDown("Jump"))
             {
                 player.TransitTo(new Jump());
             }
@@ -147,7 +143,7 @@ public class Run: BasicMoveState
         }
 
         // if the player jump
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
             player.TransitTo(new Jump());
             return;
@@ -166,9 +162,11 @@ public class Jump: BasicMoveState
     float _jumptime;
     public override void OnEnter()
     {
+        base.OnEnter();
         //Debug.Log("Enter jump");
         player.Jump();
         _jumptime = 0;
+        player.Animate("Jumping");
     }
     public override void OnExit()
     {
@@ -189,15 +187,16 @@ public class Jump: BasicMoveState
         }
 
         // if release the jump button, immediately switch to falling
-        if (!Input.GetKey(KeyCode.Space))
+        if (!Input.GetButton("Jump"))
         {
             player.TransitTo(new Fall());
             return ;
         }
 
         // if start falling, then switch to falling.
-        if (player.CheckFalling() )
+        if (player.CheckFalling())
         {
+            Debug.Log("Speed to 0");
             player.TransitTo(new Fall());
             return;
         }
@@ -222,9 +221,11 @@ public class Bounch: BasicMoveState
     float _jumptime;
     public override void OnEnter()
     {
+        base.OnEnter();
         //Debug.Log("Enter bounch");
         player.Bounch();
         _jumptime = 0;
+        player.Animate("Jumping");
     }
     public override void OnExit()
     {
@@ -248,6 +249,14 @@ public class Bounch: BasicMoveState
         if (player.CheckFalling() )
         {
             player.TransitTo(new Fall());
+            return;
+        }
+
+        // if press action then dash
+        if (Input.GetButtonDown("Jump"))
+        {
+            player.Dash(moveInput);
+            player.TransitTo(new Dash());
             return;
         }
 
@@ -275,20 +284,18 @@ public class Fall: BasicMoveState
 
     public override void OnEnter()
     {
+        base.OnEnter();
         //Debug.Log("Enter Fall");
         player.UpdateGravityScale(2);
         _jumptime = 0;
         _pressJump = false;
+        player.Animate("Jumping");
     }
     public override void OnExit()
     {
         //Debug.Log("Exit Fall");
         player.UpdateGravityScale(1);
         //Debug.Log("Fall time: "+ _jumptime);
-    }
-    public override void Move()
-    {
-        base.Move();
     }
     public override void StateChange()
     {
@@ -298,15 +305,16 @@ public class Fall: BasicMoveState
         _buffer += Time.deltaTime;
         _enemyJumpBuffer += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Space) && !_pressJump)
+        if (Input.GetButtonDown("Jump") && !_pressJump)
         {
             _pressJump = true;
             _buffer = 0;
             _enemyJumpBuffer = 0;
         }
-
+        
         if (player.CheckStepOnEnemy())
         {
+            Debug.Log("Step on enemy");
             // buffer enemy jump.
             // If they touch the enemy on the head within buffer time, they jump
             if (_pressJump && player.CheckJumpBuffer(_enemyJumpBuffer))
@@ -316,7 +324,8 @@ public class Fall: BasicMoveState
             }
             else
             {
-                player.TransitTo(new Bounch());
+                player.TransitTo(new Jump());
+                //player.TransitTo(new Bounch());
                 return;
             }
         }

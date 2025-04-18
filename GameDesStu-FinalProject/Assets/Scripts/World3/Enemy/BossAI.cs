@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -40,7 +41,7 @@ public abstract class BossState
         {
             // wait for second
             _stayTimer += Time.deltaTime;
-            if (_stayTimer > boss.GetParameter().moveDelay)
+            if (_stayTimer > boss.GetParameter().moveDelay || boss.CheckImmunity())
             {
                 // then move
                 boss.Move();
@@ -108,6 +109,16 @@ public class Bloody : BossState
     {
         base.Act();
         // For combat
+
+        // After delay, shoot
+        _shootTimer += Time.deltaTime;
+        if (_shootTimer > boss.GetParameter().attackDelay)
+        {
+            // Shoot x bullet
+            _shootTimerInbetween += Time.deltaTime;
+            boss.ShootPatternSimple();
+            _shootTimer = 0;
+        }
     }
     public override void StateChange()
     {
@@ -182,7 +193,7 @@ public class BossAI : EnemyAI
     public void Move()
     {
         Vector3 direction = (nextPos - transform.position).normalized;
-        rd.velocity = direction * currParameter.speed;
+        rd.velocity = direction * currParameter.speed * (CheckImmunity()?2:1);
 
     }
 
@@ -198,6 +209,12 @@ public class BossAI : EnemyAI
 
     IEnumerator ShootMultiple(Vector3 offset)
     {
+        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
+        Color original = sr.color;
+        sr.DOColor(Color.blue, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
+        sr.DOColor(Color.blue, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
+        yield return new WaitForSeconds(0.5f);
+
         for (int i = 0; i < currParameter.attackAmount; i++)
         { 
             ShootOnce(offset);
@@ -207,6 +224,7 @@ public class BossAI : EnemyAI
 
     public void ShootPatternSimple()
     {
+
         StartCoroutine(ShootMultiple(Vector3.zero));
     }
 
@@ -244,5 +262,9 @@ public class BossAI : EnemyAI
     public float GetHP()
     {
         return bossStatus.hp;
+    }
+    public bool CheckImmunity()
+    {
+        return ((BossStatus) bossStatus).CheckImmunity();
     }
 }

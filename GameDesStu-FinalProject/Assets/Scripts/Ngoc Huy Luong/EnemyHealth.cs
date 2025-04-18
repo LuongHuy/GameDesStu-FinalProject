@@ -67,6 +67,6 @@ public class EnemyHealth : MonoBehaviour
     }
     public void DamagedEffect()
     {
-        enemyRenderer.DOColor(Color.red, 0.2f).OnComplete(() => enemyRenderer.DOColor(Color.white,0.2f));
+        enemyRenderer.DOColor(Color.red, 0.2f).OnComplete(() => enemyRenderer.DOColor(Color.red,0.2f));
     }
 }

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,11 +22,7 @@ public abstract class ElementStatus : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        //The element die when it is killed
-        if (!IsAlive())
-        {
-            Die();
-        }
+        ////The element die when it is killed
     }
 
     public virtual void Attack(ElementStatus target, ElementStatus attacker)
@@ -37,6 +34,10 @@ public abstract class ElementStatus : MonoBehaviour
     {
         currHP -= damage;
         //Debug.Log(gameObject.name.ToString() + "'s current HP: " + currHP.ToString());
+        if (!IsAlive())
+        {
+            Invoke("Die", 0.2f);
+        }
     }
 
     public virtual bool IsAlive()
@@ -69,6 +70,9 @@ public class EnemyStatus : ElementStatus
     {
         base.GotAttacked(damage);
         GameMasterW3.Instance.AddUnsaveEnemy(this);
+        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
+        Color original = sr.color;
+        sr.DOColor(Color.gray, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
     }
 
     public override void Die()
