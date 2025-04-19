@@ -1,0 +1,2927 @@
+fileFormatVersion: 2
+guid: 220bd122523fefb4798bbda1c6b648aa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8374345261583271325
+    second: World 2 (tilemap)_0
+  - first:
+      213: 6728237356521138210
+    second: World 2 (tilemap)_1
+  - first:
+      213: -2713942019339161695
+    second: World 2 (tilemap)_2
+  - first:
+      213: 8277283175789634708
+    second: World 2 (tilemap)_3
+  - first:
+      213: -8319362369487166814
+    second: World 2 (tilemap)_4
+  - first:
+      213: 3328208546501879717
+    second: World 2 (tilemap)_5
+  - first:
+      213: 8613489453760242363
+    second: World 2 (tilemap)_6
+  - first:
+      213: -3170740779109209737
+    second: World 2 (tilemap)_7
+  - first:
+      213: 4487083636466212741
+    second: World 2 (tilemap)_8
+  - first:
+      213: 259983377199274399
+    second: World 2 (tilemap)_9
+  - first:
+      213: 6399172605579930612
+    second: World 2 (tilemap)_10
+  - first:
+      213: 72579343389384370
+    second: World 2 (tilemap)_11
+  - first:
+      213: 3488746238465337972
+    second: World 2 (tilemap)_12
+  - first:
+      213: -660900260965348559
+    second: World 2 (tilemap)_13
+  - first:
+      213: -1425333449445442003
+    second: World 2 (tilemap)_14
+  - first:
+      213: -8848020633162992274
+    second: World 2 (tilemap)_15
+  - first:
+      213: 1080008731374797330
+    second: World 2 (tilemap)_16
+  - first:
+      213: 1765732497800031412
+    second: World 2 (tilemap)_17
+  - first:
+      213: -1390230002878720047
+    second: World 2 (tilemap)_18
+  - first:
+      213: 7596916723819140988
+    second: World 2 (tilemap)_19
+  - first:
+      213: 1586202701423706882
+    second: World 2 (tilemap)_20
+  - first:
+      213: -4368777234083779076
+    second: World 2 (tilemap)_21
+  - first:
+      213: 4613806847386151218
+    second: World 2 (tilemap)_22
+  - first:
+      213: -9154667640930140583
+    second: World 2 (tilemap)_23
+  - first:
+      213: -6516529627220713976
+    second: World 2 (tilemap)_24
+  - first:
+      213: -998864934900840646
+    second: World 2 (tilemap)_25
+  - first:
+      213: 6087401174678442231
+    second: World 2 (tilemap)_26
+  - first:
+      213: 4970365026928335416
+    second: World 2 (tilemap)_27
+  - first:
+      213: -4439286039437305331
+    second: World 2 (tilemap)_28
+  - first:
+      213: 3284864667414168671
+    second: World 2 (tilemap)_29
+  - first:
+      213: -1947586391732986722
+    second: World 2 (tilemap)_30
+  - first:
+      213: 2658442548450829683
+    second: World 2 (tilemap)_31
+  - first:
+      213: 8821330682838376104
+    second: World 2 (tilemap)_32
+  - first:
+      213: 7871431121052366930
+    second: World 2 (tilemap)_33
+  - first:
+      213: -1408373253623454079
+    second: World 2 (tilemap)_34
+  - first:
+      213: -1363237928247996931
+    second: World 2 (tilemap)_35
+  - first:
+      213: -7181327535285461136
+    second: World 2 (tilemap)_36
+  - first:
+      213: -5203121720168066037
+    second: World 2 (tilemap)_37
+  - first:
+      213: 7112537281140602871
+    second: World 2 (tilemap)_38
+  - first:
+      213: -6057312992929769115
+    second: World 2 (tilemap)_39
+  - first:
+      213: -251616929278772041
+    second: World 2 (tilemap)_40
+  - first:
+      213: -3325693712640046148
+    second: World 2 (tilemap)_41
+  - first:
+      213: -3917126345642126961
+    second: World 2 (tilemap)_42
+  - first:
+      213: -8000331461533025288
+    second: World 2 (tilemap)_43
+  - first:
+      213: 3061813017255083198
+    second: World 2 (tilemap)_44
+  - first:
+      213: -6160956766568919157
+    second: World 2 (tilemap)_45
+  - first:
+      213: 6875763354993435758
+    second: World 2 (tilemap)_46
+  - first:
+      213: -8267480562505460386
+    second: World 2 (tilemap)_47
+  - first:
+      213: 2691557824231803183
+    second: World 2 (tilemap)_48
+  - first:
+      213: -389909311019562376
+    second: World 2 (tilemap)_49
+  - first:
+      213: -4041858775869041105
+    second: World 2 (tilemap)_50
+  - first:
+      213: 506310313137196014
+    second: World 2 (tilemap)_51
+  - first:
+      213: -5397530546541167928
+    second: World 2 (tilemap)_52
+  - first:
+      213: -4468882878906228420
+    second: World 2 (tilemap)_53
+  - first:
+      213: -1141272422713505371
+    second: World 2 (tilemap)_54
+  - first:
+      213: 4264611681726446211
+    second: World 2 (tilemap)_55
+  - first:
+      213: 171520318859891711
+    second: World 2 (tilemap)_56
+  - first:
+      213: 1365793980499180529
+    second: World 2 (tilemap)_57
+  - first:
+      213: -2212724261164268578
+    second: World 2 (tilemap)_58
+  - first:
+      213: -345458763404641131
+    second: World 2 (tilemap)_59
+  - first:
+      213: -4594692702500469221
+    second: World 2 (tilemap)_60
+  - first:
+      213: -7996669245732563393
+    second: World 2 (tilemap)_61
+  - first:
+      213: 4786736676911401625
+    second: World 2 (tilemap)_62
+  - first:
+      213: -7405014326931122772
+    second: World 2 (tilemap)_63
+  - first:
+      213: 6392459205028110862
+    second: World 2 (tilemap)_64
+  - first:
+      213: -1545590368515963419
+    second: World 2 (tilemap)_65
+  - first:
+      213: 3889171636254942416
+    second: World 2 (tilemap)_66
+  - first:
+      213: -8066427056957091328
+    second: World 2 (tilemap)_67
+  - first:
+      213: 5693552844756718139
+    second: World 2 (tilemap)_68
+  - first:
+      213: -7814899495473972016
+    second: World 2 (tilemap)_69
+  - first:
+      213: 8697075734546855329
+    second: World 2 (tilemap)_70
+  - first:
+      213: 4945812551702856261
+    second: World 2 (tilemap)_71
+  - first:
+      213: 796859034259803903
+    second: World 2 (tilemap)_72
+  - first:
+      213: -7658491535760843500
+    second: World 2 (tilemap)_73
+  - first:
+      213: -450638663915541288
+    second: World 2 (tilemap)_74
+  - first:
+      213: -5634223610221789191
+    second: World 2 (tilemap)_75
+  - first:
+      213: 6687764919301194373
+    second: World 2 (tilemap)_76
+  - first:
+      213: -1142311798982990944
+    second: World 2 (tilemap)_77
+  - first:
+      213: 3087885824381002489
+    second: World 2 (tilemap)_78
+  - first:
+      213: 3819825842875137870
+    second: World 2 (tilemap)_79
+  - first:
+      213: 4735781626465535427
+    second: World 2 (tilemap)_80
+  - first:
+      213: -1635360602604911620
+    second: World 2 (tilemap)_81
+  - first:
+      213: 558832633378368034
+    second: World 2 (tilemap)_82
+  - first:
+      213: 8992875472576743819
+    second: World 2 (tilemap)_83
+  - first:
+      213: -5568719313767318913
+    second: World 2 (tilemap)_84
+  - first:
+      213: 3498837141085732571
+    second: World 2 (tilemap)_85
+  - first:
+      213: 2925751042970116605
+    second: World 2 (tilemap)_86
+  - first:
+      213: 6075134172591617686
+    second: World 2 (tilemap)_87
+  - first:
+      213: 7218517033680182684
+    second: World 2 (tilemap)_88
+  - first:
+      213: 4278900883532688842
+    second: World 2 (tilemap)_89
+  - first:
+      213: 8005715063698956099
+    second: World 2 (tilemap)_90
+  - first:
+      213: 3721144482761368855
+    second: World 2 (tilemap)_91
+  - first:
+      213: 1632178925784144034
+    second: World 2 (tilemap)_92
+  - first:
+      213: -937799060255090612
+    second: World 2 (tilemap)_93
+  - first:
+      213: 6594572932901055358
+    second: World 2 (tilemap)_94
+  - first:
+      213: 8375844934738778032
+    second: World 2 (tilemap)_95
+  - first:
+      213: 51418933984803538
+    second: World 2 (tilemap)_96
+  - first:
+      213: -6286903451997996353
+    second: World 2 (tilemap)_97
+  - first:
+      213: 8793138474131721398
+    second: World 2 (tilemap)_98
+  - first:
+      213: -6511544941060868838
+    second: World 2 (tilemap)_99
+  - first:
+      213: 2973945002387630794
+    second: World 2 (tilemap)_100
+  - first:
+      213: 470749724636639801
+    second: World 2 (tilemap)_101
+  - first:
+      213: 9220639524571824873
+    second: World 2 (tilemap)_102
+  - first:
+      213: 2688257141082805066
+    second: World 2 (tilemap)_103
+  - first:
+      213: -7823023095102807355
+    second: World 2 (tilemap)_104
+  - first:
+      213: -682601523984061217
+    second: World 2 (tilemap)_105
+  - first:
+      213: -4664181203713410722
+    second: World 2 (tilemap)_106
+  - first:
+      213: 5561196478501091616
+    second: World 2 (tilemap)_107
+  - first:
+      213: -3492022096061242789
+    second: World 2 (tilemap)_108
+  - first:
+      213: -6276333162891814635
+    second: World 2 (tilemap)_109
+  - first:
+      213: 1324519642647011338
+    second: World 2 (tilemap)_110
+  - first:
+      213: -2009119611068519146
+    second: World 2 (tilemap)_111
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: World 2 (tilemap)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 113
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36a7ad09a5958cb80800000000000000
+      internalID: -8374345261583271325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 94
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 228a4ff5a308f5d50800000000000000
+      internalID: 6728237356521138210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_2
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 113
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1af684ccc14265ad0800000000000000
+      internalID: -2713942019339161695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_3
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 94
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49422468131ded270800000000000000
+      internalID: 8277283175789634708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_4
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 113
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a227f8b000bb8c80800000000000000
+      internalID: -8319362369487166814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_5
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 94
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a7e9a81a0c203e20800000000000000
+      internalID: 3328208546501879717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_6
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 113
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb2e3ff9503498770800000000000000
+      internalID: 8613489453760242363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_7
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 94
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 779a95a8f044ff3d0800000000000000
+      internalID: -3170740779109209737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_8
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 113
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58f59053bc2554e30800000000000000
+      internalID: 4487083636466212741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_9
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 94
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f99187d0185ab9300800000000000000
+      internalID: 259983377199274399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_10
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 113
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fba00c949d6ec850800000000000000
+      internalID: 6399172605579930612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_11
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 94
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2be51cc378ad10100800000000000000
+      internalID: 72579343389384370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_12
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 113
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47ae43f38348a6030800000000000000
+      internalID: 3488746238465337972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_13
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 94
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13b8239d6b204d6f0800000000000000
+      internalID: -660900260965348559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_14
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 113
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2e725b87c2383ce0800000000000000
+      internalID: -1425333449445442003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_15
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 94
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e653efaec14853580800000000000000
+      internalID: -8848020633162992274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_16
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 113
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2124ae31836fcfe00800000000000000
+      internalID: 1080008731374797330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_17
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 94
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bcebbbf954218810800000000000000
+      internalID: 1765732497800031412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_18
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 94
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d7d25a9d29e4bce0800000000000000
+      internalID: -1390230002878720047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_19
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 113
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c77d677928bad6960800000000000000
+      internalID: 7596916723819140988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_20
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 113
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2030020f3f2530610800000000000000
+      internalID: 1586202701423706882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_21
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 113
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfd6f9b904cfe53c0800000000000000
+      internalID: -4368777234083779076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_22
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 94
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23967b8f1e8870040800000000000000
+      internalID: 4613806847386151218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_23
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 113
+        width: 20
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95e7899b84614f080800000000000000
+      internalID: -9154667640930140583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_24
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 94
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80e533184d2a095a0800000000000000
+      internalID: -6516529627220713976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_25
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 113
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3744a842a15322f0800000000000000
+      internalID: -998864934900840646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_26
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 94
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f0110ead1bca7450800000000000000
+      internalID: 6087401174678442231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_27
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 113
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83a961a68a84af440800000000000000
+      internalID: 4970365026928335416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_28
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 94
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0a1df21edc7462c0800000000000000
+      internalID: -4439286039437305331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_29
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 113
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f540474d20f269d20800000000000000
+      internalID: 3284864667414168671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_30
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 94
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9cde57de78c8f4e0800000000000000
+      internalID: -1947586391732986722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 75
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 375223ca96fa4e420800000000000000
+      internalID: 2658442548450829683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 56
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aed5d4c489ab6a70800000000000000
+      internalID: 8821330682838376104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_33
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 75
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 258f74466e0fc3d60800000000000000
+      internalID: 7871431121052366930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_34
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 56
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 186ec9adcf3747ce0800000000000000
+      internalID: -1408373253623454079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_35
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 75
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfd4076b35ec41de0800000000000000
+      internalID: -1363237928247996931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_36
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 56
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07f149ba7acc65c90800000000000000
+      internalID: -7181327535285461136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_37
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 75
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b045342ec5ccac7b0800000000000000
+      internalID: -5203121720168066037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_38
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 56
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f7bb1e29fec4b260800000000000000
+      internalID: 7112537281140602871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_39
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 75
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 569101b0de910fba0800000000000000
+      internalID: -6057312992929769115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_40
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 56
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bc3dd66cb3128cf0800000000000000
+      internalID: -251616929278772041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_41
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 75
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbb075a4033c8d1d0800000000000000
+      internalID: -3325693712640046148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_42
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 56
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f815daba75293a9c0800000000000000
+      internalID: -3917126345642126961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_43
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 75
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fb31fd5cec19f090800000000000000
+      internalID: -8000331461533025288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_44
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 56
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebcf72e87bebd7a20800000000000000
+      internalID: 3061813017255083198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_45
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 56
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8fce148672ef7aa0800000000000000
+      internalID: -6160956766568919157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_46
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 56
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e64280e875e9b6f50800000000000000
+      internalID: 6875763354993435758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_47
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 75
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e555a6c3b32044d80800000000000000
+      internalID: -8267480562505460386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_48
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 56
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2982c5a4955a5520800000000000000
+      internalID: 2691557824231803183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_49
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 75
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87acf062c83c69af0800000000000000
+      internalID: -389909311019562376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_50
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 75
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f26d708abde68e7c0800000000000000
+      internalID: -4041858775869041105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_51
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 56
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eebc8a81c86c60700800000000000000
+      internalID: 506310313137196014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_52
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 75
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8caf715b09e1815b0800000000000000
+      internalID: -5397530546541167928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_53
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 56
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3128f3e2b65bf1c0800000000000000
+      internalID: -4468882878906228420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_54
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 75
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a9463c37c26920f0800000000000000
+      internalID: -1141272422713505371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_55
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 56
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38a394acab1fe2b30800000000000000
+      internalID: 4264611681726446211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_56
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 75
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff3d76d32dc516200800000000000000
+      internalID: 171520318859891711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_57
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 56
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fb3504936644f210800000000000000
+      internalID: 1365793980499180529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_58
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 75
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed34a6b0203da41e0800000000000000
+      internalID: -2212724261164268578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_59
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 56
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59c78b2c51fa43bf0800000000000000
+      internalID: -345458763404641131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_60
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 75
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b16416fa45f5c30c0800000000000000
+      internalID: -4594692702500469221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_61
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 56
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f36d1dd60bf160190800000000000000
+      internalID: -7996669245732563393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_62
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 75
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99a43ac75a7ed6240800000000000000
+      internalID: 4786736676911401625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_63
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 56
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca5979ef3ba1c3990800000000000000
+      internalID: -7405014326931122772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 18
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0260ec37c396b850800000000000000
+      internalID: 6392459205028110862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_65
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 37
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e5475cafb5fc8ae0800000000000000
+      internalID: -1545590368515963419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_66
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 18
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d420895ffc19f530800000000000000
+      internalID: 3889171636254942416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_67
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 37
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0021977545b4e0090800000000000000
+      internalID: -8066427056957091328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_68
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 18
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3293a58520930f40800000000000000
+      internalID: 5693552844756718139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_69
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 37
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dcf4e06056eb8390800000000000000
+      internalID: -7814899495473972016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_70
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 37
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a5b55e2d4832b870800000000000000
+      internalID: 8697075734546855329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_71
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 18
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 542caedcf4e03a440800000000000000
+      internalID: 4945812551702856261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_72
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 37
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffecd19d1130f0b00800000000000000
+      internalID: 796859034259803903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_73
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 18
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41d93af468297b590800000000000000
+      internalID: -7658491535760843500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_74
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 37
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dce143d5820fb9f0800000000000000
+      internalID: -450638663915541288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_75
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 18
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ff7c975a773fc1b0800000000000000
+      internalID: -5634223610221789191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_76
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 37
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5824444c2c6bfcc50800000000000000
+      internalID: 6687764919301194373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_77
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 18
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a3a1e69871b520f0800000000000000
+      internalID: -1142311798982990944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_78
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 18
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f2a1350ccf5ada20800000000000000
+      internalID: 3087885824381002489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_79
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 37
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4ffd64ad5fb20530800000000000000
+      internalID: 3819825842875137870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_80
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 18
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c5cc4b4c40e8b140800000000000000
+      internalID: 4735781626465535427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_81
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 37
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf3c01a42380e49e0800000000000000
+      internalID: -1635360602604911620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_82
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 37
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22ae969b15f51c700800000000000000
+      internalID: 558832633378368034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_83
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 18
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b898244989c1dcc70800000000000000
+      internalID: 8992875472576743819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_84
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 18
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7aba09d94fe7b2b0800000000000000
+      internalID: -5568719313767318913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_85
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 37
+        width: 12
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdebb5997dd5e8030800000000000000
+      internalID: 3498837141085732571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_86
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 18
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df16671821b5a9820800000000000000
+      internalID: 2925751042970116605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_87
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 37
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 696f820b7563f4450800000000000000
+      internalID: 6075134172591617686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_88
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 37
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9d1d9d2ff25d2460800000000000000
+      internalID: 7218517033680182684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_89
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 21
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acd2218dea5b16b30800000000000000
+      internalID: 4278900883532688842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_90
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 37
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34f15c03f630a1f60800000000000000
+      internalID: 8005715063698956099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_91
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 21
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71565ec013924a330800000000000000
+      internalID: 3721144482761368855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_92
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 18
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a81e39d51aa6a610800000000000000
+      internalID: 1632178925784144034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_93
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 37
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c48dcce29b44cf2f0800000000000000
+      internalID: -937799060255090612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_94
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 18
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7b29f69421a48b50800000000000000
+      internalID: 6594572932901055358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_95
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 37
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b71cdc479afc3470800000000000000
+      internalID: 8375844934738778032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_96
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dab4ee7f3da6b000800000000000000
+      internalID: 51418933984803538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_97
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 0
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fba7b7eae9e60c8a0800000000000000
+      internalID: -6286903451997996353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_98
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 0
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bc017baad0870a70800000000000000
+      internalID: 8793138474131721398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_99
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a153311306852a5a0800000000000000
+      internalID: -6511544941060868838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_100
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 0
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acaecd81933954920800000000000000
+      internalID: 2973945002387630794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_101
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 0
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93274136160788600800000000000000
+      internalID: 470749724636639801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_102
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 0
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e2c7086bca46ff70800000000000000
+      internalID: 9220639524571824873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_103
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 0
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a43d52770ab9e4520800000000000000
+      internalID: 2688257141082805066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_104
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 0
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c268b271f90f6390800000000000000
+      internalID: -7823023095102807355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_105
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 0
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdc2acfc789e686f0800000000000000
+      internalID: -682601523984061217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_106
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 0
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e59bb9838ef754fb0800000000000000
+      internalID: -4664181203713410722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_107
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 029f5339bb65d2d40800000000000000
+      internalID: 5561196478501091616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_108
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 1
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b526478b768d98fc0800000000000000
+      internalID: -3492022096061242789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_109
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 2
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51954d5ed3cf5e8a0800000000000000
+      internalID: -6276333162891814635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_110
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 1
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a00a00ee893a16210800000000000000
+      internalID: 1324519642647011338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: World 2 (tilemap)_111
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61d6df6cb5c2e14e0800000000000000
+      internalID: -2009119611068519146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      World 2 (tilemap)_0: -8374345261583271325
+      World 2 (tilemap)_1: 6728237356521138210
+      World 2 (tilemap)_10: 6399172605579930612
+      World 2 (tilemap)_100: 2973945002387630794
+      World 2 (tilemap)_101: 470749724636639801
+      World 2 (tilemap)_102: 9220639524571824873
+      World 2 (tilemap)_103: 2688257141082805066
+      World 2 (tilemap)_104: -7823023095102807355
+      World 2 (tilemap)_105: -682601523984061217
+      World 2 (tilemap)_106: -4664181203713410722
+      World 2 (tilemap)_107: 5561196478501091616
+      World 2 (tilemap)_108: -3492022096061242789
+      World 2 (tilemap)_109: -6276333162891814635
+      World 2 (tilemap)_11: 72579343389384370
+      World 2 (tilemap)_110: 1324519642647011338
+      World 2 (tilemap)_111: -2009119611068519146
+      World 2 (tilemap)_12: 3488746238465337972
+      World 2 (tilemap)_13: -660900260965348559
+      World 2 (tilemap)_14: -1425333449445442003
+      World 2 (tilemap)_15: -8848020633162992274
+      World 2 (tilemap)_16: 1080008731374797330
+      World 2 (tilemap)_17: 1765732497800031412
+      World 2 (tilemap)_18: -1390230002878720047
+      World 2 (tilemap)_19: 7596916723819140988
+      World 2 (tilemap)_2: -2713942019339161695
+      World 2 (tilemap)_20: 1586202701423706882
+      World 2 (tilemap)_21: -4368777234083779076
+      World 2 (tilemap)_22: 4613806847386151218
+      World 2 (tilemap)_23: -9154667640930140583
+      World 2 (tilemap)_24: -6516529627220713976
+      World 2 (tilemap)_25: -998864934900840646
+      World 2 (tilemap)_26: 6087401174678442231
+      World 2 (tilemap)_27: 4970365026928335416
+      World 2 (tilemap)_28: -4439286039437305331
+      World 2 (tilemap)_29: 3284864667414168671
+      World 2 (tilemap)_3: 8277283175789634708
+      World 2 (tilemap)_30: -1947586391732986722
+      World 2 (tilemap)_31: 2658442548450829683
+      World 2 (tilemap)_32: 8821330682838376104
+      World 2 (tilemap)_33: 7871431121052366930
+      World 2 (tilemap)_34: -1408373253623454079
+      World 2 (tilemap)_35: -1363237928247996931
+      World 2 (tilemap)_36: -7181327535285461136
+      World 2 (tilemap)_37: -5203121720168066037
+      World 2 (tilemap)_38: 7112537281140602871
+      World 2 (tilemap)_39: -6057312992929769115
+      World 2 (tilemap)_4: -8319362369487166814
+      World 2 (tilemap)_40: -251616929278772041
+      World 2 (tilemap)_41: -3325693712640046148
+      World 2 (tilemap)_42: -3917126345642126961
+      World 2 (tilemap)_43: -8000331461533025288
+      World 2 (tilemap)_44: 3061813017255083198
+      World 2 (tilemap)_45: -6160956766568919157
+      World 2 (tilemap)_46: 6875763354993435758
+      World 2 (tilemap)_47: -8267480562505460386
+      World 2 (tilemap)_48: 2691557824231803183
+      World 2 (tilemap)_49: -389909311019562376
+      World 2 (tilemap)_5: 3328208546501879717
+      World 2 (tilemap)_50: -4041858775869041105
+      World 2 (tilemap)_51: 506310313137196014
+      World 2 (tilemap)_52: -5397530546541167928
+      World 2 (tilemap)_53: -4468882878906228420
+      World 2 (tilemap)_54: -1141272422713505371
+      World 2 (tilemap)_55: 4264611681726446211
+      World 2 (tilemap)_56: 171520318859891711
+      World 2 (tilemap)_57: 1365793980499180529
+      World 2 (tilemap)_58: -2212724261164268578
+      World 2 (tilemap)_59: -345458763404641131
+      World 2 (tilemap)_6: 8613489453760242363
+      World 2 (tilemap)_60: -4594692702500469221
+      World 2 (tilemap)_61: -7996669245732563393
+      World 2 (tilemap)_62: 4786736676911401625
+      World 2 (tilemap)_63: -7405014326931122772
+      World 2 (tilemap)_64: 6392459205028110862
+      World 2 (tilemap)_65: -1545590368515963419
+      World 2 (tilemap)_66: 3889171636254942416
+      World 2 (tilemap)_67: -8066427056957091328
+      World 2 (tilemap)_68: 5693552844756718139
+      World 2 (tilemap)_69: -7814899495473972016
+      World 2 (tilemap)_7: -3170740779109209737
+      World 2 (tilemap)_70: 8697075734546855329
+      World 2 (tilemap)_71: 4945812551702856261
+      World 2 (tilemap)_72: 796859034259803903
+      World 2 (tilemap)_73: -7658491535760843500
+      World 2 (tilemap)_74: -450638663915541288
+      World 2 (tilemap)_75: -5634223610221789191
+      World 2 (tilemap)_76: 6687764919301194373
+      World 2 (tilemap)_77: -1142311798982990944
+      World 2 (tilemap)_78: 3087885824381002489
+      World 2 (tilemap)_79: 3819825842875137870
+      World 2 (tilemap)_8: 4487083636466212741
+      World 2 (tilemap)_80: 4735781626465535427
+      World 2 (tilemap)_81: -1635360602604911620
+      World 2 (tilemap)_82: 558832633378368034
+      World 2 (tilemap)_83: 8992875472576743819
+      World 2 (tilemap)_84: -5568719313767318913
+      World 2 (tilemap)_85: 3498837141085732571
+      World 2 (tilemap)_86: 2925751042970116605
+      World 2 (tilemap)_87: 6075134172591617686
+      World 2 (tilemap)_88: 7218517033680182684
+      World 2 (tilemap)_89: 4278900883532688842
+      World 2 (tilemap)_9: 259983377199274399
+      World 2 (tilemap)_90: 8005715063698956099
+      World 2 (tilemap)_91: 3721144482761368855
+      World 2 (tilemap)_92: 1632178925784144034
+      World 2 (tilemap)_93: -937799060255090612
+      World 2 (tilemap)_94: 6594572932901055358
+      World 2 (tilemap)_95: 8375844934738778032
+      World 2 (tilemap)_96: 51418933984803538
+      World 2 (tilemap)_97: -6286903451997996353
+      World 2 (tilemap)_98: 8793138474131721398
+      World 2 (tilemap)_99: -6511544941060868838
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
