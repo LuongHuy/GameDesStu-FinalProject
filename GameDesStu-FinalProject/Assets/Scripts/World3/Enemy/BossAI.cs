@@ -35,13 +35,17 @@ public abstract class BossState
     public virtual void Act()
     {
         // For moving
+        if (boss.CheckImmunity())
+        {
+            _stayTimer = boss.GetParameter().moveDelay;
+        }
 
         // if not moving
         if (!boss.CheckArrival())
         {
             // wait for second
             _stayTimer += Time.deltaTime;
-            if (_stayTimer > boss.GetParameter().moveDelay || boss.CheckImmunity())
+            if (_stayTimer > boss.GetParameter().moveDelay)
             {
                 // then move
                 boss.Move();
@@ -87,7 +91,7 @@ public class Normal: BossState
     public override void StateChange()
     {
         base.StateChange();
-        if (boss.GetHP() >= Mathf.RoundToInt(boss.GetHP() / 2)) 
+        if (boss.GetHP() <= boss.GetPercentageHP(0.5f)) 
         {
             boss.TransitTo(new Bloody());
         }
@@ -187,14 +191,29 @@ public class BossAI : EnemyAI
 
     protected override void Act()
     {
-        currState.Act();
+        if (bossStatus.IsAlive()) {
+            currState.Act();
+            currState.StateChange();
+        }
     }
 
     public void Move()
     {
         Vector3 direction = (nextPos - transform.position).normalized;
         rd.velocity = direction * currParameter.speed * (CheckImmunity()?2:1);
-
+    }
+    public bool CheckArrival()
+    {
+        bool arrived = Vector3.Distance(transform.position, nextPos) < 0.1f;
+        // if arrived at location, move to the next location in the list
+        if (arrived)
+        {
+            nextIndex = (nextIndex + 1) % currParameter.destinations.Count;
+            nextPos = currParameter.destinations[nextIndex].transform.position;
+            // Stop movement
+            rd.velocity = Vector2.zero;
+        }
+        return arrived;
     }
 
     public void ShootOnce(Vector3 offset)
@@ -224,23 +243,9 @@ public class BossAI : EnemyAI
 
     public void ShootPatternSimple()
     {
-
         StartCoroutine(ShootMultiple(Vector3.zero));
     }
 
-    public bool CheckArrival()
-    {
-        bool arrived = Vector3.Distance(transform.position, nextPos) < 0.1f;
-        // if arrived at location, move to the next location in the list
-        if (arrived)
-        {
-            nextIndex = (nextIndex + 1) % currParameter.destinations.Count;
-            nextPos = currParameter.destinations[nextIndex].transform.position;
-            // Stop movement
-            rd.velocity = Vector2.zero;
-        }
-        return arrived;
-    }
 
     public void ChangeParameter(float state)
     {
@@ -261,7 +266,11 @@ public class BossAI : EnemyAI
 
     public float GetHP()
     {
-        return bossStatus.hp;
+        return bossStatus.GetHP();
+    }
+    public float GetPercentageHP(float percentage)
+    {
+        return bossStatus.GetPercentageHP(percentage);
     }
     public bool CheckImmunity()
     {

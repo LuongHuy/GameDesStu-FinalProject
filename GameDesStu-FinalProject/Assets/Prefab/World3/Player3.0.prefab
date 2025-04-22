@@ -508,12 +508,12 @@ MonoBehaviour:
     m_Bits: 256
   maxVelocity: 6
   time: 0.1
-  friction: 0.6
+  friction: 0.3
   jumpHeight: 2.2
   coyoteMax: 0.2
   jumpBufferMax: 0.2
   jumpTimeMin: 0.1
-  jumpTimeMax: 0.7
+  jumpTimeMax: 0.5
   gravityFallingScale: 2
   dashVelocity: 17
   minimumDashTime: 0.1

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ public class dropPlatformW3 : MonoBehaviour
     [SerializeField] Rigidbody2D DropObjectRb;
     [SerializeField] float delay=0.5f;
     [SerializeField] float destroyTime= 3f;
+    [SerializeField] float amplitude= 2f;
+    [SerializeField] float frequency= 2f;
 
     Vector2 originalPosition;
 
@@ -46,6 +49,10 @@ public class dropPlatformW3 : MonoBehaviour
         //yield return new WaitForSeconds(delay);
         for (float timer = 0; timer < delay; timer += Time.deltaTime)
         {
+            // Shake it
+            //DropObjectRb.transform.position.x = originalPosition.x + Mathf.Sin(frequency * Time.deltaTime)*amplitude;
+            DropObjectRb.transform.position = new Vector2(originalPosition.x + Mathf.Sin(frequency * Time.time) * amplitude, originalPosition.y);
+            Debug.Log("Shake it: "+ DropObjectRb.transform.position);
             yield return null;
         }
         DropObjectRb.bodyType = RigidbodyType2D.Dynamic;

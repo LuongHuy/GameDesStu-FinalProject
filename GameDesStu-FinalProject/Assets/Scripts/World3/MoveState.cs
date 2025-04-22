@@ -28,19 +28,17 @@ public class BasicMoveState: MoveState
 {
     public override void OnEnter()
     {
+        //Debug.Log("Enter Basic mode");
     }
 
     public override void OnExit()
     {
+        //Debug.Log("Exit Basic mode");
     }
 
     public override void Move()
     {
         player.HorizontalMove(moveInput);
-        if (Mathf.Abs(moveInput.x) <= 0.01f || player.CheckTurnDirection(moveInput))
-        {
-            player.ApplyFriction(1);
-        }
     }
 
     public override void StateChange()
@@ -48,12 +46,13 @@ public class BasicMoveState: MoveState
         base.StateChange();
 
         // if press action then dash
-        if (Input.GetButtonDown("Action1"))
+        if (Input.GetButtonDown("Action1")||Input.GetKeyDown(KeyCode.LeftShift))
         {
             player.Dash(moveInput);
             player.TransitTo(new Dash());
             return;
         }
+
     }
 }
 
@@ -64,11 +63,15 @@ public class Idle: BasicMoveState
     {
         //Debug.Log("Enter Idle");
         _coyote = 0;
-        player.Animate("Idle");
+        player.PlayAnimation("Idle");
     }
     public override void OnExit()
     {
         //Debug.Log("Exit Idle");
+    }
+    public override void Move()
+    {
+        base.Move();
     }
     public override void StateChange()
     {
@@ -111,14 +114,17 @@ public class Run: BasicMoveState
     float _coyote;
     public override void OnEnter()
     {
-        base.OnEnter();
         //Debug.Log("Enter Run");
         _coyote = 0;
-        player.Animate("Moving");
+        player.PlayAnimation("Moving");
     }
     public override void OnExit()
     {
         //Debug.Log("Exit Run");
+    }
+    public override void Move()
+    {
+        base.Move();
     }
 
     public override void StateChange()
@@ -162,11 +168,10 @@ public class Jump: BasicMoveState
     float _jumptime;
     public override void OnEnter()
     {
-        base.OnEnter();
         //Debug.Log("Enter jump");
         player.Jump();
         _jumptime = 0;
-        player.Animate("Jumping");
+        player.PlayAnimation("Jumping");
     }
     public override void OnExit()
     {
@@ -194,9 +199,8 @@ public class Jump: BasicMoveState
         }
 
         // if start falling, then switch to falling.
-        if (player.CheckFalling())
+        if (player.CheckFalling() )
         {
-            Debug.Log("Speed to 0");
             player.TransitTo(new Fall());
             return;
         }
@@ -221,11 +225,10 @@ public class Bounch: BasicMoveState
     float _jumptime;
     public override void OnEnter()
     {
-        base.OnEnter();
         //Debug.Log("Enter bounch");
         player.Bounch();
         _jumptime = 0;
-        player.Animate("Jumping");
+        player.PlayAnimation("Jumping");
     }
     public override void OnExit()
     {
@@ -249,14 +252,6 @@ public class Bounch: BasicMoveState
         if (player.CheckFalling() )
         {
             player.TransitTo(new Fall());
-            return;
-        }
-
-        // if press action then dash
-        if (Input.GetButtonDown("Jump"))
-        {
-            player.Dash(moveInput);
-            player.TransitTo(new Dash());
             return;
         }
 
@@ -284,18 +279,21 @@ public class Fall: BasicMoveState
 
     public override void OnEnter()
     {
-        base.OnEnter();
         //Debug.Log("Enter Fall");
         player.UpdateGravityScale(2);
         _jumptime = 0;
         _pressJump = false;
-        player.Animate("Jumping");
+        player.PlayAnimation("Jumping");
     }
     public override void OnExit()
     {
         //Debug.Log("Exit Fall");
         player.UpdateGravityScale(1);
         //Debug.Log("Fall time: "+ _jumptime);
+    }
+    public override void Move()
+    {
+        base.Move();
     }
     public override void StateChange()
     {
@@ -311,10 +309,9 @@ public class Fall: BasicMoveState
             _buffer = 0;
             _enemyJumpBuffer = 0;
         }
-        
+
         if (player.CheckStepOnEnemy())
         {
-            Debug.Log("Step on enemy");
             // buffer enemy jump.
             // If they touch the enemy on the head within buffer time, they jump
             if (_pressJump && player.CheckJumpBuffer(_enemyJumpBuffer))
@@ -325,7 +322,6 @@ public class Fall: BasicMoveState
             else
             {
                 player.TransitTo(new Jump());
-                //player.TransitTo(new Bounch());
                 return;
             }
         }

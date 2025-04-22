@@ -20,8 +20,14 @@ public class BossStatus : ElementStatus
     {
         base.Die();
         //Instantiate(finalArtifact, transform);
+        Invoke("spawnFinalArtifact", 0.5f);
+        Destroy(mainObject.gameObject,0.5f);
+        Destroy(gameObject, 0.5f);
+    }
+
+    void spawnFinalArtifact()
+    {
         finalArtifact.SetActive(true);
-        Destroy(mainObject.gameObject);
     }
 
     public override void GotAttacked(float damage)

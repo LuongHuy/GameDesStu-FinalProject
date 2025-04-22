@@ -41,6 +41,7 @@ public class GameMasterW3 : MonoBehaviour
 
     // for boss fight
     [SerializeField] GameObject bossPrefab;
+    //[SerializeField] GameObject boss;
     [SerializeField] Transform bossLocation;
     [SerializeField] GameObject gate;
     [SerializeField] BossGate gateTrigger;
@@ -166,13 +167,16 @@ public class GameMasterW3 : MonoBehaviour
     }
     public void DeactivateBoss()
     {
-        isBossActive = false;
-        gate.SetActive(false);
-        gateTrigger.Reset();
-        Destroy(currBoss);
-        camCurr = camNormal;
-        camBoss.Priority = 0;
-        camNormal.Priority = 10;
+        if (isBossActive)
+        {
+            isBossActive = false;
+            gate.SetActive(false);
+            gateTrigger.Reset();
+            Destroy(currBoss);
+            camCurr = camNormal;
+            camBoss.Priority = 0;
+            camNormal.Priority = 10;
+        }
     }
     public void AddBullet(BulletStatus bullet)
     {

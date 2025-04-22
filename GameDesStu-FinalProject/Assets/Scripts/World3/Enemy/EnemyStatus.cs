@@ -7,8 +7,8 @@ public abstract class ElementStatus : MonoBehaviour
 {
     // normal stats
     [Header("Stats")]
-    [SerializeField] public float hp=1f;
-    [SerializeField] public float damage =1f;
+    [SerializeField] protected float hp=1f;
+    [SerializeField] protected float damage =1f;
 
     // private variable
     protected float currHP;
@@ -51,6 +51,16 @@ public abstract class ElementStatus : MonoBehaviour
     public virtual void ResetElement()
     {
         currHP = hp;
+    }
+    public float GetHP()
+    {
+        return currHP;
+    }
+    public float GetDamage() { 
+        return damage; 
+    }
+    public float GetPercentageHP(float percentage) { 
+        return Mathf.RoundToInt(hp * percentage);
     }
 }
 

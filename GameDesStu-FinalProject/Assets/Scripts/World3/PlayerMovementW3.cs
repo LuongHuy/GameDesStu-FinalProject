@@ -8,6 +8,7 @@ public class PlayerMovementW3 : MonoBehaviour
     // import component
     [SerializeField] private Rigidbody2D rd;
     [SerializeField] private SpriteRenderer sr;
+    [SerializeField] private TrailRenderer tr;
     [SerializeField] private Animator animator;
 
     [Header("Check step on Ground")]
@@ -20,26 +21,26 @@ public class PlayerMovementW3 : MonoBehaviour
 
     // movement parameter
     [Header("Horizontal movement")]
-    [SerializeField] float maxVelocity = 6f;
-    [SerializeField] float time = 0.1f;
+    [SerializeField] float maxVelocity = 7f;
+    [SerializeField] float time = 0.2f;
     [Range(0f, 1f)]
     [SerializeField] float friction = 0.6f;
 
     [Header("Jump Parameter")]
     // jump parameter
-    [SerializeField] float jumpHeight = 2.2f;
+    [SerializeField] float jumpHeight = 2f;
     [SerializeField] float coyoteMax = 0.1f;
     [SerializeField] float jumpBufferMax = 0.1f;
     [SerializeField] float jumpTimeMin = 0.1f;
-    [SerializeField] float jumpTimeMax = 0.7f;
+    [SerializeField] float jumpTimeMax = 0.5f;
     // special, for controlling falling speed
     [SerializeField] float gravityFallingScale = 2f;
 
     [Header("Dash Parameter")]
     // Dash movement
-    [SerializeField] float dashVelocity = 17f;
-    [SerializeField] float minimumDashTime = 0.1f;
-    public float dashTime = 0.3f;
+    [SerializeField] float dashVelocity = 30f;
+    [SerializeField] float minimumDashTime = 0.2f;
+    public float dashTime = 0.5f;
 
     // private parameter
     float curr_velocity;
@@ -49,7 +50,6 @@ public class PlayerMovementW3 : MonoBehaviour
     float JUMPFORCE;
     float DASHFORCE;
     float GRAVITYSCALE;
-    float FRICTION;
 
     // state_machine
     MoveState currMoveState = null;
@@ -72,14 +72,7 @@ public class PlayerMovementW3 : MonoBehaviour
     void Update()
     {
         currMoveState.StateChange();
-        if (facingRight)
-        {
-            transform.localRotation = Quaternion.Euler(0f, 180f,0f);
-        }
-        else
-        {
-            transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-        }
+
     }
 
     // for controlling movement
@@ -91,19 +84,23 @@ public class PlayerMovementW3 : MonoBehaviour
     // Go to state
     public void TransitTo(MoveState state)
     {
+        // if the new state does not exist
+        if (state == null)
+        {
+            return;
+        }
         // Execute on exit
         if (currMoveState != null)
         {
             currMoveState.OnExit();
-            Debug.Log("Previous state: " + currMoveState.ToString());
+            //Debug.Log("previous state: " +currMoveState.ToString());
         }
-
         // Switch state
         state.SetPlayerMovement(this);
         currMoveState = state;
         // execute on enter
         currMoveState.OnEnter();
-        Debug.Log("Next state: " + currMoveState.ToString());
+        //Debug.Log("next stage: "+ currMoveState.ToString());
     }
 
     public void HorizontalMove(Vector2 moveInput)
@@ -117,14 +114,22 @@ public class PlayerMovementW3 : MonoBehaviour
 
         rd.AddForce(new Vector2(horizontalForce * moveInput.x, rd.velocity.y), ForceMode2D.Force);
 
+        // If the player do not press direction button, or move against the current direction, then add friction
+        if (Mathf.Abs(moveInput.x) <=0.01f || moveInput.x * rd.velocity.x < 0)
+        {
+            // this is for friction on air and ground. Unrealistic, but let the player easier to control jump.
+            rd.velocity = new Vector2(rd.velocity.x * friction, rd.velocity.y);
+        }
 
-        if (rd.velocity.x >= 0)
+        if (moveInput.x > 0)
         {
             facingRight = true;
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
         else
         {
             facingRight = false;
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
@@ -173,21 +178,8 @@ public class PlayerMovementW3 : MonoBehaviour
             rd.gravityScale = 0;
         }
     }
-    public void ApplyFriction(float scale)
-    {
-        if ( scale == 0)
-        {
-            FRICTION = 1;
-        }
-        else
-        {
-            FRICTION = friction * scale;
-        }
 
-        rd.velocity = new Vector2(rd.velocity.x * FRICTION, rd.velocity.y);
-    }
-
-    public void Animate(string animationName)
+    public void PlayAnimation(string animationName)
     {
         animator.Play(animationName);
     }
@@ -202,21 +194,22 @@ public class PlayerMovementW3 : MonoBehaviour
     // return true if is on the enemy
     public bool CheckStepOnEnemy()
     {
-        bool isEnemy = Physics2D.OverlapAreaAll(enemyCheckCollider.bounds.min, enemyCheckCollider.bounds.max, enemyMask).Length > 0;
-        return isEnemy;
+        bool isGround = Physics2D.OverlapAreaAll(enemyCheckCollider.bounds.min, enemyCheckCollider.bounds.max, enemyMask).Length > 0;
+        return isGround;
+    }
+
+    public void ActivateTrail()
+    {
+        tr.emitting = true;
+    }
+    public void DeactivateTrail()
+    {
+        tr.emitting = false;
     }
 
     public bool CheckFalling()
     {
         return rd.velocity.y<0;
-    }
-    public bool CheckTurnDirection(Vector2 moveInput)
-    {
-        if (Mathf.Abs(rd.velocity.x) < 0.05f)
-        {
-            return false;
-        }
-        return moveInput.x * rd.velocity.x < 0;
     }
 
     public bool CheckTimeJump(float time)

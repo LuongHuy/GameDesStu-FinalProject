@@ -300,6 +300,8 @@ MonoBehaviour:
   DropObjectRb: {fileID: 272136230818400300}
   delay: 1
   destroyTime: 1
+  amplitude: 0.2
+  frequency: 35
 --- !u!1 &5416856033985815681
 GameObject:
   m_ObjectHideFlags: 0
