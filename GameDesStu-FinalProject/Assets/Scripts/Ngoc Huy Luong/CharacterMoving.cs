@@ -7,6 +7,8 @@ public class CharacterMoving : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     private bool isGrounded;
+    public Transform checkGroundTransform;
+    public LayerMask groundMask;
 
     void Update()
     {
@@ -27,8 +29,9 @@ public class CharacterMoving : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-            isGrounded = false;
+            
         }
+        isGrounded = CheckGround();
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -36,5 +39,12 @@ public class CharacterMoving : MonoBehaviour
         {
             isGrounded = true;
         }
+    }
+    bool CheckGround()
+    {
+        return Physics2D.OverlapCircle(checkGroundTransform.position, 0.05f, groundMask);
+        
+            
+       
     }
 }

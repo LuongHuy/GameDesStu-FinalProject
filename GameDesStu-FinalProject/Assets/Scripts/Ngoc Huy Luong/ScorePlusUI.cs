@@ -8,11 +8,11 @@ public class ScorePlusUI : MonoBehaviour
 {
     public TextMeshPro scoreText;   
 
-    public void SetValue(int score)
+    public void SetValue(string content, float duration)
     {
         var finalY = transform.position.y + 1;
-        scoreText.text = "+" + score.ToString();
-        transform.DOMoveY(finalY, 0.5f).OnComplete(() => Destroy(gameObject));
+        scoreText.text = content;
+        transform.DOMoveY(finalY, duration).OnComplete(() => Destroy(gameObject));
     }
  
 

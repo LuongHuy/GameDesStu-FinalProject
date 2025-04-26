@@ -31,6 +31,6 @@ public class ScoreManager : MonoBehaviour
         scoreCount += score;
         scoreText.text = scoreCount.ToString();
         scoreTextInTotal.text = scoreCount.ToString();
-        playerScore.ShowScoreText(score);
+        playerScore.ShowScoreText("+" + score,0.5f);
     }
 }
