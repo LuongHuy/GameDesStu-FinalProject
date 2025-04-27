@@ -385,8 +385,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DropObjectRb: {fileID: 272136230818400300}
-  delay: 0.5
+  delay: 1
   destroyTime: 1
+  amplitude: 0.2
+  frequency: 35
 --- !u!1 &5416856033985815681
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,11 +554,11 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 511
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 90
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1

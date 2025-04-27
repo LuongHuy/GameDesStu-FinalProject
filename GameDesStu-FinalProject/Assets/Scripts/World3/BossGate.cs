@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class BossGate : MonoBehaviour
 {
-    [SerializeField] GameObject boss;
-    [SerializeField] GameObject gate;
+    bool _isTriggered;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !_isTriggered)
         {
-            boss.SetActive(true);
-            gate.SetActive(true);
+            GameMasterW3.Instance.ActivateBoss();
+            _isTriggered = true;
         }
+    }
+
+    public void Reset()
+    {
+        _isTriggered=false;
     }
 }

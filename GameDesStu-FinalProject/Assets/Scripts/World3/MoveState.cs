@@ -46,7 +46,7 @@ public class BasicMoveState: MoveState
         base.StateChange();
 
         // if press action then dash
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetButtonDown("Action1")||Input.GetKeyDown(KeyCode.LeftShift))
         {
             player.Dash(moveInput);
             player.TransitTo(new Dash());
@@ -63,6 +63,7 @@ public class Idle: BasicMoveState
     {
         //Debug.Log("Enter Idle");
         _coyote = 0;
+        player.PlayAnimation("Idle");
     }
     public override void OnExit()
     {
@@ -81,7 +82,7 @@ public class Idle: BasicMoveState
         {
             _coyote += Time.deltaTime;
             // if within the time, and the player press jump, still allow to jump
-            if (player.checkCoyote(_coyote) && Input.GetKeyDown(KeyCode.Space))
+            if (player.checkCoyote(_coyote) && Input.GetButtonDown("Jump"))
             {
                 player.TransitTo(new Jump());
             }
@@ -101,7 +102,7 @@ public class Idle: BasicMoveState
         }
 
         // if the player jump
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
             player.TransitTo(new Jump());
             return;
@@ -115,6 +116,7 @@ public class Run: BasicMoveState
     {
         //Debug.Log("Enter Run");
         _coyote = 0;
+        player.PlayAnimation("Moving");
     }
     public override void OnExit()
     {
@@ -134,7 +136,7 @@ public class Run: BasicMoveState
         {
             _coyote += Time.deltaTime;
             // if within the time, and the player press jump, still allow to jump
-            if (player.checkCoyote(_coyote) && Input.GetKeyDown(KeyCode.Space))
+            if (player.checkCoyote(_coyote) && Input.GetButtonDown("Jump"))
             {
                 player.TransitTo(new Jump());
             }
@@ -147,7 +149,7 @@ public class Run: BasicMoveState
         }
 
         // if the player jump
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
             player.TransitTo(new Jump());
             return;
@@ -169,6 +171,7 @@ public class Jump: BasicMoveState
         //Debug.Log("Enter jump");
         player.Jump();
         _jumptime = 0;
+        player.PlayAnimation("Jumping");
     }
     public override void OnExit()
     {
@@ -189,7 +192,7 @@ public class Jump: BasicMoveState
         }
 
         // if release the jump button, immediately switch to falling
-        if (!Input.GetKey(KeyCode.Space))
+        if (!Input.GetButton("Jump"))
         {
             player.TransitTo(new Fall());
             return ;
@@ -225,6 +228,7 @@ public class Bounch: BasicMoveState
         //Debug.Log("Enter bounch");
         player.Bounch();
         _jumptime = 0;
+        player.PlayAnimation("Jumping");
     }
     public override void OnExit()
     {
@@ -279,6 +283,7 @@ public class Fall: BasicMoveState
         player.UpdateGravityScale(2);
         _jumptime = 0;
         _pressJump = false;
+        player.PlayAnimation("Jumping");
     }
     public override void OnExit()
     {
@@ -298,7 +303,7 @@ public class Fall: BasicMoveState
         _buffer += Time.deltaTime;
         _enemyJumpBuffer += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Space) && !_pressJump)
+        if (Input.GetButtonDown("Jump") && !_pressJump)
         {
             _pressJump = true;
             _buffer = 0;
@@ -316,7 +321,7 @@ public class Fall: BasicMoveState
             }
             else
             {
-                player.TransitTo(new Bounch());
+                player.TransitTo(new Jump());
                 return;
             }
         }

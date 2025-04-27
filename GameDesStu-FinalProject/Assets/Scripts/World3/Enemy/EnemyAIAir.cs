@@ -62,6 +62,17 @@ public class EnemyAIAir : EnemyAI
 
             Vector3 direction = (nextPos - transform.position).normalized;
             rd.velocity = direction * speed;
+            if (rd.velocity.x > 0)
+            {
+                facingRight = true;
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
+            else
+            {
+                facingRight = false;
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+            }
+
         }
     }
 }

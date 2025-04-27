@@ -19,6 +19,11 @@ public class PlayerStatus : ElementStatus
         lifeText.SetText(currentLife.ToString());
     }
 
+    protected override void Update()
+    {
+        base.Update();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
@@ -29,6 +34,8 @@ public class PlayerStatus : ElementStatus
                 if (movementManager.CheckStepOnEnemy())
                 {
                     Attack(enemy, this);
+                    //GameMasterW3.Instance.SpawnPopup("Enemy defeated", transform.position, transform
+                    GameMasterW3.Instance.PointIncrease(5, collision.transform.position, transform);
                 }
                 else
                 {
@@ -44,7 +51,8 @@ public class PlayerStatus : ElementStatus
 
         if (collision.gameObject.CompareTag("Deadzone"))
         {
-            Die();
+            PlayAnimation("Die");
+            Invoke("Die", 0.2f);
         }
     }
 

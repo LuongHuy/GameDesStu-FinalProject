@@ -40,6 +40,8 @@ public class Dash: SpecialState
         _coyote = 0;
         _groundDash = player.CheckIsGround();
         player.UpdateGravityScale(0);
+        player.PlayAnimation("Dashing");
+        player.ActivateTrail();
     }
 
     public override void OnExit()
@@ -48,7 +50,9 @@ public class Dash: SpecialState
         player.resetVelocity();
         //Debug.Log(_dashTime);
         player.UpdateGravityScale(1);
+        player.DeactivateTrail();
     }
+
     public override void StateChange() { 
         base.StateChange();
 
@@ -64,7 +68,7 @@ public class Dash: SpecialState
         // if within the time, and the player press jump, still allow to jump
         if (player.CheckIsGround())
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetButtonDown("Jump"))
             {
                 player.TransitTo(new JumpNoDash());
                 return;
@@ -74,7 +78,7 @@ public class Dash: SpecialState
         {
             _coyote += Time.deltaTime;
             // if within the time, and the player press jump, still allow to jump
-            if (player.checkCoyote(_coyote) && Input.GetKeyDown(KeyCode.Space))
+            if (player.checkCoyote(_coyote) && Input.GetButtonDown("Jump"))
             {
                 player.TransitTo(new JumpNoDash());
                 return;
@@ -82,7 +86,7 @@ public class Dash: SpecialState
         }
 
         // dash time is over, or the player release dash button
-        if (player.CheckDashTime(_dashTime) || !Input.GetKey(KeyCode.F))
+        if (player.CheckDashTime(_dashTime) || !(Input.GetButton("Action1")||Input.GetKey(KeyCode.LeftShift)))
         {
             // if the player is on the ground
             if (player.CheckIsGround())
@@ -112,6 +116,7 @@ public class JumpNoDash: SpecialState
     {
         //Debug.Log("Enter jump but no dash mode");
         player.Jump();
+        player.PlayAnimation("Jumping");
     }
 
     public override void OnExit()
@@ -136,7 +141,7 @@ public class JumpNoDash: SpecialState
         }
 
         // if release the jump button, immediately switch to falling
-        if (!Input.GetKey(KeyCode.Space))
+        if (!Input.GetButton("Jump"))
         {
             player.TransitTo(new FallNoDash());
             return;
@@ -174,6 +179,7 @@ public class FallNoDash : SpecialState
     {
         //Debug.Log("Enter fall but no dash mode");
         player.UpdateGravityScale(2);
+        player.PlayAnimation("Jumping");
     }
 
     public override void OnExit()
@@ -194,7 +200,7 @@ public class FallNoDash : SpecialState
         _buffer += Time.deltaTime;
         _enemyJumpBuffer += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Space) && !_pressJump)
+        if (Input.GetButtonDown("Jump") && !_pressJump)
         {
             _pressJump = true;
             _buffer = 0;

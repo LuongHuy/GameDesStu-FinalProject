@@ -8,6 +8,8 @@ public class PlayerMovementW3 : MonoBehaviour
     // import component
     [SerializeField] private Rigidbody2D rd;
     [SerializeField] private SpriteRenderer sr;
+    [SerializeField] private TrailRenderer tr;
+    [SerializeField] private Animator animator;
 
     [Header("Check step on Ground")]
     [SerializeField] private BoxCollider2D groundCheckCollider;
@@ -70,6 +72,7 @@ public class PlayerMovementW3 : MonoBehaviour
     void Update()
     {
         currMoveState.StateChange();
+
     }
 
     // for controlling movement
@@ -90,12 +93,14 @@ public class PlayerMovementW3 : MonoBehaviour
         if (currMoveState != null)
         {
             currMoveState.OnExit();
+            //Debug.Log("previous state: " +currMoveState.ToString());
         }
         // Switch state
         state.SetPlayerMovement(this);
         currMoveState = state;
         // execute on enter
         currMoveState.OnEnter();
+        //Debug.Log("next stage: "+ currMoveState.ToString());
     }
 
     public void HorizontalMove(Vector2 moveInput)
@@ -112,12 +117,6 @@ public class PlayerMovementW3 : MonoBehaviour
         // If the player do not press direction button, or move against the current direction, then add friction
         if (Mathf.Abs(moveInput.x) <=0.01f || moveInput.x * rd.velocity.x < 0)
         {
-            // this is for friction ground only. Realistic, but harder to control jump.
-            //if (CheckIsGround())
-            //{
-            //    rd.velocity = new Vector2(rd.velocity.x * friction, rd.velocity.y);
-            //}
-
             // this is for friction on air and ground. Unrealistic, but let the player easier to control jump.
             rd.velocity = new Vector2(rd.velocity.x * friction, rd.velocity.y);
         }
@@ -125,10 +124,12 @@ public class PlayerMovementW3 : MonoBehaviour
         if (moveInput.x > 0)
         {
             facingRight = true;
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
         else
         {
             facingRight = false;
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
@@ -178,6 +179,11 @@ public class PlayerMovementW3 : MonoBehaviour
         }
     }
 
+    public void PlayAnimation(string animationName)
+    {
+        animator.Play(animationName);
+    }
+
     // return true if is on the ground
     public bool CheckIsGround()
     {
@@ -192,9 +198,18 @@ public class PlayerMovementW3 : MonoBehaviour
         return isGround;
     }
 
+    public void ActivateTrail()
+    {
+        tr.emitting = true;
+    }
+    public void DeactivateTrail()
+    {
+        tr.emitting = false;
+    }
+
     public bool CheckFalling()
     {
-        return rd.velocity.y<=0;
+        return rd.velocity.y<0;
     }
 
     public bool CheckTimeJump(float time)

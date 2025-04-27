@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 8878918193667426866}
   - component: {fileID: 4044902873136088371}
   - component: {fileID: 4734078225539566670}
+  - component: {fileID: 5216952580505441337}
   m_Layer: 3
   m_Name: Sprite
   m_TagString: Player
@@ -154,8 +155,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 2575815558344410250, guid: 08231dabd8dab62439916639ce1a0c34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -310,7 +311,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.9166667, y: 1.0416666}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -318,6 +319,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &5216952580505441337
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2336579135909212200}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7fbfcad3db1d941418a7950633bedaec, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3294012495757026686
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +497,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rd: {fileID: 1823492725192863189}
   sr: {fileID: 8878918193667426866}
+  tr: {fileID: 0}
+  animator: {fileID: 5216952580505441337}
   groundCheckCollider: {fileID: 6517466880799626008}
   groundMask:
     serializedVersion: 2
@@ -482,17 +507,18 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 256
-  maxVelocity: 7
+  maxVelocity: 6
   time: 0.1
-  friction: 0.6
-  jumpHeight: 3
+  friction: 0.3
+  jumpHeight: 2.2
   coyoteMax: 0.2
   jumpBufferMax: 0.2
   jumpTimeMin: 0.1
   jumpTimeMax: 0.5
   gravityFallingScale: 2
-  dashVelocity: 30
-  dashTime: 0.2
+  dashVelocity: 17
+  minimumDashTime: 0.1
+  dashTime: 0.3
 --- !u!114 &9003602245716176196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,5 +533,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1
   damage: 1
+  animator: {fileID: 5216952580505441337}
+  sr: {fileID: 8878918193667426866}
   movementManager: {fileID: 2866161026390375176}
-  respawnLoc: {fileID: 0}
+  lifeLimit: 3
+  lifeText: {fileID: 0}

@@ -1,6 +1,8 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class GameMasterW3 : MonoBehaviour
@@ -25,17 +27,32 @@ public class GameMasterW3 : MonoBehaviour
     [SerializeField] TextMeshProUGUI point;
     [SerializeField] GameObject endGameUI;
     [SerializeField] GameObject winGameUI;
+    [SerializeField] Popup popupObj;
 
     // Save information
     Transform currentCheckpoint = null;
     List<Collectable> unsaveCollectible = new List<Collectable>();
     List<dropPlatformW3> unsavePlatform = new List<dropPlatformW3>();
     List<ElementStatus> unsaveEnemy = new List<ElementStatus>();
+    List<BulletStatus> bulletsShot = new List<BulletStatus>();
     float currentPoint;
     float savedPoint;
 
     float coinCollected;
     float secondaryObjective;
+
+    // for boss fight
+    [SerializeField] GameObject bossPrefab;
+    //[SerializeField] GameObject boss;
+    [SerializeField] Transform bossLocation;
+    [SerializeField] GameObject gate;
+    [SerializeField] BossGate gateTrigger;
+    bool isBossActive;
+
+    // boss fight cam
+    [SerializeField] CinemachineVirtualCamera camNormal;
+    [SerializeField] CinemachineVirtualCamera camBoss;
+    CinemachineVirtualCamera camCurr;
 
     private void Start()
     {
@@ -48,7 +65,6 @@ public class GameMasterW3 : MonoBehaviour
         {
             savedPoint = currentPoint;
             currentCheckpoint = checkpoint;
-            Debug.Log("New checkpoint registered");
 
             // reset information
             unsaveCollectible.Clear();
@@ -75,11 +91,22 @@ public class GameMasterW3 : MonoBehaviour
         {
             enemy.ResetElement();
         }
+        foreach(var bullet in bulletsShot)
+        {
+            if (bullet != null)
+            {
+                Destroy(bullet.gameObject);
+            }
+        }
 
         // reset information
         unsaveCollectible.Clear();
         unsavePlatform.Clear();
         unsaveEnemy.Clear();
+        bulletsShot.Clear();
+
+        // reset Boss
+        DeactivateBoss();
     }
 
     public void ResetAll()
@@ -92,6 +119,19 @@ public class GameMasterW3 : MonoBehaviour
         unsaveCollectible = new List<Collectable>();
         unsavePlatform = new List<dropPlatformW3>();
         unsaveEnemy = new List<ElementStatus>();
+
+        // for bullet
+        foreach (var bullet in bulletsShot)
+        {
+            if (bullet != null)
+            {
+                Destroy(bullet.gameObject);
+            }
+        }
+        bulletsShot = new List<BulletStatus>();
+
+        // for boss fight
+        DeactivateBoss();
     }
 
     public Transform GetCheckpoint()
@@ -112,16 +152,53 @@ public class GameMasterW3 : MonoBehaviour
         unsavePlatform.Add(platform);
     }
 
-    public void CollectToken()
+    GameObject currBoss;
+    public void ActivateBoss()
     {
-        currentPoint += 1;
-        point.SetText(currentPoint.ToString());
+        isBossActive = true;
+        // block exit
+        gate.gameObject.SetActive(true);
+
+        currBoss = Instantiate(bossPrefab, bossLocation.position, Quaternion.identity);
+        currBoss.SetActive(true);
+        camCurr = camBoss;
+        camBoss.Priority = 10;
+        camNormal.Priority = 0;
+        //boss.SetActive(true);
     }
-    public void CollectSecondaryObjective()
+    public void DeactivateBoss()
     {
-        secondaryObjective++;
-        currentPoint += 10;
+        if (isBossActive)
+        {
+            isBossActive = false;
+            gate.SetActive(false);
+            gateTrigger.Reset();
+            Destroy(currBoss);
+            camCurr = camNormal;
+            camBoss.Priority = 0;
+            camNormal.Priority = 10;
+        }
+    }
+    public void AddBullet(BulletStatus bullet)
+    {
+        bulletsShot.Add(bullet);
+    }
+    //public void CollectToken()
+    //{
+    //    currentPoint += 1;
+    //    point.SetText(currentPoint.ToString());
+    //}
+    //public void CollectSecondaryObjective()
+    //{
+    //    secondaryObjective++;
+    //    currentPoint += 50;
+    //    point.SetText(currentPoint.ToString());
+    //}
+    public void PointIncrease(float p, Vector3 pos, Transform parent)
+    {
+        currentPoint += p;
         point.SetText(currentPoint.ToString());
+        SpawnPopup("+" + p, pos, parent);
     }
     public void CollectMainObjective()
     {
@@ -146,5 +223,13 @@ public class GameMasterW3 : MonoBehaviour
         {
             endGameUI.SetActive(true);
         }
+    }
+
+    public void SpawnPopup(string message, Vector3 pos, Transform parent)
+    {
+        Debug.Log(pos);
+        Popup popup = Instantiate(popupObj, pos, new Quaternion());
+        popup.value = message;
+        Destroy(popup, 0.5f);
     }
 }

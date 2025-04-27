@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -34,6 +35,10 @@ public abstract class BossState
     public virtual void Act()
     {
         // For moving
+        if (boss.CheckImmunity())
+        {
+            _stayTimer = boss.GetParameter().moveDelay;
+        }
 
         // if not moving
         if (!boss.CheckArrival())
@@ -86,7 +91,7 @@ public class Normal: BossState
     public override void StateChange()
     {
         base.StateChange();
-        if (boss.GetHP() >= Mathf.RoundToInt(boss.GetHP() / 2)) 
+        if (boss.GetHP() <= boss.GetPercentageHP(0.5f)) 
         {
             boss.TransitTo(new Bloody());
         }
@@ -108,6 +113,16 @@ public class Bloody : BossState
     {
         base.Act();
         // For combat
+
+        // After delay, shoot
+        _shootTimer += Time.deltaTime;
+        if (_shootTimer > boss.GetParameter().attackDelay)
+        {
+            // Shoot x bullet
+            _shootTimerInbetween += Time.deltaTime;
+            boss.ShootPatternSimple();
+            _shootTimer = 0;
+        }
     }
     public override void StateChange()
     {
@@ -127,6 +142,7 @@ public class BossAI : EnemyAI
     [SerializeField] Rigidbody2D rd;
     [SerializeField] ElementStatus bossStatus;
     [SerializeField] GameObject target;
+    [SerializeField] SpriteRenderer sr;
 
     // Setup State machine
     BossState currState;
@@ -176,39 +192,17 @@ public class BossAI : EnemyAI
 
     protected override void Act()
     {
-        currState.Act();
+        if (bossStatus.IsAlive()) {
+            currState.Act();
+            currState.StateChange();
+        }
     }
 
     public void Move()
     {
         Vector3 direction = (nextPos - transform.position).normalized;
-        rd.velocity = direction * currParameter.speed;
-
+        rd.velocity = direction * currParameter.speed * (CheckImmunity()?2:1);
     }
-
-    public void ShootOnce(Vector3 offset)
-    {
-        GameObject bulletObj = Instantiate(currParameter.bulletPrefab, transform.position, Quaternion.identity);
-        BulletStatus bullet = bulletObj.GetComponent<BulletStatus>();
-        bullet.SetDestination(target.transform.position + offset);
-        bullet.SetBoss(bossStatus);
-        bullet.Activate();
-    }
-
-    IEnumerator ShootMultiple(Vector3 offset)
-    {
-        for (int i = 0; i < currParameter.attackAmount; i++)
-        { 
-            ShootOnce(offset);
-            yield return new WaitForSeconds(currParameter.attackDelayInBetween);
-        }
-    }
-
-    public void ShootPatternSimple()
-    {
-        StartCoroutine(ShootMultiple(Vector3.zero));
-    }
-
     public bool CheckArrival()
     {
         bool arrived = Vector3.Distance(transform.position, nextPos) < 0.1f;
@@ -222,6 +216,39 @@ public class BossAI : EnemyAI
         }
         return arrived;
     }
+
+    public void ShootOnce(Vector3 offset)
+    {
+        GameObject bulletObj = Instantiate(currParameter.bulletPrefab, transform.position, Quaternion.identity);
+        BulletStatus bullet = bulletObj.GetComponent<BulletStatus>();
+        bullet.SetDestination(target.transform.position + offset);
+        bullet.SetBoss(bossStatus);
+        bullet.Activate();
+        GameMasterW3.Instance.AddBullet(bullet);
+    }
+
+    IEnumerator ShootMultiple(Vector3 offset)
+    {
+        Color original = sr.color;
+        sr.DOColor(Color.blue, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
+        sr.DOColor(Color.blue, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
+        yield return new WaitForSeconds(0.1f);
+        bossStatus.PlayAnimation("Attack");
+        yield return new WaitForSeconds(0.3f);
+        for (int i = 0; i < currParameter.attackAmount; i++)
+        { 
+            ShootOnce(offset);
+            yield return new WaitForSeconds(currParameter.attackDelayInBetween);
+        }
+        yield return new WaitForSeconds(0.1f);
+        bossStatus.PlayAnimation("Idle");
+    }
+
+    public void ShootPatternSimple()
+    {
+        StartCoroutine(ShootMultiple(Vector3.zero));
+    }
+
 
     public void ChangeParameter(float state)
     {
@@ -242,6 +269,14 @@ public class BossAI : EnemyAI
 
     public float GetHP()
     {
-        return bossStatus.hp;
+        return bossStatus.GetHP();
+    }
+    public float GetPercentageHP(float percentage)
+    {
+        return bossStatus.GetPercentageHP(percentage);
+    }
+    public bool CheckImmunity()
+    {
+        return ((BossStatus) bossStatus).CheckImmunity();
     }
 }

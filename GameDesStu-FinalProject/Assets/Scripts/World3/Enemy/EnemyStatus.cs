@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,10 @@ public abstract class ElementStatus : MonoBehaviour
 {
     // normal stats
     [Header("Stats")]
-    [SerializeField] public float hp=1f;
-    [SerializeField] public float damage =1f;
+    [SerializeField] protected float hp=1f;
+    [SerializeField] protected float damage =1f;
+    [SerializeField] protected Animator animator;
+    [SerializeField] protected SpriteRenderer sr;
 
     // private variable
     protected float currHP;
@@ -21,11 +24,7 @@ public abstract class ElementStatus : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        //The element die when it is killed
-        if (!IsAlive())
-        {
-            Die();
-        }
+        ////The element die when it is killed
     }
 
     public virtual void Attack(ElementStatus target, ElementStatus attacker)
@@ -37,8 +36,12 @@ public abstract class ElementStatus : MonoBehaviour
     {
         currHP -= damage;
         //Debug.Log(gameObject.name.ToString() + "'s current HP: " + currHP.ToString());
+        if (!IsAlive())
+        {
+            PlayAnimation("Die");
+            Invoke("Die", 0.2f);
+        }
     }
-
     public virtual bool IsAlive()
     {
         return currHP > 0;
@@ -51,6 +54,23 @@ public abstract class ElementStatus : MonoBehaviour
     {
         currHP = hp;
     }
+    public float GetHP()
+    {
+        return currHP;
+    }
+    public float GetDamage() { 
+        return damage;
+    }
+    public float GetPercentageHP(float percentage)
+    {
+        return Mathf.RoundToInt(hp * percentage);
+    }
+
+    public void PlayAnimation(string animationName)
+    {
+        animator.Play(animationName);
+    }
+
 }
 
 public class EnemyStatus : ElementStatus
@@ -69,6 +89,8 @@ public class EnemyStatus : ElementStatus
     {
         base.GotAttacked(damage);
         GameMasterW3.Instance.AddUnsaveEnemy(this);
+        Color original = sr.color;
+        sr.DOColor(Color.gray, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
     }
 
     public override void Die()

@@ -6,7 +6,8 @@ public class CollectableFinal : Collectable
 {
     protected override void Collected(Collider2D collision)
     {
-        Debug.Log("Collect Final artifact");
+        //Debug.Log("Collect Final artifact");
         GameMasterW3.Instance.CollectMainObjective();
+        GameMasterW3.Instance.SpawnPopup("Final artifact collected", collision.transform.position, transform);
     }
 }
