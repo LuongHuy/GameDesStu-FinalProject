@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float moveSpeed = 6f;
     public GameObject hitEffect;
-    public int direction;
+    public Vector3 direction;
 
     private Vector3 initialPosition;
 
@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
     void Update()
     {
  
-        transform.position += transform.right * moveSpeed * direction * Time.deltaTime;
+        transform.position += moveSpeed * direction * Time.deltaTime;
 
        
         if (Vector3.Distance(initialPosition, transform.position) >= distanctTravel)

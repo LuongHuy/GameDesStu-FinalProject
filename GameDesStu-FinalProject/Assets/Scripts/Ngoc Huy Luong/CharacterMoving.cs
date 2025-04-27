@@ -9,6 +9,7 @@ public class CharacterMoving : MonoBehaviour
     private bool isGrounded;
     public Transform checkGroundTransform;
     public LayerMask groundMask;
+    public Animator anim;
 
     void Update()
     {
@@ -32,6 +33,7 @@ public class CharacterMoving : MonoBehaviour
             
         }
         isGrounded = CheckGround();
+        anim.SetBool("isMove", moveInput != 0);
     }
     void OnCollisionEnter2D(Collision2D collision)
     {

@@ -23,5 +23,20 @@ public class EnemyAMovingControl : MonoBehaviour
         {
             movingRight = !movingRight;
         }
+       
+        if (moveSpeed > 0)
+        {
+            Vector3 currrentRotation = transform.eulerAngles;
+            if (movingRight)
+            {
+                currrentRotation.y = 0f;
+            }
+            else
+            {
+                currrentRotation.y = 180f;
+            }
+
+            transform.eulerAngles = currrentRotation;
+        }
     }
 }
