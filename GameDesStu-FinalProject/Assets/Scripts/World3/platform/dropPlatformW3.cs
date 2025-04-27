@@ -52,7 +52,6 @@ public class dropPlatformW3 : MonoBehaviour
             // Shake it
             //DropObjectRb.transform.position.x = originalPosition.x + Mathf.Sin(frequency * Time.deltaTime)*amplitude;
             DropObjectRb.transform.position = new Vector2(originalPosition.x + Mathf.Sin(frequency * Time.time) * amplitude, originalPosition.y);
-            Debug.Log("Shake it: "+ DropObjectRb.transform.position);
             yield return null;
         }
         DropObjectRb.bodyType = RigidbodyType2D.Dynamic;

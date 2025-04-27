@@ -497,6 +497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rd: {fileID: 1823492725192863189}
   sr: {fileID: 8878918193667426866}
+  tr: {fileID: 0}
   animator: {fileID: 5216952580505441337}
   groundCheckCollider: {fileID: 6517466880799626008}
   groundMask:
@@ -532,6 +533,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1
   damage: 1
+  animator: {fileID: 5216952580505441337}
+  sr: {fileID: 8878918193667426866}
   movementManager: {fileID: 2866161026390375176}
   lifeLimit: 3
   lifeText: {fileID: 0}

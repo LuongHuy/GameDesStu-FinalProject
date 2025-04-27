@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class GameMasterW3 : MonoBehaviour
@@ -26,6 +27,7 @@ public class GameMasterW3 : MonoBehaviour
     [SerializeField] TextMeshProUGUI point;
     [SerializeField] GameObject endGameUI;
     [SerializeField] GameObject winGameUI;
+    [SerializeField] Popup popupObj;
 
     // Save information
     Transform currentCheckpoint = null;
@@ -63,7 +65,6 @@ public class GameMasterW3 : MonoBehaviour
         {
             savedPoint = currentPoint;
             currentCheckpoint = checkpoint;
-            Debug.Log("New checkpoint registered");
 
             // reset information
             unsaveCollectible.Clear();
@@ -182,16 +183,22 @@ public class GameMasterW3 : MonoBehaviour
     {
         bulletsShot.Add(bullet);
     }
-    public void CollectToken()
+    //public void CollectToken()
+    //{
+    //    currentPoint += 1;
+    //    point.SetText(currentPoint.ToString());
+    //}
+    //public void CollectSecondaryObjective()
+    //{
+    //    secondaryObjective++;
+    //    currentPoint += 50;
+    //    point.SetText(currentPoint.ToString());
+    //}
+    public void PointIncrease(float p, Vector3 pos, Transform parent)
     {
-        currentPoint += 1;
+        currentPoint += p;
         point.SetText(currentPoint.ToString());
-    }
-    public void CollectSecondaryObjective()
-    {
-        secondaryObjective++;
-        currentPoint += 10;
-        point.SetText(currentPoint.ToString());
+        SpawnPopup("+" + p, pos, parent);
     }
     public void CollectMainObjective()
     {
@@ -216,5 +223,13 @@ public class GameMasterW3 : MonoBehaviour
         {
             endGameUI.SetActive(true);
         }
+    }
+
+    public void SpawnPopup(string message, Vector3 pos, Transform parent)
+    {
+        Debug.Log(pos);
+        Popup popup = Instantiate(popupObj, pos, new Quaternion());
+        popup.value = message;
+        Destroy(popup, 0.5f);
     }
 }

@@ -11,5 +11,6 @@ public class W3Checkpoint : Collectable
     protected override void Collected(Collider2D collision)
     {
         GameMasterW3.Instance.SaveStage(transform);
+        GameMasterW3.Instance.SpawnPopup("Reach Checkpoint", collision.transform.position, transform);
     }
 }

@@ -53,5 +53,15 @@ public class EnemyAIGround : EnemyAI
             Vector3 direction = (nextPos - transform.position).normalized;
             rd.velocity = new Vector2( direction.x * speed,rd.velocity.y);
         }
+        if (rd.velocity.x > 0)
+        {
+            facingRight = true;
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            facingRight = false;
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
     }
 }

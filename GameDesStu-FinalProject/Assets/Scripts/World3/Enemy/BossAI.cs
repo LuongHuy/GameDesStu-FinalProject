@@ -142,6 +142,7 @@ public class BossAI : EnemyAI
     [SerializeField] Rigidbody2D rd;
     [SerializeField] ElementStatus bossStatus;
     [SerializeField] GameObject target;
+    [SerializeField] SpriteRenderer sr;
 
     // Setup State machine
     BossState currState;
@@ -228,17 +229,19 @@ public class BossAI : EnemyAI
 
     IEnumerator ShootMultiple(Vector3 offset)
     {
-        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
         Color original = sr.color;
         sr.DOColor(Color.blue, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
         sr.DOColor(Color.blue, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
-        yield return new WaitForSeconds(0.5f);
-
+        yield return new WaitForSeconds(0.1f);
+        bossStatus.PlayAnimation("Attack");
+        yield return new WaitForSeconds(0.3f);
         for (int i = 0; i < currParameter.attackAmount; i++)
         { 
             ShootOnce(offset);
             yield return new WaitForSeconds(currParameter.attackDelayInBetween);
         }
+        yield return new WaitForSeconds(0.1f);
+        bossStatus.PlayAnimation("Idle");
     }
 
     public void ShootPatternSimple()

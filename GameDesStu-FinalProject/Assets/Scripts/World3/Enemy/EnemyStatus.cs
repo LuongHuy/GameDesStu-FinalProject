@@ -9,6 +9,8 @@ public abstract class ElementStatus : MonoBehaviour
     [Header("Stats")]
     [SerializeField] protected float hp=1f;
     [SerializeField] protected float damage =1f;
+    [SerializeField] protected Animator animator;
+    [SerializeField] protected SpriteRenderer sr;
 
     // private variable
     protected float currHP;
@@ -36,10 +38,10 @@ public abstract class ElementStatus : MonoBehaviour
         //Debug.Log(gameObject.name.ToString() + "'s current HP: " + currHP.ToString());
         if (!IsAlive())
         {
+            PlayAnimation("Die");
             Invoke("Die", 0.2f);
         }
     }
-
     public virtual bool IsAlive()
     {
         return currHP > 0;
@@ -57,11 +59,18 @@ public abstract class ElementStatus : MonoBehaviour
         return currHP;
     }
     public float GetDamage() { 
-        return damage; 
+        return damage;
     }
-    public float GetPercentageHP(float percentage) { 
+    public float GetPercentageHP(float percentage)
+    {
         return Mathf.RoundToInt(hp * percentage);
     }
+
+    public void PlayAnimation(string animationName)
+    {
+        animator.Play(animationName);
+    }
+
 }
 
 public class EnemyStatus : ElementStatus
@@ -80,7 +89,6 @@ public class EnemyStatus : ElementStatus
     {
         base.GotAttacked(damage);
         GameMasterW3.Instance.AddUnsaveEnemy(this);
-        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
         Color original = sr.color;
         sr.DOColor(Color.gray, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
     }
