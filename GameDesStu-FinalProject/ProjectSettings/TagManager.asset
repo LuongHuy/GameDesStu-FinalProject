@@ -17,6 +17,8 @@ TagManager:
   - FlyingEnemy
   - Boss
   - Coin
+  - Wall
+  - JetPack
   layers:
   - Default
   - TransparentFX
@@ -62,4 +64,10 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 207199843
+    locked: 0
+  - name: Player
+    uniqueID: 2520230189
+    locked: 0
+  - name: Inver-Obj
+    uniqueID: 47653815
     locked: 0
