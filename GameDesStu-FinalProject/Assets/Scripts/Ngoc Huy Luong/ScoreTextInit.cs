@@ -7,10 +7,10 @@ public class ScoreTextInit : MonoBehaviour
     public ScorePlusUI scorePrefab;
     public Transform startPosition;
 
-    public void ShowScoreText(int score)
+    public void ShowScoreText(string content, float duration)
     {
         var text = Instantiate(scorePrefab);
         text.transform.position = startPosition.position;
-        text.SetValue(score);
+        text.SetValue(content,duration);
     }
 }
