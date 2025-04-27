@@ -38,7 +38,7 @@ public class PlayerBullet : MonoBehaviour
         }
 
         // Don't destroy if it's Player or Coin
-        if (other.CompareTag("Player") || other.CompareTag("Coin"))
+        if (other.CompareTag("Player") || other.CompareTag("Coin") || other.CompareTag("Wall") || other.CompareTag("JetPack"))
         {
             return;
         }

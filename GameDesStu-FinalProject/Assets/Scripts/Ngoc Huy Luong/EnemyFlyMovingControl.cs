@@ -25,5 +25,15 @@ public class EnemyFlyMovingControl : MonoBehaviour
         {
             movingRight = !movingRight;
         }
+        Vector3 currrentRotation = transform.eulerAngles;
+        if (movingRight)
+        {
+            currrentRotation.y = 0f;
+        }
+        else
+        {
+            currrentRotation.y = 180f;
+        }
+        transform.eulerAngles = currrentRotation;
     }
 }
