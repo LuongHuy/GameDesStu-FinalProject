@@ -182,7 +182,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Enemy_16_B_Damage_6_0: -2165646254379878968
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

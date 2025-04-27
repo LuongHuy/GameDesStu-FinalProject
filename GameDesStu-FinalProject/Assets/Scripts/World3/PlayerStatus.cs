@@ -35,7 +35,7 @@ public class PlayerStatus : ElementStatus
                 {
                     Attack(enemy, this);
                     //GameMasterW3.Instance.SpawnPopup("Enemy defeated", transform.position, transform
-                    GameMasterW3.Instance.PointIncrease(1, collision.transform.position, transform);
+                    GameMasterW3.Instance.PointIncrease(5, collision.transform.position, transform);
                 }
                 else
                 {

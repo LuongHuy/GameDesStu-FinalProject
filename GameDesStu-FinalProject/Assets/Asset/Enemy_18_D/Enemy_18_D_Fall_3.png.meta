@@ -182,7 +182,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Enemy_18_D_Fall_3_0: 4769249042006649287
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

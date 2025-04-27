@@ -182,7 +182,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Enemy_17_C_Walk_1_0: 4227624310015905370
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
