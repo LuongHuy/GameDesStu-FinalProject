@@ -71,3 +71,12 @@ TagManager:
   - name: Inver-Obj
     uniqueID: 47653815
     locked: 0
+  - name: Waypoint
+    uniqueID: 3115153831
+    locked: 0
+  - name: Enemy Bullet
+    uniqueID: 3334796315
+    locked: 0
+  - name: Boss
+    uniqueID: 4125481797
+    locked: 0
