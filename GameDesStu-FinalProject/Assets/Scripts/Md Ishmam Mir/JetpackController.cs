@@ -11,7 +11,12 @@ public class JetpackController : MonoBehaviour
     public KeyCode jetpackKey = KeyCode.E;
 
     [Header("Fuel UI")]
-    public Slider fuelSlider;
+    public Image fuelBarFill;           // replaces slider
+    public GameObject fuelBarCover;     // optional background or border
+
+    public SpriteRenderer playerRenderer; // assign in Inspector
+    public Color normalColor = Color.white;
+    public Color jetpackColor = Color.cyan; // or any color you like
 
     [Header("Unlock")]
     public bool jetpackUnlocked = false;
@@ -25,10 +30,8 @@ public class JetpackController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         currentFuel = maxFuel;
 
-        if (fuelSlider != null)
-        {
-            fuelSlider.value = 1f;
-        }
+        if (fuelBarCover != null)
+            fuelBarCover.SetActive(false); // hide initially
     }
 
     void Update()
@@ -39,21 +42,19 @@ public class JetpackController : MonoBehaviour
         {
             isJetpacking = true;
             currentFuel -= fuelConsumptionRate * Time.deltaTime;
+
+            if (fuelBarCover != null)
+                fuelBarCover.SetActive(true);
         }
         else
         {
             isJetpacking = false;
 
             if (currentFuel < maxFuel)
-            {
                 currentFuel += fuelRechargeRate * Time.deltaTime;
-            }
         }
 
-        if (fuelSlider != null)
-        {
-            fuelSlider.value = currentFuel / maxFuel;
-        }
+        UpdateFuelUI();
     }
 
     void FixedUpdate()
@@ -64,10 +65,24 @@ public class JetpackController : MonoBehaviour
         }
     }
 
+    void UpdateFuelUI()
+    {
+        if (fuelBarFill != null)
+        {
+            fuelBarFill.fillAmount = currentFuel / maxFuel;
+        }
+    }
+
     public void UnlockJetpack()
     {
         jetpackUnlocked = true;
         currentFuel = maxFuel;
+
+        if (fuelBarCover != null)
+            fuelBarCover.SetActive(true);
+
         Debug.Log("Jetpack unlocked!");
+
+        playerRenderer.color = jetpackColor;
     }
 }
