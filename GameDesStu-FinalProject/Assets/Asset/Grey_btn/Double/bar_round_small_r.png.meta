@@ -182,7 +182,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bar_round_small_r_0: 3265913898937850836
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -182,7 +182,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bar_round_gloss_large_0: 5553611877398946228
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
