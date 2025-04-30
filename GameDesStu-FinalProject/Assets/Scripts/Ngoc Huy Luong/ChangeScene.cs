@@ -11,20 +11,36 @@ public class ChangeScene : MonoBehaviour
     }
     public void DemoWorld()
     {
+        Invoke("LoadDemoWorld", 0.2f);
+    }
+    public void LoadWorld1()
+    {
+        Invoke("LoadLoadWorld1", 0.2f);
+    }
+    public void LoadWorld2()
+    {
+        Invoke("LoadLoadWorld2", 0.2f);
+    }
+    public void LoadWorld3()
+    {
+        Invoke("LoadLoadWorld3", 0.2f);
+    }
+    public void LoadDemoWorld()
+    {
         Time.timeScale = 1;
         SceneManager.LoadSceneAsync(2);
     }
-    public void LoadWorld1()
+    public void LoadLoadWorld1()
     {
         Time.timeScale = 1;
         SceneManager.LoadSceneAsync(3);
     }
-    public void LoadWorld2()
+    public void LoadLoadWorld2()
     {
         Time.timeScale = 1;
         SceneManager.LoadSceneAsync(4);
     }
-    public void LoadWorld3()
+    public void LoadLoadWorld3()
     {
         Time.timeScale = 1;
         SceneManager.LoadSceneAsync(5);
