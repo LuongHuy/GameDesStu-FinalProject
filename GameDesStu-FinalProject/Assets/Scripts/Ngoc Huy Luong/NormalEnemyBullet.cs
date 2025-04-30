@@ -14,6 +14,7 @@ public class NormalEnemyBullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        CheckColliderWithGround();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,6 +28,14 @@ public class NormalEnemyBullet : MonoBehaviour
                 // Instantiate(hitEffect, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
+        }
+    }
+
+    void CheckColliderWithGround()
+    {
+        if (Physics2D.OverlapCircle(transform.position, 0.3f, 1 << LayerMask.NameToLayer("Ground")))
+        {
+            Destroy(gameObject);
         }
     }
 

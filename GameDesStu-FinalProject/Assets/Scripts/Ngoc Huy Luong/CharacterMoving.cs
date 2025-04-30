@@ -27,7 +27,7 @@ public class CharacterMoving : MonoBehaviour
         }
         transform.eulerAngles = currrentRotation;
 
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if(Input.GetKeyDown(KeyCode.C) && isGrounded)
         {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             
