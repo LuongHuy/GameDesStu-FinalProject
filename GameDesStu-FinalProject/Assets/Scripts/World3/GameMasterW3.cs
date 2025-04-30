@@ -70,6 +70,7 @@ public class GameMasterW3 : MonoBehaviour
             unsaveCollectible.Clear();
             unsavePlatform.Clear();
             unsaveEnemy.Clear();
+
         }
     }
 
@@ -227,7 +228,7 @@ public class GameMasterW3 : MonoBehaviour
 
     public void SpawnPopup(string message, Vector3 pos, Transform parent)
     {
-        Debug.Log(pos);
+        //Debug.Log(pos);
         Popup popup = Instantiate(popupObj, pos, new Quaternion());
         popup.value = message;
         Destroy(popup, 0.5f);
