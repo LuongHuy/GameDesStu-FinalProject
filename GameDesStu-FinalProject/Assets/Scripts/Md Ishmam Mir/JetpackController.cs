@@ -14,6 +14,10 @@ public class JetpackController : MonoBehaviour
     public Image fuelBarFill;           // replaces slider
     public GameObject fuelBarCover;     // optional background or border
 
+    public SpriteRenderer playerRenderer; // assign in Inspector
+    public Color normalColor = Color.white;
+    public Color jetpackColor = Color.cyan; // or any color you like
+
     [Header("Unlock")]
     public bool jetpackUnlocked = false;
 
@@ -78,5 +82,7 @@ public class JetpackController : MonoBehaviour
             fuelBarCover.SetActive(true);
 
         Debug.Log("Jetpack unlocked!");
+
+        playerRenderer.color = jetpackColor;
     }
 }
