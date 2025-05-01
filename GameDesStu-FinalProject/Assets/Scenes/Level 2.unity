@@ -53502,7 +53502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1647246147
 Transform:
   m_ObjectHideFlags: 0
@@ -55412,7 +55412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1758760361
 Transform:
   m_ObjectHideFlags: 0
@@ -58319,7 +58319,7 @@ MonoBehaviour:
   jetpackForce: 35
   maxFuel: 30
   fuelConsumptionRate: 10
-  fuelRechargeRate: 1
+  fuelRechargeRate: 10
   jetpackKey: 101
   fuelBarFill: {fileID: 1884937324}
   fuelBarCover: {fileID: 2001259900}
