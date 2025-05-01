@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterHealth : MonoBehaviour
 {
-    private float health;
+    public float health;
     public CharacterControl characterControl;
     public int respawnTime;
     public float maxHealth;
@@ -40,6 +40,11 @@ public class CharacterHealth : MonoBehaviour
     public void DelayEnableHit()
     {
         isImmortal = false;
+    }
+
+    public void RegenLive(int i)
+    {
+        LifeManager.instance.LiveRegen(i);
     }
 
 }

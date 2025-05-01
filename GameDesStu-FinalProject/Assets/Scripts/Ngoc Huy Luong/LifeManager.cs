@@ -35,4 +35,14 @@ public class LifeManager : MonoBehaviour
             endgameUI.SetActive(true);
         }
     }
+
+    public void LiveRegen(int i)
+    {
+        curLife = curLife + i;
+        lifeText.text = curLife.ToString();
+        if (curLife <= maxLife)
+        {
+            curLife = maxLife;
+        }
+    }
 }
