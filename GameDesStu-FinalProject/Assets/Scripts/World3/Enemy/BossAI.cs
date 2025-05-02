@@ -143,6 +143,7 @@ public class BossAI : EnemyAI
     [SerializeField] ElementStatus bossStatus;
     [SerializeField] GameObject target;
     [SerializeField] SpriteRenderer sr;
+    [SerializeField] AudioClip shootSound;
 
     // Setup State machine
     BossState currState;
@@ -196,12 +197,26 @@ public class BossAI : EnemyAI
             currState.Act();
             currState.StateChange();
         }
+        // facing direction
+        Vector3 lookingDirection = target.transform.position - transform.position;
+
+        if (lookingDirection.normalized.x>0)
+        {
+            facingRight = true;
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            facingRight = false;
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
     }
 
     public void Move()
     {
         Vector3 direction = (nextPos - transform.position).normalized;
         rd.velocity = direction * currParameter.speed * (CheckImmunity()?2:1);
+
     }
     public bool CheckArrival()
     {
@@ -219,6 +234,7 @@ public class BossAI : EnemyAI
 
     public void ShootOnce(Vector3 offset)
     {
+        SoundManager.Instance.playVFX(shootSound, transform);
         GameObject bulletObj = Instantiate(currParameter.bulletPrefab, transform.position, Quaternion.identity);
         BulletStatus bullet = bulletObj.GetComponent<BulletStatus>();
         bullet.SetDestination(target.transform.position + offset);

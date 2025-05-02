@@ -172,6 +172,7 @@ public class Jump: BasicMoveState
         player.Jump();
         _jumptime = 0;
         player.PlayAnimation("Jumping");
+        player.PlaySoundEff("Jump");
     }
     public override void OnExit()
     {

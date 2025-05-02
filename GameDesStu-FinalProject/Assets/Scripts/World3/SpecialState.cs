@@ -42,6 +42,7 @@ public class Dash: SpecialState
         player.UpdateGravityScale(0);
         player.PlayAnimation("Dashing");
         player.ActivateTrail();
+        player.PlaySoundEff("Dash");
     }
 
     public override void OnExit()

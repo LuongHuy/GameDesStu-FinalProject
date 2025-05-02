@@ -6,8 +6,9 @@ public abstract class Collectable : MonoBehaviour
 {
     Vector2 originalPos;
 
-    [SerializeField] bool removable;
-    [SerializeField] bool resetable;
+    [SerializeField] protected bool removable;
+    [SerializeField] protected bool resetable;
+    [SerializeField] protected AudioClip triggerSound;
 
     protected abstract void Collected(Collider2D collision);
 
@@ -37,6 +38,7 @@ public abstract class Collectable : MonoBehaviour
         //Debug.Log(collision.gameObject.name + " collide with: " + gameObject.name);
         if (collision.gameObject.CompareTag("Player"))
         {
+            //SoundManager.Instance.playVFX(triggerSound, transform);
             Collected(collision);
             if (resetable)
             {
