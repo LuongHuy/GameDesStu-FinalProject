@@ -14,6 +14,14 @@ public class Gun : MonoBehaviour
     }
     public shootType ShootType;
 
+    public AudioSource shootSound;
+    public AudioClip shootSoundClip;
+
+    void Start()
+    {
+        shootSound.clip = shootSoundClip;
+    }
+
     private void Shoot()
     {
         if (tempDelayTime > Time.time)
@@ -35,7 +43,8 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z)) 
         { 
-        Shoot();
+            Shoot();
+            
         }
     }
 
@@ -47,6 +56,7 @@ public class Gun : MonoBehaviour
     {
         var bullet = Instantiate(Bullet, findTransform.position, Quaternion.identity);
         bullet.direction = transform.right;
+        shootSound.Play();
 
     }
     
@@ -66,6 +76,7 @@ public class Gun : MonoBehaviour
 
             var tempbullet3 = Instantiate(Bullet, transform.position, Quaternion.identity);
             tempbullet3.direction = thirdDirection;
-       
+        shootSound.Play();
+
     }
 }

@@ -154,6 +154,8 @@ MonoBehaviour:
   Bullet: {fileID: 2685478153563260608, guid: 20aec4148c0c8214b84668338c6810ac, type: 3}
   findTransform: {fileID: 8078636808876297256}
   delayTime: 1
+  shootSound: {fileID: 0}
+  shootSoundClip: {fileID: 0}
 --- !u!114 &-5002896086501004104
 MonoBehaviour:
   m_ObjectHideFlags: 0

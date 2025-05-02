@@ -289,6 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2afa271064aa8f49b5a1dfdd0c7bd6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
   characterControl: {fileID: 1691728042885865899}
   respawnTime: 1
   maxHealth: 1
@@ -400,6 +401,8 @@ MonoBehaviour:
   findTransform: {fileID: 5633639976623424050}
   delayTime: 0.25
   ShootType: 0
+  shootSound: {fileID: 0}
+  shootSoundClip: {fileID: 0}
 --- !u!114 &1691728042885865899
 MonoBehaviour:
   m_ObjectHideFlags: 0

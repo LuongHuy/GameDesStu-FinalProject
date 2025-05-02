@@ -11,6 +11,14 @@ public class CharacterMoving : MonoBehaviour
     public LayerMask groundMask;
     public Animator anim;
 
+    public AudioSource jumpSound;
+    public AudioClip jumpSoundClip;
+
+    void Start()
+    {
+        jumpSound.clip = jumpSoundClip;
+    }
+
     void Update()
     {
         float moveInput = Input.GetAxis("Horizontal");
@@ -30,7 +38,7 @@ public class CharacterMoving : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.C) && isGrounded)
         {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-            
+            jumpSound.Play();
         }
         isGrounded = CheckGround();
         anim.SetBool("isMove", moveInput != 0);
