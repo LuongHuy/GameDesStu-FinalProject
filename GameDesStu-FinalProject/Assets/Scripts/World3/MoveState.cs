@@ -117,10 +117,12 @@ public class Run: BasicMoveState
         //Debug.Log("Enter Run");
         _coyote = 0;
         player.PlayAnimation("Moving");
+        player.LoopingSoundEff();
     }
     public override void OnExit()
     {
         //Debug.Log("Exit Run");
+        player.StopLoopingSound();
     }
     public override void Move()
     {

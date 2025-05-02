@@ -202,6 +202,15 @@ public class PlayerMovementW3 : MonoBehaviour
         }
     }
 
+    public void LoopingSoundEff()
+    {
+        SoundManager.Instance.playVFXLoop(walkingSound, transform);
+    }
+    public void StopLoopingSound()
+    {
+        SoundManager.Instance.StopVFXLoop();
+    }
+
     // return true if is on the ground
     public bool CheckIsGround()
     {

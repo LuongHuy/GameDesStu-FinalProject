@@ -519,6 +519,9 @@ MonoBehaviour:
   dashVelocity: 17
   minimumDashTime: 0.1
   dashTime: 0.3
+  walkingSound: {fileID: 8300000, guid: e116944b6583ece429062cc72771df97, type: 3}
+  jumpingSound: {fileID: 8300000, guid: 1a753ddde3cc165438bc1aa286bed445, type: 3}
+  dashingSound: {fileID: 8300000, guid: 8a6cf674a9edda84c8688bf1114e7275, type: 3}
 --- !u!114 &9003602245716176196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,6 +538,8 @@ MonoBehaviour:
   damage: 1
   animator: {fileID: 5216952580505441337}
   sr: {fileID: 8878918193667426866}
+  dieSound: {fileID: 8300000, guid: 34f1e1f153762c14197eefab5cc481c4, type: 3}
+  attackedSound: {fileID: 8300000, guid: 34f1e1f153762c14197eefab5cc481c4, type: 3}
   movementManager: {fileID: 2866161026390375176}
   lifeLimit: 3
   lifeText: {fileID: 0}

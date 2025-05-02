@@ -109,6 +109,16 @@ public class SoundManager : MonoBehaviour
         //AdjustVfxVolumn();
         vfx.PlayOneShot(audioClip);
     }
+    public void playVFXLoop(AudioClip audioClip, Transform spamTrans)
+    {
+        //AdjustVfxVolumn();
+        vfxLoop.clip = audioClip;
+        vfxLoop.Play();
+    }
+    public void StopVFXLoop()
+    {
+        vfxLoop.Stop();
+    }
 
     public void PlayBtnSound(Transform trans) { 
         vfxBtn.PlayOneShot(btnSound);
