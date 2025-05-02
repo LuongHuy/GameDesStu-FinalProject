@@ -2,21 +2,29 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class BossHealth : MonoBehaviour
 {
+    public LevelStatsManager statsManager;           // Reference to score manager
+    public Image[] winStars;                         // 3 star UI images
+    public Sprite filledStar;                        // Yellow star
+    public Sprite emptyStar;                         // Gray star
+
+    public TextMeshProUGUI finalScoreText;           // Score display on win screen
+
     [Header("Health Settings")]
     public float maxHealth = 100;
     private float currentHealth;
     private bool hasRegenerated = false;
 
     [Header("UI Elements")]
-    public Image healthBar;          // Fill image
-    public GameObject healthBarCover; // Cover/frame object
-    public GameObject endGameWinUI;  // Set this in Inspector
+    public Image healthBar;
+    public GameObject healthBarCover;
+    public GameObject endGameWinUI;
 
     [Header("Visual Effect")]
-    public SpriteRenderer bossRenderer; // For damage flash
+    public SpriteRenderer bossRenderer;
 
     void Start()
     {
@@ -76,15 +84,37 @@ public class BossHealth : MonoBehaviour
     {
         Debug.Log("Boss defeated!");
 
+        // Show final score on UI
+        if (finalScoreText != null)
+        {
+            finalScoreText.text = "Score: " + GlobalGameManager.instance.score;
+        }
+
+        // Activate win panel
         if (endGameWinUI != null)
         {
             endGameWinUI.SetActive(true);
-            Time.timeScale = 0f; // Optional: freeze game
         }
 
+        // Show stars earned
+        int starsEarned = statsManager.CalculateStars(GlobalGameManager.instance.score);
+
+        for (int i = 0; i < winStars.Length; i++)
+        {
+            winStars[i].sprite = i < starsEarned ? filledStar : emptyStar;
+        }
+
+        // Save stars
+        statsManager.SaveStars(GlobalGameManager.instance.score);
+
+        // Hide health bar cover if needed
         if (healthBarCover != null)
             healthBarCover.SetActive(false);
 
+        // Optional: pause game
+        Time.timeScale = 0f;
+
+        // Remove boss
         Destroy(gameObject);
     }
 

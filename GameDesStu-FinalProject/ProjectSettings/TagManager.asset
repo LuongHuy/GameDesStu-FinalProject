@@ -80,3 +80,6 @@ TagManager:
   - name: Boss
     uniqueID: 4125481797
     locked: 0
+  - name: Coin
+    uniqueID: 402358427
+    locked: 0
