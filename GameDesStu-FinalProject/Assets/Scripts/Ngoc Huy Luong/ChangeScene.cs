@@ -7,22 +7,27 @@ public class ChangeScene : MonoBehaviour
 {
     public void StartGame()
     {
+        SoundManager.Instance.PlayBtnSound(transform);
         SceneManager.LoadSceneAsync(1);
     }
     public void DemoWorld()
     {
+        SoundManager.Instance.PlayEnterLevel(transform);
         Invoke("LoadDemoWorld", 0.2f);
     }
     public void LoadWorld1()
     {
+        SoundManager.Instance.PlayEnterLevel(transform);
         Invoke("LoadLoadWorld1", 0.2f);
     }
     public void LoadWorld2()
     {
+        SoundManager.Instance.PlayEnterLevel(transform);
         Invoke("LoadLoadWorld2", 0.2f);
     }
     public void LoadWorld3()
     {
+        SoundManager.Instance.PlayEnterLevel(transform);
         Invoke("LoadLoadWorld3", 0.2f);
     }
     public void LoadDemoWorld()
@@ -47,11 +52,13 @@ public class ChangeScene : MonoBehaviour
     }
     public void BackScene()
     {
+        SoundManager.Instance.PlayBtnSound(transform);
         SceneManager.LoadSceneAsync(0);
     }
     public void ExitGame()
     {
         //   Debug.Log("QuitGame");
+        SoundManager.Instance.PlayBtnSound(transform);
         Application.Quit();
     }
 }

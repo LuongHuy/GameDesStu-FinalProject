@@ -255,6 +255,8 @@ MonoBehaviour:
   damage: 1
   animator: {fileID: 6882927303560532375}
   sr: {fileID: 3439914229208971642}
+  dieSound: {fileID: 0}
+  attackedSound: {fileID: 0}
   speed: 15
   rb: {fileID: 8612902069952466123}
   boss: {fileID: 7503818447117972131}
@@ -640,6 +642,7 @@ MonoBehaviour:
   bossStatus: {fileID: 7503818447117972131}
   target: {fileID: 0}
   sr: {fileID: 5457146020569493013}
+  shootSound: {fileID: 8300000, guid: 352ff05e961cf0946b2e804d58ca3042, type: 3}
 --- !u!114 &7503818447117972131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -656,6 +659,8 @@ MonoBehaviour:
   damage: 5
   animator: {fileID: 4517118122272830993}
   sr: {fileID: 5457146020569493013}
+  dieSound: {fileID: 8300000, guid: f5e9c049303255b41bba57a140d15a5c, type: 3}
+  attackedSound: {fileID: 8300000, guid: b33be7de89bb6bb439c75dd93505fd5d, type: 3}
   mainObject: {fileID: 3144901675610028978}
   finalArtifact: {fileID: 0}
 --- !u!1 &3743648873932386561

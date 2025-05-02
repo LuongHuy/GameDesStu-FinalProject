@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6890780616843720618}
   - component: {fileID: 3640136085949228637}
   - component: {fileID: 4156419217063514489}
+  - component: {fileID: 5785574921989177989}
   m_Layer: 0
   m_Name: CollectableNormal
   m_TagString: Collectable
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3585797274355018258}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2702405904602438015, guid: b96e1ee0b366b5f4eb74786974f8ba83, type: 3}
+  m_Sprite: {fileID: 6295474923448991246, guid: b96e1ee0b366b5f4eb74786974f8ba83, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,7 +127,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3333334, y: 1.1333333}
+    oldSize: {x: 1.2, y: 1.0666667}
     newSize: {x: 1.3333334, y: 1.1333333}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -148,3 +149,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   removable: 1
   resetable: 1
+  triggerSound: {fileID: 8300000, guid: 045507824a36d1c4b820e9b91d7e600b, type: 3}
+--- !u!95 &5785574921989177989
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3585797274355018258}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 78ee624367e71974f9917b07e4f93646, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

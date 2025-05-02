@@ -60,6 +60,7 @@ public class PlayerStatus : ElementStatus
     {
         base.Die();
         //if the player still has life
+
         if (currentLife > 0)
         {
             currentLife = currentLife - 1;

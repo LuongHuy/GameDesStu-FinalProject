@@ -42,6 +42,12 @@ public class PlayerMovementW3 : MonoBehaviour
     [SerializeField] float minimumDashTime = 0.2f;
     public float dashTime = 0.5f;
 
+    [Header("Sound")]
+    // For sound
+    [SerializeField] AudioClip walkingSound;
+    [SerializeField] AudioClip jumpingSound;
+    [SerializeField] AudioClip dashingSound;
+
     // private parameter
     float curr_velocity;
     bool facingRight = true;
@@ -182,6 +188,27 @@ public class PlayerMovementW3 : MonoBehaviour
     public void PlayAnimation(string animationName)
     {
         animator.Play(animationName);
+    }
+
+    public void PlaySoundEff(string soundName)
+    {
+        if (soundName == "Jump")
+        {
+            SoundManager.Instance.playVFX(jumpingSound, transform);
+        }
+        else if (soundName == "Dash")
+        {
+            SoundManager.Instance.playVFX(dashingSound, transform);
+        }
+    }
+
+    public void LoopingSoundEff()
+    {
+        SoundManager.Instance.playVFXLoop(walkingSound, transform);
+    }
+    public void StopLoopingSound()
+    {
+        SoundManager.Instance.StopVFXLoop();
     }
 
     // return true if is on the ground

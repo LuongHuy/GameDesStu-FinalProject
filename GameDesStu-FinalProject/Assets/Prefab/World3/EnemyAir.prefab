@@ -158,6 +158,8 @@ MonoBehaviour:
   damage: 1
   animator: {fileID: 1266840842247234758}
   sr: {fileID: 267747471525688477}
+  dieSound: {fileID: 8300000, guid: d314d022fefeab441b7726c902164d18, type: 3}
+  attackedSound: {fileID: 8300000, guid: d314d022fefeab441b7726c902164d18, type: 3}
   mainObject: {fileID: 8768077279225218174}
 --- !u!114 &4915992100093860893
 MonoBehaviour:

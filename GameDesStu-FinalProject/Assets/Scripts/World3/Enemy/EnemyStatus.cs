@@ -11,6 +11,8 @@ public abstract class ElementStatus : MonoBehaviour
     [SerializeField] protected float damage =1f;
     [SerializeField] protected Animator animator;
     [SerializeField] protected SpriteRenderer sr;
+    [SerializeField] protected AudioClip dieSound;
+    [SerializeField] protected AudioClip attackedSound;
 
     // private variable
     protected float currHP;
@@ -36,6 +38,10 @@ public abstract class ElementStatus : MonoBehaviour
     {
         currHP -= damage;
         //Debug.Log(gameObject.name.ToString() + "'s current HP: " + currHP.ToString());
+        if (attackedSound != null)
+        {
+            SoundManager.Instance.playVFX(attackedSound, transform);
+        }
         if (!IsAlive())
         {
             PlayAnimation("Die");
@@ -49,6 +55,7 @@ public abstract class ElementStatus : MonoBehaviour
     public virtual void Die()
     {
         //Debug.Log("The "+ gameObject.name.ToString() +" die");
+        SoundManager.Instance.playVFX(dieSound, transform);
     }
     public virtual void ResetElement()
     {
@@ -63,7 +70,7 @@ public abstract class ElementStatus : MonoBehaviour
     }
     public float GetPercentageHP(float percentage)
     {
-        return Mathf.RoundToInt(hp * percentage);
+        return Mathf.FloorToInt(hp * percentage);
     }
 
     public void PlayAnimation(string animationName)

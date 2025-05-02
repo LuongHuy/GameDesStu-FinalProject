@@ -7,7 +7,6 @@ public class BossStatus : ElementStatus
 {
     [Header("Group")]
     [SerializeField] GameObject mainObject;
-
     [SerializeField] GameObject finalArtifact;
 
     bool invunerable;
@@ -32,7 +31,7 @@ public class BossStatus : ElementStatus
 
     public override void GotAttacked(float damage)
     {
-        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
+        //SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
         Color original = sr.color;
         sr.DOColor(Color.gray, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
 
