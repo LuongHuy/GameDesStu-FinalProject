@@ -84,6 +84,7 @@ public class EnemyStatus : ElementStatus
 {
     [Header("Group")]
     [SerializeField] GameObject mainObject;
+    [SerializeField] bool immortal = false;
 
     Vector2 originalPos;
 
@@ -102,9 +103,12 @@ public class EnemyStatus : ElementStatus
 
     public override void Die()
     {
-        base.Die();
-        //Destroy(mainObject.gameObject);
-        mainObject.gameObject.SetActive(false);
+        if (!immortal)
+        {
+            base.Die();
+            //Destroy(mainObject.gameObject);
+            mainObject.gameObject.SetActive(false);
+        }
     }
     public override void ResetElement()
     {

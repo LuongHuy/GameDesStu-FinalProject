@@ -16,6 +16,7 @@ public class BulletStatus : ElementStatus
     public void SetBoss(ElementStatus boss)
     {
         this.boss = boss;
+        damage = boss.GetDamage();
     }
     public override void GotAttacked(float damage)
     {
@@ -32,7 +33,8 @@ public class BulletStatus : ElementStatus
 
     public override void Die()
     {
-        // Don't die
+        base.Die();
+        Destroy(gameObject);
     }
     public void Activate()
     {
@@ -43,17 +45,17 @@ public class BulletStatus : ElementStatus
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            ElementStatus player = collision.gameObject.GetComponent<ElementStatus>();
-            if (player != null)
-            {
-                Attack(player, boss);
-            }
-            else
-            {
-                Debug.LogError("Player does not have Element Status class");
-            }
-        }
+        //if (collision.gameObject.CompareTag("Player"))
+        //{
+        //    ElementStatus player = collision.gameObject.GetComponent<ElementStatus>();
+        //    if (player != null)
+        //    {
+        //        Attack(player, boss);
+        //    }
+        //    else
+        //    {
+        //        Debug.LogError("Player does not have Element Status class");
+        //    }
+        //}
     }
 }

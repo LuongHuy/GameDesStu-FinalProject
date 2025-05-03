@@ -40,7 +40,6 @@ public class BossStatus : ElementStatus
             base.GotAttacked(damage);
             StartCoroutine(ImmunityOn());
         }
-
     }
 
     IEnumerator ImmunityOn()

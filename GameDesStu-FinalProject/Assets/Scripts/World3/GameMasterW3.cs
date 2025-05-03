@@ -1,8 +1,6 @@
 using Cinemachine;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -42,6 +40,7 @@ public class GameMasterW3 : MonoBehaviour
     float coinCollected;
     float secondaryObjective;
 
+    [Header("Boss mechanic")]
     // for boss fight
     [SerializeField] GameObject bossPrefab;
     //[SerializeField] GameObject boss;
@@ -50,15 +49,18 @@ public class GameMasterW3 : MonoBehaviour
     [SerializeField] BossGate gateTrigger;
     bool isBossActive;
 
-    // boss fight cam
-    [SerializeField] CinemachineVirtualCamera camNormal;
+    [Header("Camera control")]
+    // Cam control
+    [SerializeField] CinemachineVirtualCamera camMain;
     [SerializeField] CinemachineVirtualCamera camBoss;
     CinemachineVirtualCamera camCurr;
+
 
     private void Start()
     {
         ResetAll();
     }
+
     public void SaveStage(Transform checkpoint)
     {
         // save current point and checkpoint location
@@ -134,6 +136,9 @@ public class GameMasterW3 : MonoBehaviour
 
         // for boss fight
         DeactivateBoss();
+
+        // camera
+        camCurr = camMain;
     }
 
     public Transform GetCheckpoint()
@@ -164,8 +169,7 @@ public class GameMasterW3 : MonoBehaviour
         currBoss = Instantiate(bossPrefab, bossLocation.position, Quaternion.identity);
         currBoss.SetActive(true);
         camCurr = camBoss;
-        camBoss.Priority = 10;
-        camNormal.Priority = 0;
+        camBoss.Priority = 20;
         //boss.SetActive(true);
     }
     public void DeactivateBoss()
@@ -176,11 +180,37 @@ public class GameMasterW3 : MonoBehaviour
             gate.SetActive(false);
             gateTrigger.Reset();
             Destroy(currBoss);
-            camCurr = camNormal;
+            camCurr = camMain;
             camBoss.Priority = 0;
-            camNormal.Priority = 10;
         }
     }
+
+    public void CameraControl(Vector2 input, bool facingRight)
+    {
+        // Try to change camera
+        if (input.y < 0)
+        {
+            Debug.Log("Look down");
+            camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.3f;
+        }
+        else
+        {
+            Debug.Log("Look up");
+            camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.6f;
+        }
+
+        if (facingRight)
+        {
+            camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX = 0.3f;
+            camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_BiasX = 0.16f;
+        }
+        else
+        {
+            camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX = 0.6f;
+            camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_BiasX = -0.16f;
+        }
+    }
+
     public void AddBullet(BulletStatus bullet)
     {
         bulletsShot.Add(bullet);
