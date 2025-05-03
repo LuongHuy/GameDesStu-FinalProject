@@ -7,6 +7,7 @@ public class ChangeScene : MonoBehaviour
 {
     public void StartGame()
     {
+        Time.timeScale = 1;
         SoundManager.Instance.PlayBtnSound(transform);
         SceneManager.LoadSceneAsync(1);
     }
