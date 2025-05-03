@@ -32,6 +32,7 @@ public class EndCondition : MonoBehaviour
 
                 // Save stars
                 statsManager.SaveStars(ScoreManager.instance.scoreCount);
+                VictorySound.Instance.PlayEndGameMusic();
             }
 
         }

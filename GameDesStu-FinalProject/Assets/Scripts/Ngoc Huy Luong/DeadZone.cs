@@ -9,8 +9,8 @@ public class DeadZone : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {     
-            character.ApplyDamage(1);
+        {
+            character.KillInstant();
             character.DelayEnableHit();
         }
     }

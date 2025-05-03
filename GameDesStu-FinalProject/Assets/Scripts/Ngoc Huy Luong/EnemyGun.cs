@@ -9,7 +9,7 @@ public class EnemyGun : MonoBehaviour
     private float tempDelayTime;
     public float delayTime;
 
-    /*
+   
     public AudioSource shootSound;
     public AudioClip shootSoundClip;
 
@@ -17,7 +17,7 @@ public class EnemyGun : MonoBehaviour
     {
         shootSound.clip = shootSoundClip;
     }
-  */
+
     private void Shoot()
     {
         if (tempDelayTime > Time.time)
@@ -27,7 +27,7 @@ public class EnemyGun : MonoBehaviour
         tempDelayTime = Time.time + delayTime;
 
         Instantiate(Bullet, findTransform.position, Quaternion.identity);
-       // shootSound.Play();
+       shootSound.Play();
     }
 
     private void Update()

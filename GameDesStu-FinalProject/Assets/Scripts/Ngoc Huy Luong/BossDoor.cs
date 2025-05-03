@@ -11,6 +11,9 @@ public class BossDoor : MonoBehaviour
     public float distanceCheck;
     public GameObject bossObject;
 
+    public Transform bossCamRoom;
+
+
     private void Start()
     {
         BoxCollider2D.enabled = true; 
@@ -28,6 +31,8 @@ public class BossDoor : MonoBehaviour
         {
             isClosed = true;
             BoxCollider2D.isTrigger = false;
+            CameraControl.Instance.SetFollowTarget(bossCamRoom,11);
+            MusicBackgroundControl.Instance.PlayBossMusic();
             doorImage.SetActive(true);
             bossObject.SetActive(true);
         }        

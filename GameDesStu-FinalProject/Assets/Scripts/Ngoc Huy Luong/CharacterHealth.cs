@@ -28,6 +28,12 @@ public class CharacterHealth : MonoBehaviour
             LifeManager.instance.DecreaseLive();
         }
     }
+    public void KillInstant()
+    {
+        gameObject.SetActive(false);
+        Invoke(nameof(Respawn), respawnTime);
+        LifeManager.instance.DecreaseLive();
+    }
     public void Respawn()
     {
         Debug.Log("Respawn");
