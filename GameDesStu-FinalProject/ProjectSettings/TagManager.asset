@@ -19,6 +19,8 @@ TagManager:
   - Coin
   - Wall
   - JetPack
+  - Key
+  - WinBox
   layers:
   - Default
   - TransparentFX
@@ -82,4 +84,13 @@ TagManager:
     locked: 0
   - name: Coin
     uniqueID: 402358427
+    locked: 0
+  - name: Key
+    uniqueID: 4292879523
+    locked: 0
+  - name: Box
+    uniqueID: 3894543511
+    locked: 0
+  - name: UpperArea
+    uniqueID: 3345852199
     locked: 0

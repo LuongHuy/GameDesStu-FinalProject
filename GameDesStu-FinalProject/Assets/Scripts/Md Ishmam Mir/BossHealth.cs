@@ -6,12 +6,12 @@ using TMPro;
 
 public class BossHealth : MonoBehaviour
 {
-    public LevelStatsManager statsManager;           // Reference to score manager
-    public Image[] winStars;                         // 3 star UI images
-    public Sprite filledStar;                        // Yellow star
-    public Sprite emptyStar;                         // Gray star
+    //public LevelStatsManager statsManager;           // Reference to score manager
+    //public Image[] winStars;                         // 3 star UI images
+    //public Sprite filledStar;                        // Yellow star
+    //public Sprite emptyStar;                         // Gray star
 
-    public TextMeshProUGUI finalScoreText;           // Score display on win screen
+    //public TextMeshProUGUI finalScoreText;           // Score display on win screen
 
     [Header("Health Settings")]
     public float maxHealth = 100;
@@ -21,7 +21,7 @@ public class BossHealth : MonoBehaviour
     [Header("UI Elements")]
     public Image healthBar;
     public GameObject healthBarCover;
-    public GameObject endGameWinUI;
+    //public GameObject endGameWinUI;
 
     [Header("Visual Effect")]
     public SpriteRenderer bossRenderer;
@@ -84,35 +84,46 @@ public class BossHealth : MonoBehaviour
     {
         Debug.Log("Boss defeated!");
 
-        // Show final score on UI
-        if (finalScoreText != null)
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
         {
-            finalScoreText.text = "Score: " + GlobalGameManager.instance.score;
+            PlayerController pc = player.GetComponent<PlayerController>();
+            if (pc != null)
+            {
+                pc.bossDefeated = true;
+            }
         }
+
+        // Show final score on UI
+        //if (finalScoreText != null)
+        //{
+        //    finalScoreText.text = "Score: " + GlobalGameManager.instance.score;
+        //}
 
         // Activate win panel
-        if (endGameWinUI != null)
-        {
-            endGameWinUI.SetActive(true);
-        }
+        //if (endGameWinUI != null)
+        //{
+        //    endGameWinUI.SetActive(true);
+        //}
 
         // Show stars earned
-        int starsEarned = statsManager.CalculateStars(GlobalGameManager.instance.score);
 
-        for (int i = 0; i < winStars.Length; i++)
-        {
-            winStars[i].sprite = i < starsEarned ? filledStar : emptyStar;
-        }
+        //int starsEarned = statsManager.CalculateStars(GlobalGameManager.instance.score);
+
+        //for (int i = 0; i < winStars.Length; i++)
+        //{
+        //    winStars[i].sprite = i < starsEarned ? filledStar : emptyStar;
+        //}
 
         // Save stars
-        statsManager.SaveStars(GlobalGameManager.instance.score);
+        //statsManager.SaveStars(GlobalGameManager.instance.score);
 
         // Hide health bar cover if needed
         if (healthBarCover != null)
             healthBarCover.SetActive(false);
 
         // Optional: pause game
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
 
         // Remove boss
         Destroy(gameObject);

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class JetpackPickup : MonoBehaviour
 {
+    public AudioClip jetpackPickupSound;
     public GameObject messageUI;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -30,6 +31,9 @@ public class JetpackPickup : MonoBehaviour
             {
                 Debug.LogWarning("messageUI not assigned in JetpackPickup.");
             }
+
+            AudioSource.PlayClipAtPoint(jetpackPickupSound, transform.position);
+
 
             // Remove the pickup object
             Destroy(gameObject);
