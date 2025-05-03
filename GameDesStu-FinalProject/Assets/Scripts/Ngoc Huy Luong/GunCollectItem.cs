@@ -6,6 +6,15 @@ using UnityEngine;
 public class GunCollectItem : MonoBehaviour
 {
     public Gun.shootType shootType;
+
+    public AudioSource collectSound;
+    public AudioClip collectSoundClip;
+
+    void Start()
+    {
+        collectSound.clip = collectSoundClip;
+    }
+
     public void OnTriggerEnter2D(Collider2D collision)
     {       
         if (collision.gameObject.CompareTag("Player"))
@@ -14,6 +23,7 @@ public class GunCollectItem : MonoBehaviour
             if (player != null) 
             {
                 player.UpgradeGun(shootType);
+                collectSound.Play();
                 Destroy(gameObject);
             }
                        

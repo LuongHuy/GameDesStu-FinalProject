@@ -10,6 +10,13 @@ public class Checkpoint : MonoBehaviour
     public BoxCollider2D boxCollider;
     public ScoreTextInit text;
 
+    public AudioSource collectSound;
+    public AudioClip collectSoundClip;
+
+    void Start()
+    {
+        collectSound.clip = collectSoundClip;
+    }
     public void OnTriggerEnter2D(Collider2D collision)
     {
         var player = collision.GetComponent<CharacterControl>();
@@ -18,6 +25,7 @@ public class Checkpoint : MonoBehaviour
             boxCollider.enabled = false;
             player.checkpoint = transform.position;
             text.ShowScoreText("Checkpoint Reached", 1.5f);
+            collectSound.Play();
             sprite.DOColor(Color.green, 0.5f);
         }
     }

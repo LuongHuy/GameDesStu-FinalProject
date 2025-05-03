@@ -35,6 +35,8 @@ public class BossControllerHuy : MonoBehaviour
     void BossDie()
     {
         endDoor.SetActive(false);
+        CameraControl.Instance.SetFollowTarget(characterTarget);
+        MusicBackgroundControl.Instance.PlayNormalMusic();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
