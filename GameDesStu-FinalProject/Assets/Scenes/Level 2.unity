@@ -126031,7 +126031,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1774732888}
+      - m_Target: {fileID: 1419974209}
         m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
