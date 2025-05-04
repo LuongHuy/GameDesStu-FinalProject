@@ -1,10 +1,10 @@
 using Cinemachine;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class GameMasterW3 : MonoBehaviour
 {
@@ -42,6 +42,7 @@ public class GameMasterW3 : MonoBehaviour
     float coinCollected;
     float secondaryObjective;
 
+    [Header("Boss mechanic")]
     // for boss fight
     [SerializeField] GameObject bossPrefab;
     //[SerializeField] GameObject boss;
@@ -50,15 +51,18 @@ public class GameMasterW3 : MonoBehaviour
     [SerializeField] BossGate gateTrigger;
     bool isBossActive;
 
-    // boss fight cam
-    [SerializeField] CinemachineVirtualCamera camNormal;
+    [Header("Camera control")]
+    // Cam control
+    [SerializeField] CinemachineVirtualCamera camMain;
     [SerializeField] CinemachineVirtualCamera camBoss;
     CinemachineVirtualCamera camCurr;
+
 
     private void Start()
     {
         ResetAll();
     }
+
     public void SaveStage(Transform checkpoint)
     {
         // save current point and checkpoint location
@@ -78,6 +82,7 @@ public class GameMasterW3 : MonoBehaviour
     public void ResetState()
     {
         currentPoint = savedPoint;
+        point.SetText(currentPoint.ToString());
 
         // re initiate each collectible, platform and enemy
         foreach (var con in unsaveCollectible)
@@ -134,6 +139,9 @@ public class GameMasterW3 : MonoBehaviour
 
         // for boss fight
         DeactivateBoss();
+
+        // camera
+        camCurr = camMain;
     }
 
     public Transform GetCheckpoint()
@@ -164,8 +172,7 @@ public class GameMasterW3 : MonoBehaviour
         currBoss = Instantiate(bossPrefab, bossLocation.position, Quaternion.identity);
         currBoss.SetActive(true);
         camCurr = camBoss;
-        camBoss.Priority = 10;
-        camNormal.Priority = 0;
+        camBoss.Priority = 20;
         //boss.SetActive(true);
     }
     public void DeactivateBoss()
@@ -176,26 +183,40 @@ public class GameMasterW3 : MonoBehaviour
             gate.SetActive(false);
             gateTrigger.Reset();
             Destroy(currBoss);
-            camCurr = camNormal;
+            camCurr = camMain;
             camBoss.Priority = 0;
-            camNormal.Priority = 10;
         }
     }
+
+    public void CameraControl(Vector2 input, bool facingRight)
+    {
+        // Try to change camera
+        if (input.y < 0)
+        {
+            camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.3f;
+        }
+        else
+        {
+            camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.6f;
+        }
+
+        if (facingRight)
+        {
+            camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX = 0.3f;
+            camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_BiasX = 0.16f;
+        }
+        else
+        {
+            camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX = 0.6f;
+            camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_BiasX = -0.16f;
+        }
+    }
+
     public void AddBullet(BulletStatus bullet)
     {
         bulletsShot.Add(bullet);
     }
-    //public void CollectToken()
-    //{
-    //    currentPoint += 1;
-    //    point.SetText(currentPoint.ToString());
-    //}
-    //public void CollectSecondaryObjective()
-    //{
-    //    secondaryObjective++;
-    //    currentPoint += 50;
-    //    point.SetText(currentPoint.ToString());
-    //}
+
     public void PointIncrease(float p, Vector3 pos, Transform parent)
     {
         currentPoint += p;
@@ -207,10 +228,45 @@ public class GameMasterW3 : MonoBehaviour
         Win();
     }
 
+    // for star at the end game
+    [SerializeField] Image[] Stars;
+    [SerializeField] Sprite filledStar;
+    [SerializeField] Sprite emptyStar;
+    [SerializeField] float pointThreshold1 = 25;
+    [SerializeField] float pointThreshold2 = 50;
+    [SerializeField] float pointThreshold3 = 100;
+
+    public float CalculateStarEarn()
+    {
+        if (currentPoint >= pointThreshold3)
+            return 3f;
+        else if (currentPoint >= pointThreshold2)
+            return 2f;
+        else if (currentPoint >= pointThreshold1)
+            return 1f;
+        else
+            return 0f;
+    }
+
     public void Win()
     {
         Debug.Log("You Win");
         Time.timeScale = 0;
+        float starEarn = CalculateStarEarn();
+        int previousStars = PlayerPrefs.GetInt("Level3" + "_stars", 0);
+
+        Debug.Log(starEarn);
+        // Only save if the new score is better
+        if (starEarn > previousStars)
+        {
+            PlayerPrefs.SetInt("Level3" + "_stars", Mathf.RoundToInt(starEarn));
+            PlayerPrefs.Save();
+        }
+
+        for (int i = 0; i < Stars.Length; i++) {
+            Stars[i].sprite = i<starEarn?filledStar:emptyStar;
+        }
+
         if (winGameUI != null)
         {
             winGameUI.SetActive(true);

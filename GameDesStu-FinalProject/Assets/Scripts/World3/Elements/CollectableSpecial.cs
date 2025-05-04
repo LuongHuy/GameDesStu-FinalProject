@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class CollectableSpeical : Collectable
 {
+    [SerializeField] int earnPoint=25;
     protected override void Collected(Collider2D collision)
     {
         //GameMasterW3.Instance.CollectSecondaryObjective();
-        GameMasterW3.Instance.PointIncrease(50, collision.transform.position, transform);
+        GameMasterW3.Instance.PointIncrease(earnPoint, collision.transform.position, transform);
         SoundManager.Instance.playVFX(triggerSound, transform);
     }
 }

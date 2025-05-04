@@ -21,6 +21,8 @@ public abstract class MoveState
     {
         moveInput.x = Input.GetAxis("Horizontal");
         moveInput.y = Input.GetAxis("Vertical");
+
+        GameMasterW3.Instance.CameraControl(moveInput, player.facingRight);
     }
 }
 

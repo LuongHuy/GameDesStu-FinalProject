@@ -50,7 +50,7 @@ public class PlayerMovementW3 : MonoBehaviour
 
     // private parameter
     float curr_velocity;
-    bool facingRight = true;
+    [HideInInspector] public bool facingRight;
 
     // constant
     float JUMPFORCE;
@@ -78,7 +78,6 @@ public class PlayerMovementW3 : MonoBehaviour
     void Update()
     {
         currMoveState.StateChange();
-
     }
 
     // for controlling movement
@@ -132,7 +131,7 @@ public class PlayerMovementW3 : MonoBehaviour
             facingRight = true;
             transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
-        else
+        else if (moveInput.x < 0)
         {
             facingRight = false;
             transform.localRotation = Quaternion.Euler(0, 0, 0);

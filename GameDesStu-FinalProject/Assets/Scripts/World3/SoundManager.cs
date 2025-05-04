@@ -153,7 +153,5 @@ public class SoundManager : MonoBehaviour
         {
             stopBackgroundMusic();
         }
-        Debug.Log(mode);
     }
-
 }
