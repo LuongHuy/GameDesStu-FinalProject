@@ -21,6 +21,7 @@ TagManager:
   - JetPack
   - Key
   - WinBox
+  - ControlHintZone
   layers:
   - Default
   - TransparentFX
@@ -93,4 +94,7 @@ TagManager:
     locked: 0
   - name: UpperArea
     uniqueID: 3345852199
+    locked: 0
+  - name: Text
+    uniqueID: 2643305953
     locked: 0
