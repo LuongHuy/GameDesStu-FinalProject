@@ -96,14 +96,14 @@ public class PlayerController : MonoBehaviour
         }
 
         // Jump
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.C) && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             if (jumpSound != null) audioSource.PlayOneShot(jumpSound);
         }
 
         // Shoot
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             Shoot();
         }

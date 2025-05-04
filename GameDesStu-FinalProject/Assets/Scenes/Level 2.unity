@@ -20987,7 +20987,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1774732888}
+      - m_Target: {fileID: 1419974209}
         m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
         m_MethodName: BackScene
         m_Mode: 1
@@ -63173,6 +63173,7 @@ GameObject:
   - component: {fileID: 1419974203}
   - component: {fileID: 1419974206}
   - component: {fileID: 1419974207}
+  - component: {fileID: 1419974209}
   - component: {fileID: 1419974208}
   m_Layer: 0
   m_Name: Main Camera
@@ -63310,6 +63311,18 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!114 &1419974209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419974202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10e9280c4fe2d8b4b81f28507766d463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1425908249 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7846991825764525996, guid: 4adcba9d82a27e44fa65d2cc65cc402a, type: 3}
@@ -116903,7 +116916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1647246147
 Transform:
   m_ObjectHideFlags: 0
@@ -119617,7 +119630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1774732887
 Transform:
   m_ObjectHideFlags: 0
@@ -119640,7 +119653,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774732886}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10e9280c4fe2d8b4b81f28507766d463, type: 3}
   m_Name: 
