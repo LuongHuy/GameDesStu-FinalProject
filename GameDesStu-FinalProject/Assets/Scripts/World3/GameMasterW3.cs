@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class GameMasterW3 : MonoBehaviour
 {
@@ -80,6 +82,7 @@ public class GameMasterW3 : MonoBehaviour
     public void ResetState()
     {
         currentPoint = savedPoint;
+        point.SetText(currentPoint.ToString());
 
         // re initiate each collectible, platform and enemy
         foreach (var con in unsaveCollectible)
@@ -213,17 +216,7 @@ public class GameMasterW3 : MonoBehaviour
     {
         bulletsShot.Add(bullet);
     }
-    //public void CollectToken()
-    //{
-    //    currentPoint += 1;
-    //    point.SetText(currentPoint.ToString());
-    //}
-    //public void CollectSecondaryObjective()
-    //{
-    //    secondaryObjective++;
-    //    currentPoint += 50;
-    //    point.SetText(currentPoint.ToString());
-    //}
+
     public void PointIncrease(float p, Vector3 pos, Transform parent)
     {
         currentPoint += p;
@@ -235,10 +228,45 @@ public class GameMasterW3 : MonoBehaviour
         Win();
     }
 
+    // for star at the end game
+    [SerializeField] Image[] Stars;
+    [SerializeField] Sprite filledStar;
+    [SerializeField] Sprite emptyStar;
+    [SerializeField] float pointThreshold1 = 25;
+    [SerializeField] float pointThreshold2 = 50;
+    [SerializeField] float pointThreshold3 = 100;
+
+    public float CalculateStarEarn()
+    {
+        if (currentPoint >= pointThreshold3)
+            return 3f;
+        else if (currentPoint >= pointThreshold2)
+            return 2f;
+        else if (currentPoint >= pointThreshold1)
+            return 1f;
+        else
+            return 0f;
+    }
+
     public void Win()
     {
         Debug.Log("You Win");
         Time.timeScale = 0;
+        float starEarn = CalculateStarEarn();
+        int previousStars = PlayerPrefs.GetInt("Level3" + "_stars", 0);
+
+        Debug.Log(starEarn);
+        // Only save if the new score is better
+        if (starEarn > previousStars)
+        {
+            PlayerPrefs.SetInt("Level3" + "_stars", Mathf.RoundToInt(starEarn));
+            PlayerPrefs.Save();
+        }
+
+        for (int i = 0; i < Stars.Length; i++) {
+            Stars[i].sprite = i<starEarn?filledStar:emptyStar;
+        }
+
         if (winGameUI != null)
         {
             winGameUI.SetActive(true);

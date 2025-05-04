@@ -86,6 +86,8 @@ public class EnemyStatus : ElementStatus
     [SerializeField] GameObject mainObject;
     [SerializeField] bool immortal = false;
 
+    [SerializeField] int earnPoint = 5;
+
     Vector2 originalPos;
 
     protected override void Start()
@@ -111,6 +113,7 @@ public class EnemyStatus : ElementStatus
             base.Die();
             //Destroy(mainObject.gameObject);
             mainObject.gameObject.SetActive(false);
+            GameMasterW3.Instance.PointIncrease(earnPoint, transform.position, transform);
         }
     }
     public override void ResetElement()
