@@ -1,20 +1,42 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    public Transform target;
+    public static CameraControl Instance { get; private set; }
     public Vector2 downLimit;
     public Vector2 horizontalLimit;
 
+    public Transform followingTarget;
 
     public float smoothSpeed = 0.125f; 
     public Vector3 offset;
 
+    public Camera mainCamera;
+
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+    public void SetFollowTarget(Transform character, float cameraSize = 5)
+    {
+        followingTarget = character;
+        mainCamera.DOOrthoSize(cameraSize, 0.5f);
+    }
+
     void LateUpdate()
     {
-        Vector3 desirePosition = target.position + offset;
+        if (followingTarget == null) 
+        {
+            return;
+        }
+        Vector3 desirePosition = followingTarget.position + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desirePosition, smoothSpeed);
         
 
@@ -22,4 +44,6 @@ public class CameraControl : MonoBehaviour
         smoothedPosition.y = Mathf.Clamp(smoothedPosition.y, downLimit.x, downLimit.y);
         transform.position = smoothedPosition;
     }
+
+    
 }

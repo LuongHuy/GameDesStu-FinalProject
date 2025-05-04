@@ -11,6 +11,12 @@ public class CharacterControl : MonoBehaviour
     public Color tripleShootColor;
     public SpriteRenderer characterRender;
     public ScoreTextInit text;
+
+    public void Start()
+    {
+        CameraControl.Instance.SetFollowTarget(transform);
+    }
+
     public void Awake()
     {
         checkpoint = transform.position;

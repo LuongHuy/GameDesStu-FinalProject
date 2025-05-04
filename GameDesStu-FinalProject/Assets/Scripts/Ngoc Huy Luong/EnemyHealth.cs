@@ -17,6 +17,14 @@ public class EnemyHealth : MonoBehaviour
 
     public SpriteRenderer enemyRenderer;
 
+    public AudioSource hitSound;
+    public AudioClip hitSoundClip;
+
+    void Start()
+    {
+        hitSound.clip = hitSoundClip;
+    }
+
     public void Awake()
     {
         health = maxHealth;
@@ -67,6 +75,7 @@ public class EnemyHealth : MonoBehaviour
     }
     public void DamagedEffect()
     {
-        enemyRenderer.DOColor(Color.red, 0.2f).OnComplete(() => enemyRenderer.DOColor(Color.red,0.2f));
+        enemyRenderer.DOColor(Color.red, 0.2f).OnComplete(() => enemyRenderer.DOColor(Color.white,0.2f));
+        hitSound.Play();
     }
 }
