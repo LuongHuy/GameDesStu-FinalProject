@@ -21,6 +21,7 @@ TagManager:
   - JetPack
   - Key
   - WinBox
+  - ControlHintZone
   layers:
   - Default
   - TransparentFX

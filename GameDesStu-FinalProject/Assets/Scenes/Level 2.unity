@@ -1729,7 +1729,7 @@ GameObject:
   - component: {fileID: 106854395}
   m_Layer: 0
   m_Name: ControlHintZone (4)
-  m_TagString: Untagged
+  m_TagString: ControlHintZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15558,7 +15558,7 @@ GameObject:
   - component: {fileID: 823271103}
   m_Layer: 0
   m_Name: ControlHintZone
-  m_TagString: Untagged
+  m_TagString: ControlHintZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20989,7 +20989,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1774732888}
         m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: BackScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -51778,7 +51778,7 @@ Transform:
   m_GameObject: {fileID: 1242829203}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.35, y: 0.07, z: 0}
+  m_LocalPosition: {x: -0.005, y: 0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -115907,7 +115907,7 @@ GameObject:
   - component: {fileID: 1592456029}
   m_Layer: 0
   m_Name: ControlHintZone (1)
-  m_TagString: Untagged
+  m_TagString: ControlHintZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116809,7 +116809,7 @@ GameObject:
   - component: {fileID: 1636527983}
   m_Layer: 0
   m_Name: ControlHintZone (5)
-  m_TagString: Untagged
+  m_TagString: ControlHintZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119658,7 +119658,7 @@ GameObject:
   - component: {fileID: 1780995320}
   m_Layer: 0
   m_Name: ControlHintZone (3)
-  m_TagString: Untagged
+  m_TagString: ControlHintZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122172,7 +122172,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.33890676, y: -0.20163846}
+  m_Offset: {x: -0.33577228, y: -0.19223487}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -122182,7 +122182,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5577831, y: 0.5967231}
+  m_Size: {x: 0.7270465, y: 0.8913667}
   m_EdgeRadius: 0
 --- !u!61 &1919314364
 BoxCollider2D:
@@ -122218,7 +122218,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.33883405, y: -0.20155013}
+  m_Offset: {x: -0.33569956, y: -0.19528103}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -122228,7 +122228,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.55816126, y: 0.59689975}
+  m_Size: {x: 0.75250053, y: 0.9103503}
   m_EdgeRadius: 0
 --- !u!114 &1919314365
 MonoBehaviour:
@@ -125496,7 +125496,7 @@ GameObject:
   - component: {fileID: 2076639788}
   m_Layer: 0
   m_Name: ControlHintZone (2)
-  m_TagString: Untagged
+  m_TagString: ControlHintZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
