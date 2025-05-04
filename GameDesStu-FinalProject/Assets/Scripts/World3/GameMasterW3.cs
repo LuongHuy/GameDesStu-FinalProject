@@ -190,12 +190,10 @@ public class GameMasterW3 : MonoBehaviour
         // Try to change camera
         if (input.y < 0)
         {
-            Debug.Log("Look down");
             camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.3f;
         }
         else
         {
-            Debug.Log("Look up");
             camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.6f;
         }
 

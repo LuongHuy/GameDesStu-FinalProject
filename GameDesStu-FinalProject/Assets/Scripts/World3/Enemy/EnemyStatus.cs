@@ -95,10 +95,13 @@ public class EnemyStatus : ElementStatus
     }
     public override void GotAttacked(float damage)
     {
-        base.GotAttacked(damage);
-        GameMasterW3.Instance.AddUnsaveEnemy(this);
-        Color original = sr.color;
-        sr.DOColor(Color.gray, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
+        if (!immortal)
+        {
+            base.GotAttacked(damage);
+            GameMasterW3.Instance.AddUnsaveEnemy(this);
+            Color original = sr.color;
+            sr.DOColor(Color.gray, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
+        }
     }
 
     public override void Die()
