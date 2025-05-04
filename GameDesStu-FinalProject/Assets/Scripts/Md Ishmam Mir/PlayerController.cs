@@ -184,6 +184,10 @@ public class PlayerController : MonoBehaviour
             endGameWinUI.SetActive(true);
         }
 
+        // Play win sound BEFORE freezing time
+        if (winSound != null)
+            AudioSource.PlayClipAtPoint(winSound, transform.position);
+
         Time.timeScale = 0f;
 
         if (finalScoreText != null)
@@ -199,10 +203,8 @@ public class PlayerController : MonoBehaviour
         }
 
         statsManager.SaveStars(GlobalGameManager.instance.score);
-
-        if (winSound != null)
-            AudioSource.PlayClipAtPoint(winSound, transform.position);
     }
+
 
     IEnumerator ShowBoxMessage(string message, float duration)
     {
