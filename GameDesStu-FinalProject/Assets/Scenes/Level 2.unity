@@ -53315,10 +53315,9 @@ MonoBehaviour:
   emptyStar: {fileID: 21300000, guid: 496e6e3821f25aa4a94792579a407f5f, type: 3}
   finalScoreText: {fileID: 1894155241}
   boxMessageText: {fileID: 1047017709}
-  highScoreText: {fileID: 906748921}
   bulletPrefab: {fileID: 5792852168801136973, guid: 2b2a849fa978c9e4bb273ddec1eccd04, type: 3}
   firePoint: {fileID: 2141683315}
-  jumpSound: {fileID: 8300000, guid: 1a753ddde3cc165438bc1aa286bed445, type: 3}
+  jumpSound: {fileID: 0}
   shootSound: {fileID: 8300000, guid: 45eb9bee04c1dcf4e847e7f9e5417340, type: 3}
   jetpackPickupSound: {fileID: 8300000, guid: d4105a5637745074b9c832a41a58296e, type: 3}
   invulnerablePickupSound: {fileID: 8300000, guid: e6ac44255ab0fc842ab18a9a54ddd428, type: 3}
@@ -53337,8 +53336,8 @@ AudioSource:
   m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 079a223889a424d4d9c7ec6f24ae102e, type: 3}
-  m_Resource: {fileID: 8300000, guid: 079a223889a424d4d9c7ec6f24ae102e, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.711
   m_Pitch: 1
@@ -53437,6 +53436,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsManager: {fileID: 1095379696}
+  highScoreText: {fileID: 906748921}
+  resetScoreOnStart: 0
 --- !u!1 &1249612397
 GameObject:
   m_ObjectHideFlags: 0
