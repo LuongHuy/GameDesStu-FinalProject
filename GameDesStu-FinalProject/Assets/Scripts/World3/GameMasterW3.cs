@@ -190,26 +190,26 @@ public class GameMasterW3 : MonoBehaviour
 
     public void CameraControl(Vector2 input, bool facingRight)
     {
-        // Try to change camera
-        if (input.y < 0)
-        {
-            camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.3f;
-        }
-        else
-        {
-            camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.6f;
-        }
+        //// Try to change camera
+        //if (input.y < 0)
+        //{
+        //    camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.3f;
+        //}
+        //else
+        //{
+        //    camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = 0.6f;
+        //}
 
-        if (facingRight)
-        {
-            camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX = 0.3f;
-            camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_BiasX = 0.16f;
-        }
-        else
-        {
-            camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX = 0.6f;
-            camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_BiasX = -0.16f;
-        }
+        //if (facingRight)
+        //{
+        //    camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX = 0.3f;
+        //    camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_BiasX = 0.16f;
+        //}
+        //else
+        //{
+        //    camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX = 0.6f;
+        //    camMain.GetCinemachineComponent<CinemachineFramingTransposer>().m_BiasX = -0.16f;
+        //}
     }
 
     public void AddBullet(BulletStatus bullet)

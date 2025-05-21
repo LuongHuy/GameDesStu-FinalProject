@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 public class PlayerStatus : ElementStatus
 {
     [SerializeField] PlayerMovementW3 movementManager;
+    [SerializeField] float stepMultiplier = 5;
     [SerializeField] float lifeLimit = 3;
     [SerializeField] TextMeshProUGUI lifeText;
 
@@ -66,6 +67,7 @@ public class PlayerStatus : ElementStatus
             lifeText.SetText(currentLife.ToString());
 
             // calling World to update the information
+            GameMasterW3.Instance.SpawnPopup("Innitiate Rebirth Sequence", transform.position, transform);
             GameMasterW3.Instance.ResetState();
             Transform respawnLoc = GameMasterW3.Instance.GetCheckpoint();
 
@@ -80,5 +82,12 @@ public class PlayerStatus : ElementStatus
             Debug.Log("No more life");
             GameMasterW3.Instance.Lose();
         }
+    }
+
+    public void LifeUp()
+    {
+        currentLife += 1;
+        lifeText.SetText(currentLife.ToString());
+        GameMasterW3.Instance.SpawnPopup("+1 life",transform.position, transform);
     }
 }

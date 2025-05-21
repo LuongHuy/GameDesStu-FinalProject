@@ -32,7 +32,10 @@ public abstract class ElementStatus : MonoBehaviour
     public virtual void Attack(ElementStatus target, ElementStatus attacker)
     {
         //Debug.Log(target.gameObject.name.ToString() + " is attacked by " + attacker.gameObject.name.ToString());
-        target.GotAttacked(damage);
+        if (target != attacker)
+        {
+            target.GotAttacked(damage);
+        }
     }
     public virtual void GotAttacked(float damage)
     {
@@ -44,18 +47,24 @@ public abstract class ElementStatus : MonoBehaviour
         }
         if (!IsAlive())
         {
-            PlayAnimation("Die");
-            Invoke("Die", 0.2f);
+            EnterDieState();
         }
     }
     public virtual bool IsAlive()
     {
         return currHP > 0;
     }
-    public virtual void Die()
+
+    public void EnterDieState()
     {
         //Debug.Log("The "+ gameObject.name.ToString() +" die");
+        PlayAnimation("Die");
         SoundManager.Instance.playVFX(dieSound, transform);
+        Invoke("Die", 0.2f);
+    }
+    public virtual void Die()
+    {
+        // destroy object
     }
     public virtual void ResetElement()
     {
@@ -124,5 +133,10 @@ public class EnemyStatus : ElementStatus
         mainObject.transform.position = originalPos;
         Instantiate(mainObject, originalPos, Quaternion.identity);
         Destroy(mainObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletStatus : ElementStatus
 {
-    [SerializeField] float speed = 2f;
+    [SerializeField] float speed = 15f;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] ElementStatus boss;
     Vector3 destination;
@@ -34,7 +34,8 @@ public class BulletStatus : ElementStatus
     public override void Die()
     {
         base.Die();
-        Destroy(gameObject);
+        rb.velocity = Vector2.zero;
+        Destroy(gameObject,0.3f);
     }
     public void Activate()
     {
@@ -45,17 +46,18 @@ public class BulletStatus : ElementStatus
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //if (collision.gameObject.CompareTag("Player"))
-        //{
-        //    ElementStatus player = collision.gameObject.GetComponent<ElementStatus>();
-        //    if (player != null)
-        //    {
-        //        Attack(player, boss);
-        //    }
-        //    else
-        //    {
-        //        Debug.LogError("Player does not have Element Status class");
-        //    }
-        //}
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            ElementStatus enemyStatus = collision.gameObject.GetComponent<ElementStatus>();
+            if (enemyStatus != null)
+            {
+                Attack(enemyStatus, boss);
+                EnterDieState();
+            }
+            else
+            {
+                Debug.LogError("Player does not have Element Status class");
+            }
+        }
     }
 }

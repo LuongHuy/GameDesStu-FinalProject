@@ -10,6 +10,7 @@ public class PlayerMovementW3 : MonoBehaviour
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private TrailRenderer tr;
     [SerializeField] private Animator animator;
+    [SerializeField] private PlayerStatus playerStatus;
 
     [Header("Check step on Ground")]
     [SerializeField] private BoxCollider2D groundCheckCollider;
@@ -36,6 +37,12 @@ public class PlayerMovementW3 : MonoBehaviour
     // special, for controlling falling speed
     [SerializeField] float gravityFallingScale = 2f;
 
+    [Header("Shooting parameter")]
+    [SerializeField] float shootingCd = 2f;
+    [SerializeField] BulletStatus bulletPrefab;
+    bool bullet1Ready = true;
+    bool bullet2Ready = true;
+
     [Header("Dash Parameter")]
     // Dash movement
     [SerializeField] float dashVelocity = 30f;
@@ -47,10 +54,12 @@ public class PlayerMovementW3 : MonoBehaviour
     [SerializeField] AudioClip walkingSound;
     [SerializeField] AudioClip jumpingSound;
     [SerializeField] AudioClip dashingSound;
+    [SerializeField] AudioClip shootingSound;
+
 
     // private parameter
     float curr_velocity;
-    [HideInInspector] public bool facingRight;
+    [HideInInspector] public bool facingRight = true;
 
     // constant
     float JUMPFORCE;
@@ -74,13 +83,14 @@ public class PlayerMovementW3 : MonoBehaviour
         JUMPFORCE = Mathf.Sqrt(jumpHeight * (Physics2D.gravity.y * GRAVITYSCALE) * -2) * rd.mass;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Keep watch over stage change every frame
         currMoveState.StateChange();
+        currMoveState.Action();
     }
 
-    // for controlling movement
+    // Update the movement every FixedUpdate
     private void FixedUpdate()
     {
         currMoveState.Move();
@@ -126,15 +136,16 @@ public class PlayerMovementW3 : MonoBehaviour
             rd.velocity = new Vector2(rd.velocity.x * friction, rd.velocity.y);
         }
 
+        // Direction of the sprite
         if (moveInput.x > 0)
         {
             facingRight = true;
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
         else if (moveInput.x < 0)
         {
             facingRight = false;
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
@@ -151,13 +162,59 @@ public class PlayerMovementW3 : MonoBehaviour
     public void Dash(Vector2 moveInput)
     {
         //before dash, reset the player speed. This allows dash to overcome momemtum
-        rd.velocity = Vector2.zero;
+        // remove velocity.x, but keep velocity.y if greater than 0, so that the player can dash up easier
+        float y = rd.velocity.y>0? rd.velocity.y :0;
+        rd.velocity = new Vector2(0,y);
+        //rd.velocity = Vector2.zero;
 
         // Activate dash
         // default position right
         Vector2 direction = moveInput==Vector2.zero ? Vector2.right : moveInput.normalized;
         // apply force
         rd.AddForce(direction * dashVelocity, ForceMode2D.Impulse);
+    }
+
+    private void ShootBullet()
+    {
+        SoundManager.Instance.playVFX(shootingSound, transform);
+
+        Vector3 direction = facingRight ? Vector3.right : Vector3.left;
+        Vector2 location = transform.position + new Vector3( 0.75f*(facingRight?1:-1),0);
+
+        BulletStatus bullet = Instantiate(bulletPrefab, location, Quaternion.identity);
+
+        bullet.SetDestination(transform.position + direction);
+        bullet.SetBoss(playerStatus);
+        bullet.Activate();
+        GameMasterW3.Instance.AddBullet(bullet);
+    }
+
+    IEnumerator ShootOnce()
+    {
+        if (bullet1Ready)
+        {
+            ShootBullet();
+            bullet1Ready = false;
+            yield return new WaitForSeconds(shootingCd);
+            bullet1Ready = true;
+        }
+        else if (bullet2Ready) 
+        {
+            ShootBullet();
+            bullet2Ready = false;
+            yield return new WaitForSeconds(shootingCd);
+            bullet2Ready = true;
+        }
+        else
+        {
+            Debug.Log("Can not shoot");
+            GameMasterW3.Instance.SpawnPopup("Gun is cooling off", transform.position, transform);
+        }
+    }
+
+    public void Shoot()
+    {
+        StartCoroutine(ShootOnce());
     }
 
     public void resetVelocity()

@@ -414,13 +414,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b9e4d7838f3dad488f45d0256880dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1
+  hp: 2
   damage: 1
   animator: {fileID: 4376678120259265874}
   sr: {fileID: 910229811515599490}
   dieSound: {fileID: 8300000, guid: d314d022fefeab441b7726c902164d18, type: 3}
   attackedSound: {fileID: 8300000, guid: d314d022fefeab441b7726c902164d18, type: 3}
   mainObject: {fileID: 3985854117165792802}
+  immortal: 0
+  earnPoint: 5
 --- !u!114 &7087689250773400214
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,5 +10,6 @@ public class CollectableSpeical : Collectable
         //GameMasterW3.Instance.CollectSecondaryObjective();
         GameMasterW3.Instance.PointIncrease(earnPoint, collision.transform.position, transform);
         SoundManager.Instance.playVFX(triggerSound, transform);
+        collision.attachedRigidbody.gameObject.GetComponent<PlayerStatus>().LifeUp();
     }
 }

@@ -16,7 +16,18 @@ public abstract class MoveState
 
     public abstract void OnEnter();
     public abstract void OnExit();
-    public abstract void Move();
+    public virtual void Action()
+    {
+        // you can shoot whenever
+        if (Input.GetButtonDown("Shoot"))
+        {
+            player.Shoot();
+        }
+    }
+    public virtual void Move()
+    {
+        // empty by default
+    }
     public virtual void StateChange()
     {
         moveInput.x = Input.GetAxis("Horizontal");
