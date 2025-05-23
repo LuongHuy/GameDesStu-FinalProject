@@ -5,6 +5,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public Text livesText;
     public GameObject endGameUI; // <- Drag your End UI panel here in Inspector
+    public LevelStatsManager statsManager; // <- Assign in Inspector
 
     private GameObject lastHitSource;
     private float lastHitTime = -1f;
@@ -33,7 +34,8 @@ public class PlayerHealth : MonoBehaviour
 
         if (GlobalGameManager.instance.lives <= 0)
         {
-            ShowGameOverUI();
+            SaveHighScore(); // Save score on death
+            ShowGameOverUI(); // Show lose UI
         }
         else
         {
@@ -46,6 +48,14 @@ public class PlayerHealth : MonoBehaviour
         if (livesText != null)
         {
             livesText.text = "Lives: " + GlobalGameManager.instance.lives;
+        }
+    }
+
+    void SaveHighScore()
+    {
+        if (statsManager != null)
+        {
+            GetComponent<ScoreTracker>()?.SaveCurrentScore();
         }
     }
 

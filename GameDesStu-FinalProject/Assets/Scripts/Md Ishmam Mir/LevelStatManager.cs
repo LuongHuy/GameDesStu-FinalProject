@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class LevelStatsManager : MonoBehaviour
 {
@@ -37,6 +39,25 @@ public class LevelStatsManager : MonoBehaviour
             PlayerPrefs.Save();
         }
     }
+
+    public void SaveHighScore(int currentScore)
+    {
+        string key = "HighScore_Level_" + SceneManager.GetActiveScene().buildIndex;
+        int previousHigh = PlayerPrefs.GetInt(key, 0);
+
+        if (currentScore > previousHigh)
+        {
+            PlayerPrefs.SetInt(key, currentScore);
+            PlayerPrefs.Save();
+        }
+    }
+
+    public int GetHighScore()
+    {
+        string key = "HighScore_Level_" + SceneManager.GetActiveScene().buildIndex;
+        return PlayerPrefs.GetInt(key, 0);
+    }
+
 
     public int GetStars()
     {
