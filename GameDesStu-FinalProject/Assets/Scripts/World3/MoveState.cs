@@ -59,7 +59,7 @@ public class BasicMoveState: MoveState
         base.StateChange();
 
         // if press action then dash
-        if (Input.GetButtonDown("Action1")||Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetButtonDown("Action1"))
         {
             player.Dash(moveInput);
             player.TransitTo(new Dash());

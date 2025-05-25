@@ -8,7 +8,6 @@ public class SpecialState : MoveState
     public override void OnEnter()
     {
         //Debug.Log("Enter Special mode");
-
     }
 
     public override void OnExit()

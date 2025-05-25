@@ -755,7 +755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3561827a34d0694489ca6f72c8ca4b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 12
+  hp: 8
   damage: 5
   animator: {fileID: 4517118122272830993}
   sr: {fileID: 5457146020569493013}
