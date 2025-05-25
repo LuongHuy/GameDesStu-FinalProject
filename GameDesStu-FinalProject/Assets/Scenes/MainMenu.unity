@@ -309,7 +309,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The Platforming Game
+  m_text: The Rocket Man
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 18208d371eef7c542bb6016b082306ee, type: 2}
   m_sharedMaterial: {fileID: -585078474359941248, guid: 18208d371eef7c542bb6016b082306ee, type: 2}
