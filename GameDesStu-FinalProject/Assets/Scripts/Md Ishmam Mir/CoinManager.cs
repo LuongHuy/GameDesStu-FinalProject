@@ -1,12 +1,12 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class CoinManager : MonoBehaviour
 {
     public static CoinManager instance;
 
     public int points = 0;
-    public Text pointsText;
+    public TextMeshProUGUI pointsText; // <- Use TMP version here
 
     void Awake()
     {
@@ -23,7 +23,7 @@ public class CoinManager : MonoBehaviour
     {
         if (pointsText != null)
         {
-            pointsText.text = "Points: " + points;
+            pointsText.text = "SCORE: " + points;
         }
     }
 }

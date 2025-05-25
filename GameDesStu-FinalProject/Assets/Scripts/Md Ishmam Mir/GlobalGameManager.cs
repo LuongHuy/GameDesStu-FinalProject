@@ -4,7 +4,7 @@ public class GlobalGameManager : MonoBehaviour
 {
     public static GlobalGameManager instance;
 
-    public int lives = 3;
+    public int lives = 5;
     public int score = 0;
 
     void Awake()
@@ -33,7 +33,7 @@ public class GlobalGameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        lives = 3;
+        lives = 5;
         score = 0;
     }
 }
