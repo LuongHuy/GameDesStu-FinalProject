@@ -33,6 +33,8 @@ public class EndCondition : MonoBehaviour
                 // Save stars
                 statsManager.SaveStars(ScoreManager.instance.scoreCount);
                 VictorySound.Instance.PlayEndGameMusic();
+                // Let ScoreTracker handle high score saving
+                GetComponent<ScoreTracker>()?.SaveCurrentScore();
             }
 
         }
