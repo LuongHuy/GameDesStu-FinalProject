@@ -1,11 +1,11 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public Text livesText;
-    public GameObject endGameUI; // <- Drag your End UI panel here in Inspector
-    public LevelStatsManager statsManager; // <- Assign in Inspector
+    public TextMeshProUGUI livesText; // <- Use TextMeshProUGUI, not Text
+    public GameObject endGameUI;
+    public LevelStatsManager statsManager;
 
     private GameObject lastHitSource;
     private float lastHitTime = -1f;
@@ -34,8 +34,8 @@ public class PlayerHealth : MonoBehaviour
 
         if (GlobalGameManager.instance.lives <= 0)
         {
-            SaveHighScore(); // Save score on death
-            ShowGameOverUI(); // Show lose UI
+            SaveHighScore();
+            ShowGameOverUI();
         }
         else
         {
@@ -47,7 +47,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (livesText != null)
         {
-            livesText.text = "Lives: " + GlobalGameManager.instance.lives;
+            livesText.text = "LIVES: " + GlobalGameManager.instance.lives;
         }
     }
 

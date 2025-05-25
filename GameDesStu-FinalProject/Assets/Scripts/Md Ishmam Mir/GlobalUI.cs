@@ -1,10 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class GlobalUIManager : MonoBehaviour
 {
-    public Text scoreText;
-    public Text livesText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI livesText;
 
     void Update()
     {
@@ -12,12 +12,12 @@ public class GlobalUIManager : MonoBehaviour
         {
             if (scoreText != null)
             {
-                scoreText.text = "Score: " + GlobalGameManager.instance.score;
+                scoreText.text = "SCORE: " + GlobalGameManager.instance.score;
             }
 
             if (livesText != null)
             {
-                livesText.text = "Lives: " + GlobalGameManager.instance.lives;
+                livesText.text = "LIVES: " + GlobalGameManager.instance.lives;
             }
         }
     }
