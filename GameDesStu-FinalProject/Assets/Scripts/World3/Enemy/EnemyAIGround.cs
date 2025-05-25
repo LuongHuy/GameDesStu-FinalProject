@@ -92,10 +92,8 @@ public class EnemyAIGround : EnemyAI
             sr.DOColor(Color.blue, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
             sr.DOColor(Color.blue, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
             yield return new WaitForSeconds(0.1f);
-            //bodyStatus.PlayAnimation("Attack");
-            //yield return new WaitForSeconds(0.3f);
 
-            Vector3 spawnPos = transform.position + new Vector3(0.25f * (facingRight ? 1 : -1), 0, 0);
+            Vector3 spawnPos = transform.position + new Vector3(0.75f * (facingRight ? 1 : -1), 0, 0);
             Vector2 destination = spawnPos + new Vector3(0.75f * (facingRight ? 1 : -1), 0);
 
             ShootOnce(destination, spawnPos, bulletPrefab);
