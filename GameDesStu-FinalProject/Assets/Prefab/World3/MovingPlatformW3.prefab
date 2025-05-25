@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 594446427261077914}
   - component: {fileID: 8789930663280152685}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: tilemap_31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6970462505782515123}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Point 1
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
@@ -126,7 +126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2383149795651642209}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Platform_sprite_L3_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1938196512745795735}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Point 2
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
@@ -192,7 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4310538918986397503}
   - component: {fileID: 2630058165552077188}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: tilemap_29
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6175112169585294788}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: MovingPlatformW3
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 413017670231592512}
   - component: {fileID: 5565857647101186761}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: tilemap_27
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,10 +398,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8174008706809386728}
   - component: {fileID: 2197903688614079124}
-  - component: {fileID: 932755618030330538}
   - component: {fileID: 8090299618734889077}
   - component: {fileID: 1718748993376366265}
-  m_Layer: 6
+  - component: {fileID: 5624680518831226392}
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -451,52 +451,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &932755618030330538
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8787342841172294826}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 1
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -0.13006294, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 2.9399722, y: 1}
-  m_EdgeRadius: 0
 --- !u!251 &8090299618734889077
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -532,3 +486,40 @@ MonoBehaviour:
   - {fileID: 6970462505782515123}
   - {fileID: 1938196512745795735}
   time: 1
+--- !u!70 &5624680518831226392
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8787342841172294826}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.0815127, y: 0.00000000971707}
+  m_Size: {x: 3.060421, y: 1.0000067}
+  m_Direction: 1

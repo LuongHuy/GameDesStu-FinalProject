@@ -53,4 +53,8 @@ public class BossStatus : ElementStatus
     {
         return invunerable;
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Debug.Log("SMT");
+    }
 }

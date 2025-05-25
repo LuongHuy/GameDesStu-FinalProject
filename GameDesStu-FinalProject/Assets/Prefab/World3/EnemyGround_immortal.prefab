@@ -421,6 +421,8 @@ MonoBehaviour:
   dieSound: {fileID: 8300000, guid: d314d022fefeab441b7726c902164d18, type: 3}
   attackedSound: {fileID: 8300000, guid: d314d022fefeab441b7726c902164d18, type: 3}
   mainObject: {fileID: 3985854117165792802}
+  immortal: 0
+  earnPoint: 5
 --- !u!114 &7087689250773400214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,12 +435,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5504315c637d794c8fbbc9068c76551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyStatus: {fileID: 2978899322343486763}
+  sr: {fileID: 910229811515599490}
   destinations:
   - {fileID: 5885722959297890738}
   - {fileID: 8060867266693150004}
   speed: 2
   rd: {fileID: 7296888498728866485}
   stationary: 0
+  canShoot: 0
+  shootSound: {fileID: 0}
+  attackDelay: 0
+  bulletPrefab: {fileID: 0}
 --- !u!1 &8545149816999667301
 GameObject:
   m_ObjectHideFlags: 0

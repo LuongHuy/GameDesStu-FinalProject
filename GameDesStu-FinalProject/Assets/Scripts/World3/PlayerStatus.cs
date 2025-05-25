@@ -29,7 +29,7 @@ public class PlayerStatus : ElementStatus
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            ElementStatus enemy = collision.gameObject.GetComponent<ElementStatus>();
+            ElementStatus enemy = collision.rigidbody.gameObject.GetComponent<ElementStatus>();
             if (enemy != null)
             {
                 if (movementManager.CheckStepOnEnemy())

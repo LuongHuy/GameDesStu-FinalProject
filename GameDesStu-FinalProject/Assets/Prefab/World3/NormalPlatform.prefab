@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1514735188434209238}
   - component: {fileID: 1119426669546949988}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: tilemap_77 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 181001331901111188}
   - component: {fileID: 3268368807988673754}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: tilemap_79
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2540931053173239080}
   - component: {fileID: 5025932216055254465}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: tilemap_75
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6532998027219776459}
   - component: {fileID: 6170022868509633834}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: tilemap_77 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2722727954392358856}
   - component: {fileID: 1790042626398712735}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: tilemap_77 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,12 +440,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5766085683872276740}
   - component: {fileID: 7243389987183628844}
-  - component: {fileID: 670968669947913823}
   - component: {fileID: 172083237402614872}
   - component: {fileID: 2086979123294215736}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Platform_sprite_L3_3
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -498,52 +497,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &670968669947913823
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4805529758468835187}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 1
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0.014703274, y: 0.05881521}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 6.028677, y: 0.94118553}
-  m_EdgeRadius: 0
 --- !u!251 &172083237402614872
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -610,7 +563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 561209837912877584}
   - component: {fileID: 2584868857323140210}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: tilemap_77
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,7 +648,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2094670404190732612}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: NormalPlatform
   m_TagString: Platform
   m_Icon: {fileID: 0}

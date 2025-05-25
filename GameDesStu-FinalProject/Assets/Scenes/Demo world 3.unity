@@ -347,6 +347,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endGameUI: {fileID: 1230087875}
+  statsManager: {fileID: 0}
+  winStars: []
+  filledStar: {fileID: 0}
+  emptyStar: {fileID: 0}
 --- !u!1 &186520950
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,7 +933,7 @@ Transform:
   m_GameObject: {fileID: 392346191}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.265712, y: 1.7360028, z: -9.953484}
+  m_LocalPosition: {x: 5.265694, y: 1.7360028, z: -9.953484}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3066,11 +3070,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945558941787598335, guid: cec26332bf52b8e4fadbaee979324986, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.5299997
+      value: -7.5299997
       objectReference: {fileID: 0}
     - target: {fileID: 5945558941787598335, guid: cec26332bf52b8e4fadbaee979324986, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.457872
+      value: 10.457872
       objectReference: {fileID: 0}
     - target: {fileID: 5945558941787598335, guid: cec26332bf52b8e4fadbaee979324986, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3119,6 +3123,14 @@ PrefabInstance:
     - target: {fileID: 8458946694254757242, guid: cec26332bf52b8e4fadbaee979324986, type: 3}
       propertyPath: parameters.attackAmount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8458946694254757242, guid: cec26332bf52b8e4fadbaee979324986, type: 3}
+      propertyPath: parameters.destinations.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8458946694254757242, guid: cec26332bf52b8e4fadbaee979324986, type: 3}
+      propertyPath: parametersBloody.destinations.Array.size
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

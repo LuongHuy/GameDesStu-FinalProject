@@ -125,7 +125,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 270748754071219195}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -161,6 +161,8 @@ MonoBehaviour:
   dieSound: {fileID: 8300000, guid: d314d022fefeab441b7726c902164d18, type: 3}
   attackedSound: {fileID: 8300000, guid: d314d022fefeab441b7726c902164d18, type: 3}
   mainObject: {fileID: 8768077279225218174}
+  immortal: 0
+  earnPoint: 5
 --- !u!114 &4915992100093860893
 MonoBehaviour:
   m_ObjectHideFlags: 0

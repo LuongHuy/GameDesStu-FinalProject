@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using DG.Tweening;
 
 public class EnemyAIGround : EnemyAI
 {
+    [SerializeField] ElementStatus bodyStatus;
+    [SerializeField] SpriteRenderer sr;
+
     [Header("Boundary")]
     [SerializeField] List<Transform> destinations = new List<Transform>();
 
@@ -12,6 +16,12 @@ public class EnemyAIGround : EnemyAI
     [SerializeField] float speed = 1f;
     [SerializeField] Rigidbody2D rd;
     [SerializeField] bool stationary = false;
+
+    [Header("Can shoot")]
+    [SerializeField] bool canShoot = false;
+    [SerializeField] AudioClip shootSound;
+    [SerializeField] float attackDelay;
+    [SerializeField] GameObject bulletPrefab;
 
     // is the element facing right
     bool facingRight = true;
@@ -63,5 +73,39 @@ public class EnemyAIGround : EnemyAI
             facingRight = false;
             transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
+
+        if (canShoot)
+        {
+
+        }
     }
+
+    IEnumerator Shoot()
+    {
+        Color original = sr.color;
+        sr.DOColor(Color.blue, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
+        sr.DOColor(Color.blue, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
+        yield return new WaitForSeconds(0.1f);
+        //bodyStatus.PlayAnimation("Attack");
+        //yield return new WaitForSeconds(0.3f);
+
+        Vector3 spawnPos = transform.position + new Vector3(0.25f * (facingRight ? 1 : -1), 0, 0);
+        Vector2 destination = spawnPos + new Vector3(0.75f * (facingRight ? 1 : -1), 0);
+
+        ShootOnce(destination, spawnPos, bulletPrefab);
+        yield return new WaitForSeconds(attackDelay);
+        
+        yield return new WaitForSeconds(0.1f);
+    }
+    public void ShootOnce(Vector3 destination, Vector3 start, GameObject bulletPrefab)
+    {
+        SoundManager.Instance.playVFX(shootSound, transform);
+        GameObject bulletObj = Instantiate(bulletPrefab, start, Quaternion.identity);
+        BulletStatus bullet = bulletObj.GetComponent<BulletStatus>();
+        bullet.SetDestination(destination);
+        bullet.SetBoss(bodyStatus);
+        bullet.Activate();
+        GameMasterW3.Instance.AddBullet(bullet);
+    }
+
 }

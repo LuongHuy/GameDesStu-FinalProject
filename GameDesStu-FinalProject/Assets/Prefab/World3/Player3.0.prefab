@@ -658,8 +658,8 @@ MonoBehaviour:
   damage: 1
   animator: {fileID: 1872567820049367795}
   sr: {fileID: 1859540469413279642}
-  dieSound: {fileID: 8300000, guid: d314d022fefeab441b7726c902164d18, type: 3}
-  attackedSound: {fileID: 8300000, guid: d314d022fefeab441b7726c902164d18, type: 3}
+  dieSound: {fileID: 0}
+  attackedSound: {fileID: 0}
   speed: 15
   rb: {fileID: 2098052940484386667}
   boss: {fileID: 9003602245716176196}
@@ -686,9 +686,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1 &6155242659776446214
 GameObject:
@@ -844,7 +844,7 @@ MonoBehaviour:
   groundCheckCollider: {fileID: 6517466880799626008}
   groundMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1088
   enemyCheckCollider: {fileID: 7203348793962350277}
   enemyMask:
     serializedVersion: 2

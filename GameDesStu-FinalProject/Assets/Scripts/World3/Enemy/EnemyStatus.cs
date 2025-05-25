@@ -55,11 +55,14 @@ public abstract class ElementStatus : MonoBehaviour
         return currHP > 0;
     }
 
-    public void EnterDieState()
+    public virtual void EnterDieState()
     {
         //Debug.Log("The "+ gameObject.name.ToString() +" die");
         PlayAnimation("Die");
-        SoundManager.Instance.playVFX(dieSound, transform);
+        if (dieSound != null)
+        {
+            SoundManager.Instance.playVFX(dieSound, transform);
+        }
         Invoke("Die", 0.2f);
     }
     public virtual void Die()
@@ -135,8 +138,4 @@ public class EnemyStatus : ElementStatus
         Destroy(mainObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
 }

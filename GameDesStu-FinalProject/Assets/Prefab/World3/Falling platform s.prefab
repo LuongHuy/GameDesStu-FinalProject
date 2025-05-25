@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6921371753851355075}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Platform_sprite_L3_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7694562969859874290}
   - component: {fileID: 5357395145790010659}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: tilemap_102
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2800377022073882565}
   - component: {fileID: 3421928162095783636}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: tilemap_106
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 929240769468188088}
   - component: {fileID: 2645726910422464274}
   - component: {fileID: 6499646656767342409}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: TriggerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -311,7 +311,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 582539818335450683}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Falling platform s
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1569142147304818276}
   - component: {fileID: 508508550304600253}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: tilemap_104
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,12 +431,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1592333835958854073}
   - component: {fileID: 5878627875695513303}
-  - component: {fileID: 5158009889205631880}
   - component: {fileID: 272136230818400300}
   - component: {fileID: 2472737373923860454}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: PlatformCollider
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -476,52 +475,6 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
---- !u!61 &5158009889205631880
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8370686347868854026}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 1
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0.23066759, y: 0.2601267}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 2.9836254, y: 0.8799412}
-  m_EdgeRadius: 0
 --- !u!50 &272136230818400300
 Rigidbody2D:
   serializedVersion: 4

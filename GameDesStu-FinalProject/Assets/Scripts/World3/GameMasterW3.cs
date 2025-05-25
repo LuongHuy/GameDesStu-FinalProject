@@ -255,7 +255,6 @@ public class GameMasterW3 : MonoBehaviour
         float starEarn = CalculateStarEarn();
         int previousStars = PlayerPrefs.GetInt("Level3" + "_stars", 0);
 
-        Debug.Log(starEarn);
         // Only save if the new score is better
         if (starEarn > previousStars)
         {
@@ -270,6 +269,15 @@ public class GameMasterW3 : MonoBehaviour
         if (winGameUI != null)
         {
             winGameUI.SetActive(true);
+        }
+
+        string key = "HighScore_Level_" + SceneManager.GetActiveScene().buildIndex;
+        int previousHigh = PlayerPrefs.GetInt(key, 0);
+
+        if (currentPoint > previousHigh)
+        {
+            PlayerPrefs.SetInt(key, (int)currentPoint);
+            PlayerPrefs.Save();
         }
     }
 

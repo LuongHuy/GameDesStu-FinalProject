@@ -28,15 +28,16 @@ public class BulletStatus : ElementStatus
     protected override void Start()
     {
         base.Start();
-        Destroy(gameObject, 10);
+        Destroy(gameObject, 3.5f);
     }
 
     public override void Die()
     {
-        base.Die();
+        //Debug.Log("Bullet got destroyed");
         rb.velocity = Vector2.zero;
-        Destroy(gameObject,0.3f);
+        Destroy(gameObject,0.2f);
     }
+
     public void Activate()
     {
         gameObject.SetActive(true);
@@ -48,16 +49,28 @@ public class BulletStatus : ElementStatus
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            ElementStatus enemyStatus = collision.gameObject.GetComponent<ElementStatus>();
-            if (enemyStatus != null)
+            ElementStatus enemyStatus = collision.rigidbody.gameObject.GetComponent<ElementStatus>();
+            if (enemyStatus != null )
             {
-                Attack(enemyStatus, boss);
-                EnterDieState();
+                if (enemyStatus != boss)
+                {
+                    Attack(enemyStatus, boss);
+                    EnterDieState();
+                }
+                else
+                {
+                    //Debug.LogError("Do not allow self attack");
+                }
             }
             else
             {
                 Debug.LogError("Player does not have Element Status class");
             }
         }
+
+        //if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 }

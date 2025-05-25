@@ -4,7 +4,10 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 [Serializable]
 public struct BossParameter
 {
@@ -14,7 +17,6 @@ public struct BossParameter
     public float attackDelay;
     public float attackDelayInBetween;
     public float attackAmount;
-    public GameObject bulletPrefab;
 }
 
 public abstract class BossState
@@ -98,7 +100,6 @@ public class Normal: BossState
     }
 }
 
-
 public class Bloody : BossState
 {
     public override void OnEnter()
@@ -120,7 +121,16 @@ public class Bloody : BossState
         {
             // Shoot x bullet
             _shootTimerInbetween += Time.deltaTime;
-            boss.ShootPatternSimple();
+            // attack 2 has 35% chance of happen
+            float token = Random.Range(0, 1f);
+            if (token > 0.35f)
+            {
+                boss.ShootPatternSimple();
+            }
+            else
+            {
+                boss.ShootPattern2();
+            }
             _shootTimer = 0;
         }
     }
@@ -144,6 +154,10 @@ public class BossAI : EnemyAI
     [SerializeField] GameObject target;
     [SerializeField] SpriteRenderer sr;
     [SerializeField] AudioClip shootSound;
+
+    [SerializeField] GameObject bulletPrefab1;
+    [SerializeField] GameObject bulletPrefab2;
+
 
     // Setup State machine
     BossState currState;
@@ -232,18 +246,18 @@ public class BossAI : EnemyAI
         return arrived;
     }
 
-    public void ShootOnce(Vector3 offset)
+    public void ShootOnce(Vector3 destination, Vector3 start, GameObject bulletPrefab)
     {
         SoundManager.Instance.playVFX(shootSound, transform);
-        GameObject bulletObj = Instantiate(currParameter.bulletPrefab, transform.position, Quaternion.identity);
+        GameObject bulletObj = Instantiate(bulletPrefab, start, Quaternion.identity);
         BulletStatus bullet = bulletObj.GetComponent<BulletStatus>();
-        bullet.SetDestination(target.transform.position + offset);
+        bullet.SetDestination(destination);
         bullet.SetBoss(bossStatus);
         bullet.Activate();
         GameMasterW3.Instance.AddBullet(bullet);
     }
 
-    IEnumerator ShootMultiple(Vector3 offset)
+    IEnumerator ShootMultipleSimple(Vector3 offset, GameObject bulletPrefab)
     {
         Color original = sr.color;
         sr.DOColor(Color.blue, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
@@ -251,9 +265,32 @@ public class BossAI : EnemyAI
         yield return new WaitForSeconds(0.1f);
         bossStatus.PlayAnimation("Attack");
         yield return new WaitForSeconds(0.3f);
+
+        Vector3 spawnPos = transform.position + new Vector3(0.25f * (facingRight ? 1 : -1), 0, 0);
         for (int i = 0; i < currParameter.attackAmount; i++)
         { 
-            ShootOnce(offset);
+            ShootOnce(target.transform.position + offset, spawnPos, bulletPrefab);
+            yield return new WaitForSeconds(currParameter.attackDelayInBetween);
+        }
+        yield return new WaitForSeconds(0.1f);
+        bossStatus.PlayAnimation("Idle");
+    }
+    
+    IEnumerator ShootMultiple2(Vector3 offset, GameObject bulletPrefab)
+    {
+        Color original = sr.color;
+        sr.DOColor(Color.blue, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
+        sr.DOColor(Color.blue, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
+        yield return new WaitForSeconds(0.1f);
+        bossStatus.PlayAnimation("Attack");
+        yield return new WaitForSeconds(0.3f);
+
+        Vector3 spawnPos = transform.position + new Vector3(0.25f * (facingRight ? 1 : -1), 0, 0);
+        for (int i = 0; i < 3; i++)
+        { 
+            Vector3 direction = spawnPos + offset + new Vector3(0.25f*(i+1)* (facingRight ? 1 : -1), 1,0);
+            Debug.Log(direction);
+            ShootOnce(direction, spawnPos, bulletPrefab);
             yield return new WaitForSeconds(currParameter.attackDelayInBetween);
         }
         yield return new WaitForSeconds(0.1f);
@@ -262,7 +299,12 @@ public class BossAI : EnemyAI
 
     public void ShootPatternSimple()
     {
-        StartCoroutine(ShootMultiple(Vector3.zero));
+        StartCoroutine(ShootMultipleSimple(Vector3.zero, bulletPrefab1));
+    }
+
+    public void ShootPattern2()
+    {
+        StartCoroutine(ShootMultiple2(Vector3.zero, bulletPrefab2));
     }
 
 

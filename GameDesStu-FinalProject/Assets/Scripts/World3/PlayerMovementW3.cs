@@ -207,7 +207,7 @@ public class PlayerMovementW3 : MonoBehaviour
         }
         else
         {
-            Debug.Log("Can not shoot");
+            //Debug.Log("Can not shoot");
             GameMasterW3.Instance.SpawnPopup("Gun is cooling off", transform.position, transform);
         }
     }
