@@ -67,10 +67,5 @@ public class BulletStatus : ElementStatus
                 Debug.LogError("Player does not have Element Status class");
             }
         }
-
-        //if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
-        //{
-        //    Destroy(gameObject);
-        //}
     }
 }

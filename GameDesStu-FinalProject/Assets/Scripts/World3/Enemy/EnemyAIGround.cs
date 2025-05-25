@@ -22,15 +22,17 @@ public class EnemyAIGround : EnemyAI
     [SerializeField] AudioClip shootSound;
     [SerializeField] float attackDelay;
     [SerializeField] GameObject bulletPrefab;
-
+    [SerializeField] bool startStaringRight = true;
     // is the element facing right
     bool facingRight = true;
     
     Vector3 nextPos;
     int nextIndex;
 
-    protected void Start() 
+    protected void Start()
     {
+        facingRight = startStaringRight;
+
         if (stationary)
         {
             // do nothing?
@@ -46,6 +48,12 @@ public class EnemyAIGround : EnemyAI
                 nextIndex = 0;
                 nextPos = destinations[0].transform.position;
             }
+        }
+
+        if (canShoot)
+        {
+            StartCoroutine(Shoot());
+
         }
     }
 
@@ -68,38 +76,41 @@ public class EnemyAIGround : EnemyAI
             facingRight = true;
             transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
-        else
+        else if (rd.velocity.x < 0)
         {
             facingRight = false;
             transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
 
-        if (canShoot)
-        {
-
-        }
     }
 
     IEnumerator Shoot()
     {
-        Color original = sr.color;
-        sr.DOColor(Color.blue, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
-        sr.DOColor(Color.blue, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
-        yield return new WaitForSeconds(0.1f);
-        //bodyStatus.PlayAnimation("Attack");
-        //yield return new WaitForSeconds(0.3f);
+        while (true)
+        {
+            Color original = sr.color;
+            sr.DOColor(Color.blue, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
+            sr.DOColor(Color.blue, 0.2f).OnComplete(() => sr.DOColor(original, 0.2f));
+            yield return new WaitForSeconds(0.1f);
+            //bodyStatus.PlayAnimation("Attack");
+            //yield return new WaitForSeconds(0.3f);
 
-        Vector3 spawnPos = transform.position + new Vector3(0.25f * (facingRight ? 1 : -1), 0, 0);
-        Vector2 destination = spawnPos + new Vector3(0.75f * (facingRight ? 1 : -1), 0);
+            Vector3 spawnPos = transform.position + new Vector3(0.25f * (facingRight ? 1 : -1), 0, 0);
+            Vector2 destination = spawnPos + new Vector3(0.75f * (facingRight ? 1 : -1), 0);
 
-        ShootOnce(destination, spawnPos, bulletPrefab);
-        yield return new WaitForSeconds(attackDelay);
-        
-        yield return new WaitForSeconds(0.1f);
+            ShootOnce(destination, spawnPos, bulletPrefab);
+            yield return new WaitForSeconds(attackDelay);
+
+            yield return new WaitForSeconds(0.1f);
+        }
     }
+
     public void ShootOnce(Vector3 destination, Vector3 start, GameObject bulletPrefab)
     {
-        SoundManager.Instance.playVFX(shootSound, transform);
+        if (shootSound != null)
+        {
+            SoundManager.Instance.playVFX(shootSound, transform);
+        }
         GameObject bulletObj = Instantiate(bulletPrefab, start, Quaternion.identity);
         BulletStatus bullet = bulletObj.GetComponent<BulletStatus>();
         bullet.SetDestination(destination);
